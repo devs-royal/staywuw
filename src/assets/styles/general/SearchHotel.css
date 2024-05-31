@@ -1,0 +1,45 @@
+#tab-search-home-tabpane- > div > div:nth-child(1) > div > div > div{
+    padding: 0;
+}
+
+#tab-search-home-tabpane- > div > div:nth-child(1) > div > div > div > div, #\:r3\:{
+    padding: 0;
+}
+
+#tab-search-home-tabpane- > div > div:nth-child(1) > div > div > div > div > fieldset{
+    border: none;
+}
+
+#\:r3\:-listbox{
+    padding: 0;
+    padding-bottom: 8px;
+}
+
+#\:Rmpeukq\:{
+    font-size: 12px;
+    padding: 0;
+}
+
+#tab-search-home-tabpane-hotel > div > div.border-2.border-gray-200.rounded.py-2\.5.px-4.flex.items-center.h-\[53px\].relative.w-full.lg\:w-\[290px\] > div > div > div > div > div{
+    padding: 0;
+}
+
+#destination-search > div > div > div{
+    padding: 0;
+}
+#destination-search > div > div > div > fieldset{
+    border: 0;
+}
+
+/* SEARCH TOUR */
+#headlessui-tabs-panel-\:Rl9eukq\: > div > div.border-2.border-gray-200.rounded.py-2\.5.px-4.flex.items-center.h-\[53px\].relative.w-full.lg\:w-\[290px\] > div > div > div > div > div{
+    padding: 0;
+}
+#\:r8f\:{
+    padding: 0;
+}
+
+#headlessui-tabs-panel-\:Rl9eukq\: > div > div.border-2.border-gray-200.rounded.py-2\.5.px-4.flex.items-center.h-\[53px\].relative.w-full.lg\:w-\[290px\] > div > div > div > div > div > fieldset{
+    border: none;
+}
+/* END SEARCH TOUR */

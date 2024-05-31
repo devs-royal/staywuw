@@ -1,0 +1,11 @@
+.accordion-button::after{
+  display: none;
+}
+
+body > div.container.mx-auto.px-4.sm\:px-6.lg\:px-8 > div.flex.flex-col.lg\:flex-row > div.w-full > div > div > h2 > button{
+  justify-content: space-between;
+  background-color: transparent;
+}
+.accordion-button:focus {
+  box-shadow: none;
+}

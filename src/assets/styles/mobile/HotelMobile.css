@@ -1,0 +1,519 @@
+/* @media only screen and (max-width: 768px) { */
+@media only screen and (max-width: 1000px) {
+
+  /* LISTING HOTEL */
+  .hotel-page-title {
+    font-size: 0.75rem;
+    padding: 20px 0;
+  }
+
+  .position-image-new-listing {
+    height: auto;
+    min-height: 94px;
+  }
+
+  .v-line {
+    height: 50%;
+    margin: 3em 0;
+  }
+
+  .position-new-titles-listing {
+    width: 80% !important;
+    /* padding-left: 20px !important; */
+    padding-left: 0px !important;
+    margin-left: 79px;
+
+    & .text-image-nex-h4-call {
+      width: 48%;
+    }
+  }
+
+  .position-new-titles-listing.first-banner {
+    width: 55% !important;
+    margin-left: 0;
+  }
+
+  .image-confirmed-payment-b {
+    height: 6em;
+    object-fit: cover;
+  }
+
+  .text-image-new-h2-listing {
+    font-size: 14px !important;
+  }
+
+  .text-image-nex-h4-listing {
+    font-size: 9px !important;
+  }
+
+  .m-block-blue-data {
+    padding: 1rem 1rem 1rem 1.5rem;
+    color: #ffffff;
+    background: #2743a6;
+    font-size: 0.875rem;
+    font-family: "Montserrat SemiBold";
+  }
+
+  .m-pdg-left {
+    margin-left: 1rem;
+  }
+
+  .m-mrg-line {
+    margin-bottom: 10px;
+  }
+
+  .m-pdg-icon {
+    margin-left: 3rem;
+  }
+
+  .m-flex-btn {
+    background: #f4f4f4;
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    box-shadow: 0px 4px 4px #e0d7d7;
+    position: sticky;
+    top: 0;
+    z-index: 11;
+  }
+
+  .m-btn-dev {
+    color: #666666;
+    border: 1px solid #b5b5b5;
+    background: transparent;
+    border-radius: 16px;
+    font-size: 0.725rem;
+    width: 78px;
+    height: 28px;
+  }
+
+  .card-hotel-title {
+    font-size: 0.75rem;
+  }
+
+  .city-card-title {
+    font-size: 0.55rem;
+    padding: 5px 0px 3px;
+  }
+
+  .card-hotel-col {
+    padding-top: 1rem;
+    padding-right: 0rem;
+    padding-bottom: 1rem;
+    padding-left: 0.5rem;
+  }
+
+  .css-1lauo1g-MuiRating-root {
+    font-size: 0.8rem !important;
+  }
+
+  .css-1dca5qm {
+    margin-left: 1px !important;
+    margin-right: 3px !important;
+    display: inline;
+  }
+
+  .card-hotel-button {
+    padding: 4px 22px;
+    font-size: 10px;
+    top: 10rem;
+    right: auto;
+  }
+
+  .card-hotel-subtitle {
+    padding: 0px 11px;
+    font-size: 10px;
+  }
+
+  .card-hotel-col2 {
+    padding: 1rem 0;
+  }
+
+  .card-hotel-availability {
+    font-size: 0.55rem;
+    top: 2rem;
+  }
+
+  .card-hotel-information {
+    font-size: 0.438rem;
+  }
+
+  .card-hotel-price-number {
+    font-size: 0.75rem;
+  }
+
+  .card-hotel-price {
+    font-size: 0.75rem;
+  }
+
+  .container-info-card {
+    top: 4.5rem;
+  }
+
+  .card-hotel-taxes {
+    font-size: 0.438rem;
+  }
+
+  .card-hotel-eating {
+    padding: 4px 10px;
+    top: 10.5rem;
+    font-size: 8px;
+  }
+
+  .card-hotel {
+    height: 200px !important;
+  }
+
+  .swiperCardHotel {
+    width: 30% !important;
+    height: auto;
+  }
+
+  .text-image-nex-h4-call,
+  .text-image-call-banner-h4 {
+    font-size: 10px;
+  }
+
+  .text-image-call-banner-h4 {
+    width: 82%;
+  }
+
+  .span-new-text {
+    font-size: 10px;
+  }
+
+  .text-image-new-h2-call {
+    margin-bottom: 7px;
+    font-size: 15px;
+    width: 50%;
+  }
+
+  .text-image-call-banner {
+    margin-bottom: 7px;
+    font-size: 15px;
+    width: 99%;
+  }
+
+  .position-new-titles-card {
+    width: 49%;
+    padding-right: 22px;
+    top: 46%;
+  }
+
+  .text-image-new-card {
+    font-size: 17px;
+  }
+
+  .text-image-nex-h4-card {
+    font-size: 11px;
+    color: white;
+  }
+
+  .m-icon-label-demand {
+    display: none;
+  }
+
+  .icon-Demand-Icon {
+    right: 1rem;
+  }
+
+  .m-listing-container {
+    min-height: 40rem;
+    overflow-y: hidden;
+  }
+
+  .divider-success-data {
+    width: 45%;
+    padding: 0;
+    align-items: center;
+  }
+
+  .divider-info-cart {
+    width: 55%;
+    padding: 0 0 0 10px;
+  }
+
+  .container-confirm-cart {
+    margin: 1rem 0 0rem;
+    padding: 1rem;
+  }
+
+  .icon-royal-modal-options {
+    width: 18px;
+    height: 56%;
+  }
+
+  .text-alert-body-down {
+    margin-left: 0px;
+  }
+
+  .alert-body {
+    text-align: left;
+    font-size: 12px;
+    padding-left: 1px;
+    top: 0.4rem;
+  }
+
+  .title-info-principal-modal {
+    font-size: 12px;
+    line-height: 1.2;
+    padding-bottom: 5px;
+  }
+
+  .text-destination-h {
+    font-size: 12px;
+  }
+
+  .text-destination-f {
+    font-size: 12px;
+  }
+
+  .h-line-modal-second-screen {
+    margin: 0px;
+    top: 29px;
+  }
+
+  .title-link-more-d {
+    font-size: 14px;
+  }
+
+  .title-section-c {
+    font-size: 16px;
+  }
+
+  .title-section-hotel {
+    font-size: 14px !important;
+  }
+
+  .info-modal-cart-items {
+    font-size: 12px;
+  }
+
+  /* END LISTING HOTEL */
+
+  body>div.fade.modal-hotel-all.modal.show>div>div>div.modal-hotel-h.modal-body>div>div>div:nth-child(2)>div.modal-second-hotel-section>div.row-home-search.row>div.styles-input-location-search.position-relative.col-sm-4>div>div>div {
+    padding-right: 65px !important;
+    padding-left: 38px !important;
+    border: 1px solid #b5b5b5 !important;
+    padding-bottom: 10px !important;
+    border-radius: 8px !important;
+    padding-top: 15px !important;
+  }
+
+  .title-hotel-carousel-a {
+    font-size: 14px;
+  }
+
+  .hotel-tour-carousel-a,
+  .people-and-night-modal-carousel {
+    font-size: 10px;
+  }
+
+  .container-exclusiveDeal-preview {
+    top: 45px;
+    right: 30px;
+  }
+
+  .demand-text {
+    display: none;
+  }
+
+  .text-inf-hotel-availability {
+    height: 38%;
+    padding: 0;
+  }
+
+  .card-name-destination-h-a {
+    height: 43px;
+    padding: 12px 0.5rem 0;
+  }
+
+  .button-styles-carousel {
+    margin-top: 1em;
+  }
+
+  .m-card-hotel-s {
+    overflow-x: hidden;
+  }
+
+  .m-none-s {
+    display: none !important;
+    margin-top: 1rem !important;
+  }
+
+  .m-margin-s {
+    margin-top: 1rem !important;
+  }
+
+  .active-container-payment-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #b5b5b5;
+    border-bottom: 1px solid #b5b5b5;
+    margin: 1rem 0;
+    padding: 0.6rem 0;
+    align-items: flex-start;
+  }
+
+  .active-container-payment-desktop {
+    display: none !important;
+  }
+
+  .occupancy-rooms-itinerary {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  /* CARD ITINERARY /LP */
+  .cont-img-card-hotel {
+    width: 29% !important;
+    height: 120px !important;
+  }
+
+  .title-card-ini {
+    width: 100%;
+  }
+
+  /*END CARD ITINERARY /LP */
+
+}
+
+@media screen and (max-width: 800px) {
+  /* CARD HOTEL RESERVATION */
+
+
+  .text-hotel-or-i,
+  .text-hotel-grey-i,
+  .text-loc-hotel-grey-i {
+    font-size: 0.9rem;
+  }
+
+  .cont-img-card-hotel {
+    width: 20%;
+    height: 108px;
+
+    & img {
+      object-fit: cover;
+    }
+  }
+
+  .date-itinerary-hotel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+  }
+
+  .ul-hotel-date {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  #start-itinerary {
+    font-size: 1.3rem !important;
+  }
+
+  .title-card-ini {
+    font-size: 1rem;
+    line-height: 19px;
+  }
+
+  .icon-location-and-text {
+    font-size: 0.8rem;
+  }
+
+  .icons-size-m {
+    font-size: 13px;
+  }
+
+  .title-card-three {
+    font-size: 0.8rem;
+  }
+
+  .father-all-inclusive {
+    width: 100%;
+  }
+
+  .text-all-inclusive-i {
+    font-size: 0.6rem;
+  }
+
+  .icons-size-s {
+    width: 0.9rem;
+  }
+
+  .margin-b {
+    margin-bottom: 2px;
+  }
+
+  #panel1-header {
+    height: 60px;
+  }
+
+  /* END CARD HOTEL RESERVATION */
+
+  .cont-card-hotel-itinerary {
+    width: 100%;
+  }
+
+  /* CARD ITINERARY /LP */
+  .grey-container {
+    width: 100%;
+  }
+
+
+}
+
+
+
+@media (max-width: 700px) {
+  .cont-card-hotel-itinerary {
+    width: 100%;
+  }
+
+  .container-confirmation-room-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cont-img-card-hotel {
+    height: 101px !important;
+    width: 39% !important;
+  }
+
+  .title-card-three {
+    font-size: 0.7rem !important;
+
+  }
+
+  .icon-location-and-text {
+    font-size: 0.7rem !important;
+  }
+
+  .title-card-ini {
+    font-size: 0.9rem !important;
+    /* width: 100%; */
+  }
+
+  .text-grey-card-hotel-i {
+    font-size: 9px;
+  }
+
+  /* LP BANNER CALL */
+  .text-image-call-banner {
+    margin-bottom: 6px;
+    font-size: 12px;
+    width: 93%;
+  }
+
+  .text-image-call-banner-h4 {
+    width: 67%;
+    font-size: 8px;
+  }
+  /* LP BANNER CALL */
+}
+
+/*END CARD ITINERARY /LP */

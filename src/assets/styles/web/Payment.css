@@ -1,0 +1,1977 @@
+h2,
+h5 {
+  margin: 0;
+}
+
+.display-flex-center-itinerary {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+  flex-direction: row;
+}
+
+.container-form-payment {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  padding-top: 3rem;
+}
+
+.details-payment-left {
+  width: 50%;
+}
+
+.container-details-payment {
+  background: #f4f4f4;
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid #b5b5b5;
+  flex-direction: column;
+  width: 100%;
+}
+
+.details-payment-col-right {
+  width: 28%;
+}
+
+.service-details-people {
+  font-family: "Montserrat Bold";
+  font-size: 0.938rem;
+  text-align: left;
+  color: #1e1e1e;
+  padding-top: 0.8rem;
+}
+
+.styles-hotel-payment {
+  position: relative;
+}
+
+.titles-details {
+  color: #1e1e1e;
+  font-family: "Montserrat Bold";
+  font-size: 0.875rem;
+}
+
+.details-hotels-text {
+  font-family: "Montserrat Bold";
+  color: #666666;
+  font-size: 0.75rem;
+}
+
+.details-room-text {
+  font-family: "Montserrat Semibold";
+  color: #666666;
+  font-size: 0.75rem;
+  padding-left: 14px;
+}
+
+.styles-Tour-payment {
+  position: relative;
+}
+
+.container-price-payment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.button-back-text {
+  cursor: pointer;
+}
+
+.details-Tours-text {
+  font-family: "Montserrat Medium";
+  color: #666666;
+  font-size: 0.75rem;
+}
+
+.styles-moving-payment {
+  position: relative;
+}
+
+.details-Moving-text {
+  font-family: "Montserrat Medium";
+  color: #666666;
+  font-size: 0.75rem;
+}
+
+.row-steeper-i {
+  height: auto;
+  margin: 4rem 0 6rem 0;
+}
+
+.row-stepper-text {
+  position: relative;
+  bottom: 40px;
+  z-index: 1;
+  width: 100%;
+}
+
+.taxes-details-payment {
+  font-family: "Montserrat Bold";
+  font-size: 0.938rem;
+}
+
+.span-stepper-text {
+  font-family: "Montserrat Bold";
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.span-stepper-text-inactive {
+  font-family: "Montserrat Bold";
+  color: #eb741e;
+  font-size: 18px;
+}
+
+.col-stepper {
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+}
+
+.h-line-payment {
+  border: none;
+  height: 1px;
+  background-color: #b5b5b5;
+}
+
+.loading-itinerary {
+  text-align: center;
+  font-family: "Montserrat Bold";
+  font-size: 1.5rem;
+}
+
+.icons-steeper-i {
+  width: 100%;
+  height: 3rem;
+  position: relative;
+  z-index: 3;
+}
+
+.icons-steeper-confirm {
+  right: 22px;
+  width: 100%;
+  height: 3rem;
+  position: relative;
+}
+
+.icons-steeper-pay {
+  width: 100%;
+  height: 3rem;
+  position: relative;
+  right: 11px;
+  z-index: 2;
+}
+
+.icons-steeper-inactive {
+  width: 100%;
+  height: 3rem;
+  /* cursor: not-allowed; */
+}
+
+.button-stepper-back {
+  margin: 14px 0;
+}
+
+.text-back-itinerary {
+  font-family: "Montserrat Bold";
+  color: #2743a6;
+  padding-left: 10px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.container-col-steeper {
+  padding: 0 !important;
+  text-align: center;
+}
+
+.total-price-payment {
+  font-family: "Montserrat Medium";
+  font-size: 0.75rem;
+  color: #666666;
+  padding-right: 8px;
+}
+
+.letter-price-payment {
+  font-family: "Montserrat Bold";
+  font-size: 1rem;
+  color: #1e1e1e;
+  padding-right: 2px;
+}
+
+.price-payment {
+  font-family: "Montserrat Bold";
+  font-size: 1rem;
+  color: #1e1e1e;
+}
+
+.itinerary-start {
+  font-family: "Montserrat Bold";
+  font-size: 1.2rem;
+  color: #1e1e1e;
+}
+
+.itinerary-details-payment {
+  font-family: "Montserrat Bold";
+  font-size: 1.2rem;
+  color: #1e1e1e;
+  padding-bottom: 1rem;
+}
+
+.itinerary-subtitle-page {
+  font-family: "Montserrat Medium";
+  font-size: 1rem;
+  color: #1e1e1e;
+  padding-bottom: 2rem;
+}
+
+.itinerary-title-page {
+  font-family: "Montserrat Bold";
+  font-size: 1.5rem;
+  color: #1e1e1e;
+  width: 73%;
+}
+
+.icon-royal-itinerary {
+  margin-right: 16px;
+}
+
+.icon-royal-modal-rate {
+  width: 100%;
+  height: 46px;
+}
+
+.icon-royal-modal-load-r {
+  width: 100%;
+  height: 46px;
+  margin: 1.5rem 0;
+}
+
+.itinerary-col-right {
+  flex: 0 0 auto;
+  width: 26.2%;
+  padding: 0px;
+}
+
+.itinerary-col-padding {
+  padding-left: 12px !important;
+  width: 70%;
+}
+
+.col-price-unit {
+  text-align: right;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.col-price-tour {
+  text-align: right;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.col-price-moving {
+  text-align: left;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.col-divider-price-payment {
+  padding: 0%;
+}
+
+.price-payment-hotel {
+  font-family: "Montserrat Bold";
+  font-size: 0.938rem;
+  color: #1e1e1e;
+}
+
+.update-price-before {
+  font-family: "Montserrat Bold";
+  font-size: 0.75rem;
+  color: #f47d83;
+  text-decoration: line-through;
+}
+
+.price-payment-tour {
+  font-family: "Montserrat Bold";
+  font-size: 0.938rem;
+  color: #1e1e1e;
+}
+
+.price-payment-moving {
+  font-family: "Montserrat Bold";
+  font-size: 0.938rem;
+  color: #1e1e1e;
+}
+
+.price-payment-taxes {
+  height: 0px;
+  font-family: "Montserrat Bold";
+  font-size: 0.938rem;
+  color: #1e1e1e;
+}
+
+.row-divider {
+  padding: 8px 0 1px 0;
+}
+
+.row-divider-taxes {
+  padding: 10px 0;
+}
+
+.row-divider-price {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 8rem;
+}
+
+.list-details-payment li {
+  vertical-align: top;
+  list-style-type: disc;
+  padding: 0px !important;
+}
+
+.list-details-payment {
+  padding-right: calc(var(--bs-gutter-x) * 0.5) !important;
+  padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+  margin: 0px;
+}
+
+.button-payment-styles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2rem;
+}
+
+.button-pay-details {
+  border-color: transparent;
+  background-color: #fcb41e;
+  color: #1e1e1e;
+  padding: 10px 60px;
+  font-size: 16px;
+  border-radius: 42px;
+  font-weight: bold;
+  font-family: "Montserrat Bold";
+}
+
+.button-pay-details:hover {
+  background-color: #fdd278;
+}
+
+.disabled-button-itinerary {
+  background-color: #fee8bb;
+  cursor: not-allowed;
+}
+
+/* .price-payment-itinerary {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-direction: row;
+    position: absolute;
+    top: 28.2rem;
+    right: 6.4rem;
+} */
+
+.location-icon-itinerary {
+  position: absolute;
+  left: 124px;
+  bottom: 15.9rem;
+}
+
+.location-icon-itinerary-hotel-tour {
+  position: absolute;
+  left: 124px;
+  bottom: 17.7rem;
+}
+
+.col-location-itinerary {
+  position: relative;
+  padding: 0px;
+  width: 16%;
+  justify-content: space-between;
+}
+
+.image-line-transports {
+  position: absolute;
+  top: 0rem;
+  left: 8rem;
+}
+
+.image-line-hotel-tour {
+  position: absolute;
+  top: 0rem;
+  left: 8rem;
+}
+
+.itinerary-date-all-hotel-tour {
+  /* padding-right: 30px; */
+  padding-right: 6px;
+}
+
+.itinerary-date-all {
+  padding-right: 30px;
+}
+
+/* CARDS */
+
+.title-card-itinerary {
+  font-family: "Montserrat Bold";
+  font-size: 1.5rem;
+  color: #f9d5bb;
+  padding: 1rem 0rem 0.8rem 0.5rem;
+}
+
+.image-carousel-itinerary {
+  position: relative;
+  padding: 0 !important;
+}
+
+.image-transport-itinerary {
+  position: absolute;
+  top: 4.1rem;
+  left: 0rem;
+}
+
+.image-hotel-itinerary {
+  position: absolute;
+  left: 0rem;
+}
+
+.image-tour-itinerary {
+  position: absolute;
+  top: 4.2rem;
+  left: 0rem;
+}
+
+.itinerary-card-titles {
+  font-family: "Montserrat Bold";
+  font-size: 1.1rem;
+  color: #1e1e1e;
+}
+
+.itinerary-hotel-location {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.938rem;
+  color: #666666;
+  padding: 14px 0px 14px 8px;
+}
+
+.text-info-itinerary {
+  font-family: "Montserrat Bold";
+  font-size: 0.825rem;
+  color: #666666;
+}
+
+.itinerary-check-in-hotel {
+  display: flex;
+}
+
+.itinerary-check-moving {
+  display: flex;
+  flex-direction: column;
+}
+
+.check-out {
+  padding-top: 1rem;
+}
+
+.label-link {
+  color: #2743a6 !important;
+  font-family: "Montserrat Bold";
+  text-decoration: none;
+}
+
+.label-link-payment {
+  color: #2743a6 !important;
+  text-decoration: none;
+  text-decoration: underline;
+}
+
+.card-itinerary {
+  background-color: #ffffff;
+  border-radius: 8px !important;
+  /* margin-bottom: 28px; */
+  padding: 0;
+  min-height: 280px;
+  border: 1px solid #f3ac78;
+  box-shadow: none !important;
+}
+
+.rh-adults {
+  font-family: "Montserrat semiBold";
+  font-size: 0.75rem;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.title-pad-text {
+  padding-top: 12px;
+}
+
+.card-itinerary-moving {
+  background-color: #fafafa;
+  border-radius: 8px !important;
+  margin-bottom: 28px;
+  padding: 0;
+  height: 250px;
+  border: 1px solid #f3ac78;
+  box-shadow: none !important;
+}
+
+.padding-card-hotel-i {
+  padding-right: 0px;
+}
+
+.row-card-itinerary {
+  padding: 0px !important;
+  margin: 0px !important;
+  height: 100%;
+  min-height: 280px;
+}
+
+.icon-remove-reservation {
+  position: absolute;
+  right: 1.4rem;
+  top: 0.4rem;
+  z-index: 3;
+  & button {
+    border: none;
+    background: none;
+  }
+}
+
+.button-remove-reservation {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat SemiBold";
+  color: white;
+  padding: 0 1rem;
+  background-color: #ed2630;
+  font-size: 0.8rem;
+  z-index: 3;
+}
+
+.card-itinerary-col {
+  padding: 1rem 0rem 1rem 1.2rem;
+  position: relative;
+}
+
+.card-opacity {
+  background-color: rgb(201 201 201 / 25%) !important;
+  cursor: pointer;
+}
+
+.progress-loader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background-color: rgb(201 201 201 / 25%);
+  overflow-y: hidden;
+  z-index: 3;
+}
+
+/* .card-remove{
+  width: 100%;
+  min-height: 280px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 2rem 0 0;
+  background-color: #ED2630;
+  border-radius: 8px;
+  border: none;
+  transition: width 1s ease;
+}
+
+.hidden-card{
+  width: 0 !important;
+  padding: 0 !important;
+}
+
+.height-div-card{
+  min-height: 0;
+} */
+
+.remove-card-text {
+  font-family: "Montserrat SemiBold";
+  color: white;
+  font-size: 0.8rem;
+}
+
+.card-itinerary-col2 {
+  padding: 2.6rem 1rem 1rem 1.5rem;
+}
+
+.itinerary-hotel-title {
+  font-family: "Montserrat Bold";
+  font-size: 1.1rem;
+  color: #1e1e1e;
+}
+
+.subtitle-data-itinerary {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.625rem;
+  color: #666666;
+}
+
+.check-departure-moving {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.75rem;
+  color: #666666;
+}
+
+.room-hotel-itinerary-card {
+  font-family: "Montserrat Bold";
+  font-size: 0.938rem;
+  color: #1e1e1e;
+  padding: 16px 0px 16px 0px;
+}
+
+.p-icon-left {
+  padding-left: 4px;
+}
+
+.info-bed-itinerary {
+  line-height: 3.2;
+}
+
+.info-bed-card-itinerary {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.825rem;
+  color: #666666;
+  letter-spacing: 0.3px;
+  padding-left: 8px;
+}
+
+.info-people-card-itinerary {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.825rem;
+  color: #666666;
+  letter-spacing: 0.3px;
+  padding-left: 6px;
+}
+
+.info-people-moving-itinerary {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.825rem;
+  color: #666666;
+  letter-spacing: 0.3px;
+  padding-left: 6px;
+  padding-top: 3px;
+}
+
+.info-people-tour-itinerary {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.825rem;
+  color: #666666;
+  letter-spacing: 0.3px;
+  padding-left: 6px;
+  padding-top: 3px;
+}
+
+.people-card-itinerary {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.people-tour-itinerary {
+  display: flex;
+}
+
+.bed-card-itinerary {
+  display: flex;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.icon-location-itinerary {
+  width: 30px;
+  margin-bottom: 5px;
+}
+
+.itinerary-location {
+  display: flex;
+  align-items: center;
+}
+
+.icon-location-airport {
+  margin-top: 15px;
+}
+
+.v-line-itinerary {
+  border-left: 2px solid #f9d5bb;
+  height: 102%;
+  left: 0%;
+  position: absolute;
+  top: -1%;
+}
+
+.container-image-itinerary {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+}
+
+.info-type-travel-itinerary {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.75rem;
+  color: #666666;
+}
+
+.type-travel-transports-itinerary {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.938rem;
+  color: #1e1e1e;
+}
+
+.divider-details-info {
+  min-height: 14rem;
+  padding: 1rem 1.3rem;
+}
+
+.date-moving-itinerary {
+  font-family: "Montserrat Bold";
+  font-size: 18px;
+  color: #eb741e;
+}
+
+.date-moving-calendar {
+  font-family: "Montserrat Bold";
+  font-size: 0.938rem;
+  color: #1e1e1e;
+}
+
+.time-moving-itinerary {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.938rem;
+  color: #666666;
+}
+
+.location-moving-itinerary {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.75rem;
+  color: #666666;
+  padding-top: 1rem;
+}
+
+/* BOOKING */
+
+.booking-title-page {
+  font-family: "Montserrat Bold";
+  font-size: 1.5rem;
+  color: #1e1e1e;
+}
+
+.booking-subtitle-page {
+  font-family: "Montserrat Medium";
+  font-size: 1rem;
+  color: #1e1e1e;
+}
+
+.form-client {
+  padding: 2rem 1.8rem 3rem;
+  width: 100%;
+  background: white;
+  border-radius: 19px;
+}
+
+.form-activity {
+  padding: 2rem 1.8rem 3rem;
+  width: 100%;
+  background: white;
+  border-radius: 19px;
+  margin-top: 2.3rem;
+}
+
+.form-activity-body {
+  padding: 1.3rem;
+  background: #F4F4F4;
+  border-radius: 9px;
+}
+
+.enter-data-client {
+  margin: 0;
+  border-radius: 8px;
+  font-family: "Montserrat Bold";
+  width: 100%;
+  padding: 0.7rem 2.25rem 0.375rem;
+  -moz-padding-start: calc(0.75rem - 3px);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #1e1e1e;
+  background-size: 16px 12px;
+  border: 1.4px solid #ebebeb;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.enter-data-client:focus {
+  outline: unset;
+}
+
+.title-data {
+  font-family: "Montserrat Bold";
+  font-size: 1.3rem;
+  color: #1e1e1e;
+}
+
+.title-data-h {
+  font-family: "Montserrat Bold";
+  font-size: 30px;
+  color: #1e1e1e;
+  margin-bottom: 2rem;
+}
+
+.container-input-form-payment {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.subtitle-name-client {
+  margin-top: 22px;
+  font-family: "Montserrat Bold" !important;
+  font-size: 0.75rem !important;
+}
+
+.subtitle-name-client.payment {
+  margin-top: 0 !important;
+  font-family: "Montserrat Semibold" !important;
+  font-size: 0.8rem !important;
+}
+
+.subtitle-data-client {
+  margin-top: 16px;
+  font-family: "Montserrat Bold" !important;
+  font-size: 0.75rem !important;
+}
+
+.phone-add-form {
+  background-color: white;
+  border: none;
+  font-family: "Montserrat Bold" !important;
+  color: #2743a6;
+  font-size: 16px;
+  margin-top: 1rem;
+}
+
+.icon-add-number {
+  width: 16px !important;
+}
+
+.form-payment {
+  padding: 2rem 1.5rem;
+  width: 100%;
+  background: white;
+  margin-top: 2.5rem;
+  margin-bottom: 1.6rem;
+  border-radius: 19px;
+}
+
+.title-payment-form {
+  font-family: "Montserrat Bold";
+  font-size: 1.3rem;
+  color: #1e1e1e;
+}
+
+#root
+  > div:nth-child(3)
+  > div
+  > div.container-form-payment.row
+  > div.forms-col.col-sm-8
+  > div.form-payment
+  > form
+  > div
+  > div.styles-text-form-check.form-check.form-check-inline
+  > label {
+  color: #666666;
+  font-family: "Montserrat Bold";
+  font-size: 15px;
+}
+
+#root
+  > div:nth-child(3)
+  > div
+  > div.container-form-payment.row
+  > div.forms-col.col-sm-8
+  > div.form-payment
+  > form
+  > div
+  > div:nth-child(2)
+  > label {
+  color: #666666;
+  font-family: "Montserrat Bold";
+  font-size: 15px;
+}
+
+#root
+  > div:nth-child(3)
+  > div
+  > div.container-form-payment.row
+  > div.forms-col.col-sm-8
+  > div.form-payment
+  > form
+  > div
+  > div:nth-child(3)
+  > label {
+  color: #666666;
+  font-family: "Montserrat Bold";
+  font-size: 15px;
+}
+
+.check-radius-card {
+  padding-top: 1.5rem;
+}
+
+.form-check {
+  min-height: 1.5rem;
+  padding-left: 1.5em;
+}
+
+.form-check-input[type="radio"] {
+  border-radius: 50%;
+  border-color: #666666;
+}
+
+.container-payment-information {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.2rem;
+}
+
+.name-client-card {
+  /* margin-top: 2.5rem; */
+  font-family: "Montserrat SemiBold" !important;
+  font-size: 0.8rem !important;
+}
+
+.payment-styles {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 0;
+}
+
+.button-payment-details {
+  border-color: transparent;
+  background-color: #fcb41e;
+  color: #1e1e1e;
+  font-size: 16px;
+  border-radius: 42px;
+  font-weight: bold;
+  font-family: "Montserrat Bold";
+  margin: auto 0;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 5px;
+}
+
+.add-padding-container {
+  padding: 13px 64px;
+}
+.disabled-padding-button {
+  padding: 16px 80px;
+}
+
+.icon-info {
+  margin-bottom: 4px;
+}
+
+.politic-and-privacity-payment {
+  font-family: "Montserrat Medium";
+  font-size: 16px;
+  color: #666666;
+}
+
+.styles-politics-payment {
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+}
+
+.politics {
+  margin-left: 4px;
+}
+
+.stepper-pay-container {
+  position: relative;
+  margin: 6rem 0rem;
+  top: -3rem;
+}
+
+.stepper-contain-i {
+  position: absolute;
+  left: 0px;
+}
+
+.stepper-contain-p {
+  position: absolute;
+  left: 16.9rem;
+}
+
+.stepper-contain-c {
+  position: absolute;
+  left: 34rem;
+}
+
+.icons-steeper-c {
+  width: 40rem;
+  height: 2rem;
+}
+
+.stepper-itinerary-select {
+  width: 33.33%;
+  padding: 12px 0;
+}
+
+.stepper-payment-select {
+  width: 33.33%;
+  padding: 12px 0;
+}
+
+.stepper-itinerary-select {
+  width: 33.33%;
+  padding: 12px 0;
+  background-color: white;
+}
+
+.stepper-step {
+  width: 33.33%;
+  padding: 12px 0;
+}
+
+.stepper-step.completed {
+  background-color: white;
+}
+
+#accordion-rooms > h2 > button {
+  padding: 4px !important;
+  font-size: 0.938rem !important;
+  font-family: "Montserrat Bold";
+  background: transparent !important;
+}
+
+.margin-icon-accordion {
+  width: 20px;
+}
+
+.header-accordion-itinerary {
+  width: 86%;
+}
+
+#accordion-rooms {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+.icon-person-total {
+  width: 14px !important;
+}
+
+#accordion-rooms > h2 > button:active {
+  border-color: none !important;
+}
+
+.accordion-button:focus {
+  border-color: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: black !important;
+  background-color: var(--bs-accordion-active-bg);
+  box-shadow: none !important;
+}
+
+#card-form > div.form-payment > div.row > div:nth-child(2) {
+  padding: 0 !important;
+}
+
+.t-confirmation-booking {
+  color: #10ac61;
+  font-family: "Montserrat Bold";
+  font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.t-congratulation-booking {
+  color: #1e1e1e;
+  font-size: 0.938rem;
+  font-family: "Montserrat Bold";
+  padding-bottom: 2rem;
+}
+
+.container-detail-reservation {
+  background: #2743a6;
+  width: 100%;
+  min-height: 240px;
+  padding: 2rem 2rem 0rem 3rem;
+  display: flex;
+  border-radius: 8px;
+}
+
+.t-data-booking {
+  color: #1e1e1e;
+  font-size: 1.2rem;
+  font-family: "Montserrat Bold";
+  padding-bottom: 1rem;
+}
+
+.title-detail-b {
+  color: white;
+  font-size: 0.938rem;
+  font-family: "Montserrat Bold";
+}
+
+.subtitle-detail-b {
+  color: white;
+  font-size: 0.875rem;
+  font-family: "Montserrat Medium";
+  padding-bottom: 1rem;
+}
+
+.num-padding {
+  padding-top: 1rem;
+}
+
+.padding-bottom {
+  padding-bottom: 1rem;
+}
+
+.margin-bottom {
+  margin-bottom: 1rem;
+}
+
+.num-detail-b {
+  color: white;
+  font-size: 0.938rem;
+  font-family: "Montserrat Medium";
+  text-align: center;
+}
+
+.container-data-reservation {
+  background-color: #2743a6;
+  min-height: 240px;
+  padding: 2rem 1rem 0rem 1rem;
+  border-radius: 8px;
+}
+
+.title-data-b {
+  color: #ffffff;
+  font-family: "Montserrat Bold";
+  font-size: 0.938rem;
+}
+
+.subtitle-data-b {
+  font-family: "Montserrat Medium";
+  color: #ffffff;
+  font-size: 0.875rem;
+  padding-bottom: 1rem;
+}
+
+.card-confirmation-hotel {
+  border: 1px solid #f3ac78;
+  border-radius: 8px;
+  width: 100%;
+  min-height: 200px;
+  padding: 1rem;
+  &.incomplete-information {
+    border: 1px solid #ed2630;
+  }
+}
+
+.ch-confirmation {
+  font-family: "Montserrat Bold";
+  font-size: 0.875rem;
+  color: #f3ac78;
+}
+
+.cht-confirmation {
+  font-family: "Montserrat Bold";
+  font-size: 1.3rem;
+  color: #1e1e1e;
+  padding-bottom: 0.6rem;
+  line-height: 1.2;
+}
+
+.th-confirmation {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.75rem;
+  color: #666666;
+}
+
+.thl-confirmation {
+  font-family: "Montserrat Medium";
+  font-size: 0.75rem;
+}
+
+.rh-confirmation {
+  font-family: "Montserrat Bold";
+  font-size: 0.875rem;
+  color: #1e1e1e;
+}
+
+.info-reservation-hotel {
+  width: 100%;
+  font-family: "Montserrat Bold";
+  font-size: 0.875rem;
+  color: #1e1e1e;
+}
+
+.line-he {
+  line-height: 1.2;
+}
+
+.no-confirmation {
+  font-family: "Montserrat Medium";
+  font-size: 0.75rem;
+  color: #a6e5c6;
+  &.empty-reference {
+    color: #e46168;
+  }
+}
+
+.num-confirmation {
+  font-family: "Montserrat Bold";
+  font-size: 0.875rem;
+  color: #10ac61;
+  &.empty-reference {
+    color: #ed2630;
+  }
+}
+
+.border-orange {
+  border-bottom: 1px solid #f3ac78;
+  padding-bottom: 1rem;
+}
+
+.border-gray {
+  border-bottom: 1px solid #efefef;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.price-confirmation {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.75rem;
+  color: #666666;
+}
+
+.price-num-confirmation {
+  font-family: "Montserrat Bold";
+  font-size: 0.938rem;
+  color: white;
+}
+
+.price-container {
+  position: absolute;
+  bottom: 0px;
+  right: 4rem;
+}
+
+.total-price-payment-confirmed {
+  text-align: right;
+  width: 95%;
+}
+
+.p-relative {
+  position: relative;
+  text-align: center;
+}
+
+.card-confirmation-tour {
+  border: 1px solid #f3ac78;
+  border-radius: 8px;
+  width: 100%;
+  min-height: 100px;
+  padding: 1rem;
+}
+
+.card-confirmation-moving {
+  border: 1px solid #f3ac78;
+  border-radius: 8px;
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
+}
+
+.orange-total-p-c {
+  width: 100%;
+  padding: 0.9rem 4.2rem;
+  background-color: #2743a6;
+  border-radius: 0 0 0 2.4rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.6rem;
+}
+
+.total-confirmation-r {
+  font-family: "Montserrat Bold";
+  font-size: 0.8em;
+  margin-right: 4px;
+  display: flex;
+  color: white;
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+
+.green-container-c {
+  background-color: #e0fef0;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+  color: #10ac61;
+  font-family: "Montserrat SemiBold";
+  font-size: 0.7rem;
+}
+
+.banner-confirmation {
+  margin: 3rem 0 2rem 0;
+  position: relative;
+}
+
+.position-banner-contact {
+  position: absolute;
+  top: 50%;
+  left: 31.8%;
+  transform: translate(-50%, -50%);
+  width: 820px;
+  margin-left: 0px;
+  height: 100%;
+  padding-left: 95px;
+  display: grid;
+  align-content: center;
+}
+
+.text-banner-contact {
+  font-family: "Montserrat Bold";
+  font-size: 30px;
+  color: #2743a6;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.line-h-steeper {
+  border-bottom: 2px solid #b5b5b5;
+  padding: 0px !important;
+}
+
+.button-payment-details.disabled {
+  background-color: #fdd278;
+  cursor: not-allowed;
+}
+
+.payment-in-text {
+  font-size: 0.9rem;
+  font-family: "Montserrat SemiBold";
+}
+
+.count-down {
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.count-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat SemiBold";
+}
+
+.card-confirmation-skeleton {
+  border: 1px solid #d5d5d5;
+  border-radius: 8px;
+  width: 100%;
+  min-height: 200px;
+  padding: 1rem;
+}
+
+.container-details-skeleton {
+  background: #ffffff;
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid #b5b5b5;
+  flex-direction: column;
+}
+
+#firstName::placeholder {
+  font-family: "Montserrat SemiBold" !important;
+  font-style: italic !important;
+  color: #666666 !important;
+  font-size: 0.875rem !important;
+}
+
+#lastName::placeholder {
+  font-family: "Montserrat SemiBold" !important;
+  font-style: italic !important;
+  color: #666666 !important;
+  font-size: 0.875rem !important;
+}
+
+#email::placeholder {
+  font-family: "Montserrat SemiBold" !important;
+  font-style: italic !important;
+  color: #666666 !important;
+  font-size: 0.875rem !important;
+}
+
+#phoneNumber::placeholder {
+  font-family: "Montserrat SemiBold" !important;
+  font-style: italic !important;
+  color: #666666 !important;
+  font-size: 0.875rem !important;
+}
+
+#nameCard::placeholder {
+  font-family: "Montserrat SemiBold" !important;
+  font-style: italic !important;
+  color: #666666 !important;
+  font-size: 0.875rem !important;
+}
+
+#numberCard::placeholder {
+  font-family: "Montserrat SemiBold" !important;
+  font-style: italic !important;
+  color: #666666 !important;
+  font-size: 0.875rem !important;
+}
+
+#card-form
+  > div.form-payment
+  > div.row
+  > div:nth-child(2)
+  > input::placeholder {
+  font-family: "Montserrat SemiBold" !important;
+  font-style: italic !important;
+  color: #666666 !important;
+  font-size: 0.875rem !important;
+}
+
+#cvvCard::placeholder {
+  font-family: "Montserrat SemiBold" !important;
+  font-style: italic !important;
+  color: #666666 !important;
+  font-size: 0.875rem !important;
+}
+
+.clauses {
+  font-family: "Montserrat Medium" !important;
+  font-size: 0.875rem !important;
+  color: #666666;
+  display: flex;
+  gap: 6px;
+}
+
+.button-share-itinerary {
+  color: #666666 !important;
+  font-family: "Montserrat Bold";
+  font-size: 1rem;
+  cursor: pointer;
+  /* padding-top: 6px; */
+}
+
+.styles-button-share {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.display-title-button-share {
+  display: flex;
+  width: 100%;
+  margin-top: 2rem;
+  justify-content: space-between;
+}
+
+.display-booking {
+  display: flex;
+  width: 100%;
+}
+
+.button-share-link {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.size-modal-share {
+  height: 260px;
+  width: 120%;
+}
+
+#modal-share-links {
+  display: grid;
+  align-items: center;
+  height: 91vh;
+}
+
+#modal-share-links > div {
+  width: 28rem;
+  border-radius: 14px;
+}
+
+.styles-columns-share-m {
+  height: 150px;
+  text-align: center;
+  padding: 0px !important;
+}
+
+.title-share-link-m {
+  text-align: center;
+  font-family: "Montserrat Bold";
+  font-size: 1.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.title-modal-rate {
+  text-align: center;
+  font-family: "Montserrat Bold";
+  font-size: 1.5rem;
+  color: #2743a6;
+}
+
+.title-modal-load-r {
+  text-align: center;
+  font-family: "Montserrat Bold";
+  font-size: 1.5rem;
+  padding: 1.5rem 0;
+  color: #1e1e1e;
+}
+
+.title-modal-rate-update {
+  text-align: center;
+  font-family: "Montserrat Bold";
+  font-size: 1.2rem;
+  color: #2743a6;
+}
+
+.service-change-rate {
+  font-family: "Montserrat Bold";
+  font-size: 0.938rem;
+  color: #1e1e1e;
+}
+
+.text-rate-modal {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.938rem;
+  color: #1e1e1e;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.text-rate-modal-update {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.938rem;
+  color: #1e1e1e;
+  text-align: center;
+}
+
+.line-rate-modal {
+  border: none;
+  height: 1px;
+  background-color: #b5b5b5;
+  margin: 25px 0px 0px;
+  width: 116%;
+}
+
+.line-rate-modal-update {
+  border: none;
+  height: 1px;
+  background-color: #b5b5b5;
+  margin: 26px 0px 25px;
+  width: 116%;
+}
+
+.button-rate-modal {
+  border-color: transparent;
+  background-color: #fcb41e;
+  color: #1e1e1e;
+  padding: 7px 25px;
+  font-size: 12px;
+  border-radius: 42px;
+  font-weight: 700;
+  font-family: "Montserrat Medium";
+  margin: 1.5rem 0rem;
+}
+
+.margin-icon-bottom {
+  margin-bottom: 1.5rem;
+}
+
+.margin-icon-top {
+  margin-top: 1.5rem;
+}
+
+.button-rate-modal:hover {
+  background-color: #fdd278;
+}
+
+.body > div.fade.modal.show > div > div > div.display-modal-share.modal-body {
+  padding: 2rem !important;
+}
+
+.display-modal-share {
+  padding: 0rem 4rem !important;
+}
+
+.display-modal-rate {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding: 0rem 2rem;
+}
+
+.display-modal-rate-update {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  padding: 0rem 2rem;
+}
+
+.modal-style-share {
+  width: 30%;
+}
+
+.styles-names-share-m {
+  padding-top: 15px;
+  font-family: "Montserrat Bold";
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.alert-pay-declined {
+  width: 100%;
+  background-color: #fabec1;
+  padding: 2rem;
+  border: 3px solid #ed2630;
+  margin-bottom: 1rem;
+}
+
+.alert-text-declined {
+  color: #ed2630;
+  font-size: 1.5rem;
+  font-family: "Montserrat Bold";
+  padding-right: 10px;
+}
+
+.alert-amount-exceeded {
+  width: 100%;
+  background-color: #fabec0;
+  padding: 1rem;
+  border: 1px solid #ed2630;
+  margin-bottom: 1rem;
+}
+
+.alert-text-amount {
+  color: #ed2630;
+  font-size: 0.938rem;
+  font-family: "Montserrat Bold";
+  padding-right: 10px;
+}
+
+.alert-subtext-declined {
+  color: #1e1e1e;
+  padding-top: 12px;
+  font-family: "Montserrat Bold";
+  font-size: 1rem;
+}
+
+.icon-Mark-Declined {
+  width: 26px;
+  height: 20%;
+  margin-right: 6px;
+}
+
+.alert-unavailable-data {
+  width: 100%;
+  background-color: #fee8bb;
+  padding: 1rem;
+  border: 1px solid #fcb41e;
+  margin-bottom: 1rem;
+}
+
+.container-itinerary-no-data {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: 7rem 0;
+  padding: 21vh 0;
+}
+
+.itinerary-no-show {
+  color: #eb741e;
+  font-family: "Montserrat Bold";
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
+
+.itinerary-no-text {
+  color: #666666;
+  font-size: 0.938rem;
+  font-family: "Montserrat semiBold";
+}
+
+.button-start-itinerary {
+  color: #000000;
+  padding: 6px 15px;
+  font-size: 0.875rem;
+  border-radius: 42px;
+  border-color: transparent;
+  background-color: #fcb41e;
+  font-family: "Montserrat Bold";
+  margin: 0 !important;
+}
+
+#modal-alert-rate-load {
+  display: grid;
+  align-items: center;
+  height: 91vh;
+}
+
+#modal-alert-rate-load > div {
+  width: 24rem;
+  border-radius: 14px;
+  height: 24rem;
+}
+
+#modal-alert-rate {
+  display: grid;
+  align-items: center;
+  height: 91vh;
+}
+
+#modal-alert-rate > div {
+  width: 28rem;
+  border-radius: 14px;
+}
+
+#modal-alert-rate-update {
+  display: grid;
+  align-items: center;
+  height: 91vh;
+}
+
+#modal-alert-rate-update > div {
+  width: 25rem;
+  border-radius: 14px;
+  height: 19rem;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.pdg-5px {
+  padding: 5px 0;
+}
+
+/* Cambia el color de la flecha a negro */
+.carousel-control-next-icon {
+  background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="%23000"%3e%3cpath d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/%3e%3c/svg%3e') !important;
+}
+
+.name-hotel-card {
+  font-family: "Montserrat Bold";
+  font-size: 1.1rem;
+  color: #f3ac78;
+  padding-bottom: 5px;
+}
+
+.icon-card-pay {
+  position: absolute;
+  right: 0;
+  top: 2px;
+}
+
+.success-reservation-images {
+  width: 100%;
+  /* padding: 0.5rem 0.5rem 1.5rem 0.5rem; */
+}
+
+.success-reservation-text {
+  background-color: #2743a6;
+}
+
+.text-size-hotel {
+  font-family: "Montserrat Bold";
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e1e1e;
+}
+
+.date-text {
+  color: #eb741e;
+  font-size: 16px;
+}
+
+.check-out-text {
+  font-size: 8px;
+}
+
+.text-size-hotel-check {
+  font-family: "Montserrat SemiBold";
+  font-size: 14px;
+  font-weight: 700;
+  color: #666666;
+}
+
+.icon-location-o {
+  width: 17px;
+}
+
+.line-location-background {
+  height: 100%;
+  width: 3px;
+  background: repeat-y;
+}
+
+.share-itinerary-text {
+  color: #eb741e !important;
+  text-wrap: nowrap;
+  font-size: 0.7rem;
+}
+
+.confirmed-reservation-title {
+  font-family: "Montserrat Bold";
+  color: white;
+  font-size: 1.5rem;
+}
+
+.confirmed-reservation-subtitle {
+  font-family: "Montserrat Medium";
+  font-size: 0.9rem;
+  color: #efefef;
+}
+
+.buttons-unavailable-hotel {
+  position: absolute;
+  right: 0;
+  bottom: 2rem;
+  z-index: 2;
+  display: flex;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #b5b5b5;
+  opacity: 0.6;
+}
+
+.btn-update-hotel {
+  background-color: #eb741e;
+  color: #ffffff;
+  border-radius: 4px;
+  border-color: transparent;
+  margin: 0 6px;
+  font-family: "Montserrat Medium";
+  font-size: 0.938rem;
+  padding: 4px 8px;
+}
+
+.btn-update-hotel:hover {
+  background-color: #d16719;
+}
+
+.travel-image-payment-confirmed {
+  width: 25%;
+}
+
+.travel-image-payment-confirmed img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px 0 0 6px;
+}
+
+.wtp-share {
+  width: 44%;
+  cursor: pointer;
+}
+
+.mail-share {
+  width: 52%;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.media-share {
+  width: 44%;
+  cursor: pointer;
+}
+
+.name-room-rh {
+  font-size: 10px;
+  font-family: "Montserrat Bold";
+  margin: 0 10px;
+}
+
+.close-accordion-booking {
+  background-color: #f4f4f4;
+  border-radius: 9px;
+  padding: 24px 36px;
+  width: 100%;
+  & h3 {
+    margin: 0;
+  }
+}
+
+.container-payment-steeps-info {
+  display: flex;
+  min-height: 42rem;
+}
+
+.card-payment-info-back-front {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#circle-count {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+@media screen and (max-width: 1400px) {
+  .container-payment-information {
+    flex-direction: column !important;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .button-payment-details {
+    padding: 9px 54px !important;
+  }
+}

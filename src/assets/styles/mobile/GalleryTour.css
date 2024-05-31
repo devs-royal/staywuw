@@ -1,0 +1,87 @@
+@media screen and (max-width: 1400px) {
+  .calendar-items-tour {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .title-tour-modal {
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+  }
+
+  .d-flex-tour-tile {
+    flex-direction: column;
+  }
+
+  .rating-tour-modal {
+    width: 100%;
+  }
+  .price-from-tour-modal {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .card-selected-occupancy-tour{
+    padding: 18px;
+    width: 20rem;
+    min-height: 415px;
+  }
+
+  .category-title, .b-price, .span-title-total{
+    font-size: 0.9rem;
+  }
+
+  .b-price-total{
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .ticket-tour-modal {
+    width: 14.3rem;
+  }
+
+  .tour-state-modal {
+    font-size: 11px;
+    padding-left: 0.6rem;
+  }
+
+  .price-from-tour-modal {
+    & span {
+      font-size: 1rem;
+    }
+  }
+
+  .price-tour-modal {
+    font-size: 1.5rem !important;
+  }
+  .title-select-tour {
+    margin-top: 2.4rem;
+    font-size: 1rem;
+  }
+
+  .container-tickets-m {
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .title-ticket-tour {
+    font-size: 0.8rem;
+  }
+
+  .tab-info-tour {
+    font-size: 0.9rem !important;
+  }
+
+  .tab-tour-modal {
+    font-size: 0.7rem !important;
+    padding: 8px 8px !important;
+  }
+
+  .icon-tab-tour {
+    width: 17px;
+    margin-right: 3px !important;
+  }
+}

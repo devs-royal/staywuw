@@ -1,0 +1,141 @@
+.container-steps-payment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* INACTIVATED */
+.steps-payment {
+  position: relative;
+  padding: 0.4rem 3.9rem;
+  text-align: center;
+  border-radius: 3rem;
+  font-family: "Montserrat Bold";
+  font-size: 0.9rem;
+  &.inactivated {
+    background-color: #dadada;
+    color: #b5b5b5;
+  }
+
+  &.activated {
+    background-color: #2743a6;
+    color: white;
+  }
+}
+
+.steps-payment::before {
+  content: "";
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  left: 24px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.steps-payment.activated::before {
+  background-color: #2743a6;
+}
+
+.steps-payment.inactivated::before {
+  background-color: #dadada;
+}
+
+.steps-payment::after {
+  content: "";
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: white;
+}
+
+.line-steps-payment {
+  /* width: 10%; */
+  width: 100%;
+  &.inactivated {
+    border: 2px dashed #dadada;
+  }
+  &.activated {
+    border: 2px dashed #2743a6;
+  }
+}
+
+.steps-number {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  font-size: 1.2rem;
+
+  &.inactivated {
+    color: #b5b5b5;
+  }
+
+  &.activated {
+    color: #eb741e;
+  }
+}
+
+@media screen and (max-width: 1399px) {
+  .steps-payment {
+    padding: 0.4rem 55px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .steps-payment {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent !important;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4rem 11px;
+    &.activated{
+      color: #2743a6;
+    }
+  }
+
+  .steps-payment::after{
+    display: none;
+  }
+  .steps-payment::before{
+    display: none;
+  }
+
+  .steps-number{
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 1rem;
+    background-color: white;
+    transform: translate(0,0);
+    left: 0;
+    top: 0;
+    /* padding: 0.4rem 30px; */
+    
+    &.activated{
+      border: 3px solid #2743a6;
+    }
+
+    &.inactivated{
+      border: 3px solid #dadada;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .steps-payment{
+      font-size: 0.8rem;
+    }
+  }
+}

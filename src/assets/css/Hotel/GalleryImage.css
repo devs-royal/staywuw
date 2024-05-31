@@ -1,0 +1,20 @@
+.prev-slice {
+  bottom: 18rem;
+  z-index: 2;
+}
+
+.nex-slice {
+  bottom: 18rem;
+}
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  content: "next";
+  color: #fff;
+}
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  content: "prev";
+  color: #fff;
+}

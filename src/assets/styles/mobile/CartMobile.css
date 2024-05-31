@@ -1,0 +1,34 @@
+@media only screen and (max-width: 1000px) {
+  .swipe-up-cart {
+    display: none;
+  }
+
+  .m-display-mobile-cart {
+    width: 100%;
+    display: flex;
+  }
+
+  .m-btn-close-cart {
+    width: 60%;
+  }
+
+  .m-your-cart {
+    width: 40%;
+    font-family: 'Montserrat Bold';
+    font-size: 15px;
+  }
+
+  .container-different-carts {
+    height: 75vh;
+    border-bottom: 1px solid #B5B5B5;
+  }
+
+  .color-cart-m {
+    color: #fcb41e;
+  }
+
+  .m-none {
+    display: none;
+  }
+
+}

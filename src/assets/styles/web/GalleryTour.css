@@ -1,0 +1,1328 @@
+#gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 0.5em;
+}
+
+@media (max-width: 800px) {
+  #gallery {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #gallery>div {
+    width: 48%;
+    margin: 1%;
+  }
+}
+
+@media (max-width: 800px) and (max-width: 350px) {
+  #gallery>div {
+    width: 98%;
+  }
+}
+
+#gallery>div:nth-child(6n + 1) {
+  grid-column: span 1;
+  grid-row: span 3;
+}
+
+#gallery>div:nth-child(2) {
+  grid-column: span 2;
+  grid-row: span 3;
+}
+
+#gallery>div:nth-child(4) {
+  grid-column: span 1;
+  grid-row: span 3;
+}
+
+#gallery>div>a {
+  opacity: 0;
+  position: absolute;
+  color: #000;
+  background-color: #000;
+  font: bold 4em "Helvetica";
+  text-shadow: 0 -1px 5px #fff, -1px 0px 5px #fff, 0 1px 5px #fff,
+    1px 0px 5px #fff;
+  padding: 2rem;
+  mix-blend-mode: difference;
+  width: 100%;
+  height: 100%;
+  transition: all ease 500ms;
+}
+
+#gallery>div>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 1s ease 0s;
+}
+
+#gallery>div:hover img {
+  filter: blur(4px);
+}
+
+#gallery>div:hover a {
+  opacity: 1;
+}
+
+#gallery>div {
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#gallery div,
+#gallery a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+[id^="lightbox-"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  opacity: 0;
+  transition: opacity 450ms ease-in-out;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+[id^="lightbox-"]:target {
+  opacity: 1;
+  pointer-events: inherit;
+}
+
+[id^="lightbox-"]:target img {
+  filter: blur(0);
+}
+
+[id^="lightbox-"] .content {
+  max-width: 90%;
+  position: relative;
+  color: #fff;
+}
+
+[id^="lightbox-"] .content:hover>a.close {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+[id^="lightbox-"] .content:hover>.title {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+[id^="lightbox-"] .content:hover>.title::after {
+  opacity: 1;
+}
+
+[id^="lightbox-"] .content>* {
+  transition: all 450ms ease-in-out;
+}
+
+[id^="lightbox-"] .title {
+  display: block;
+  margin: 0;
+  padding: 1em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(50%);
+  font-size: 1.5em;
+  opacity: 0;
+}
+
+[id^="lightbox-"] .title::after {
+  content: " ";
+  background-color: rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: all 350ms ease-in-out 250ms;
+  opacity: 0;
+  transform-origin: bottom;
+  mix-blend-mode: soft-light;
+}
+
+[id^="lightbox-"] img {
+  max-height: 90vh;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  filter: blur(50px);
+}
+
+[id^="lightbox-"] a.close {
+  width: 2em;
+  height: 2em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0, 0);
+  opacity: 0;
+  transform-origin: right top;
+  text-decoration: none;
+  color: #fff;
+}
+
+[id^="lightbox-"] a.close::after {
+  content: "X";
+}
+
+/* #small-image-tour-modal{
+  width: 5rem !important;
+} */
+
+.swiper-modal-tour {
+  position: static;
+  height: auto;
+}
+
+.container-images-tour-modal {
+  position: relative;
+  padding: 1rem 3rem;
+}
+
+.selected-image-tour-modal {
+  border: 3px solid #2743a6;
+  opacity: 1.5;
+}
+
+#dialog-tour-info>div.MuiDialog-container.MuiDialog-scrollPaper.css-hz1bth-MuiDialog-container>div>div>div.modal-tour-bg>div:nth-child(1)>div.container-images-tour-modal>div>div.swiper-button-prev {
+  left: 0 !important;
+  color: #2743a6 !important;
+}
+
+#dialog-tour-info>div.MuiDialog-container.MuiDialog-scrollPaper.css-hz1bth-MuiDialog-container>div>div>div.modal-tour-bg>div:nth-child(1)>div.container-images-tour-modal>div>div.swiper-button-next {
+  right: 0 !important;
+  color: #2743a6 !important;
+}
+
+.modal-tour {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  pointer-events: inherit;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+.modal-tour img {
+  max-height: 90vh;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 20px;
+}
+
+.d-flex-tour-tile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-tour-modal {
+  font-family: "Montserrat Bold";
+  font-size: 2rem;
+  color: #1e1e1e;
+}
+
+.tour-state-modal {
+  padding-left: 2rem;
+  color: #666666;
+  font-family: "Montserrat Medium";
+  font-size: 15px;
+}
+
+.price-tour-modal {
+  font-size: 1.8rem;
+  color: #2743a6;
+  font-family: "Montserrat Bold";
+  padding-left: 10px;
+}
+
+.contain-title-tour-modal {
+  margin: 1rem 0;
+}
+
+.img-modal-tour {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.arrows-tour-madal {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+}
+
+.space-arrow {
+  margin-right: 1rem;
+}
+
+.arrow-pointer {
+  cursor: pointer;
+}
+
+.calendar-contain-tour {
+  border: 1px solid;
+  /* width: 120px; */
+  width: 100%;
+  height: 13rem;
+  border-radius: 14px;
+  padding: 0.6rem 3px;
+  text-align: center;
+  line-height: 1.5;
+  background: white;
+  cursor: pointer;
+
+  &.active-date-tour {
+    background: #2743a6;
+    color: white;
+    border: 2px solid #2743a6;
+
+    &.hr {
+      border: 0.1rem solid #ffffff;
+    }
+  }
+
+}
+
+.line-divided-calendar-tour-m {
+  border: 0.1rem solid #666666;
+
+  &.active-line {
+    border: 0.1rem solid #ffffff;
+  }
+}
+
+.day-title {
+  font-size: 12px;
+  color: #1e1e1e;
+  /* color: #10ac61; */
+  font-family: "Montserrat Bold";
+
+  &.active-day-title {
+    color: white;
+  }
+}
+
+.day-number-title {
+  font-size: 2rem;
+  font-family: "Montserrat Bold";
+}
+
+.month-title {
+  font-size: 12px;
+  font-family: "Montserrat SemiBold";
+}
+
+.from-title {
+  font-size: 12px;
+  font-family: "Montserrat SemiBold";
+  /* padding-top: 1.5rem; /LP/*/
+}
+
+.price-calendar-tour {
+  font-size: 1.2rem;
+  /* color: #10ac61; */
+  color: #1e1e1e;
+  font-family: "Montserrat Bold";
+  text-wrap: nowrap;
+
+  &.active-price-calendar-tour {
+    color: white;
+  }
+}
+
+.calendar-items-tour {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 0 2rem;
+}
+
+.title-select-tour {
+  font-family: "Montserrat Bold";
+  font-size: 1.3rem;
+  color: #1e1e1e;
+}
+
+.modal-tour-bg {
+  background: #f4f4f4;
+}
+
+.tab-info-tour {
+  background: white;
+}
+
+.ticket-tour-modal {
+  width: 15.5rem;
+  background: white;
+  min-height: 19rem;
+  border-radius: 15px;
+  position: relative;
+  margin: 1rem 0;
+}
+
+.ticket-tour-modal::before {
+  content: "";
+  width: 26px;
+  height: 26px;
+  background: #f4f4f4;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 9;
+  top: 50px;
+  left: -10px;
+}
+
+.ticket-tour-modal::after {
+  content: "";
+  width: 26px;
+  height: 26px;
+  background: #f4f4f4;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 9;
+  top: 50px;
+  right: -10px;
+}
+
+.title-ticket-tour {
+  text-align: center;
+  font-family: "Montserrat Bold";
+  font-size: 1rem;
+  padding: 18px 10px 10px 10px;
+}
+
+.price-ticket-m {
+  border: 1px solid #6666666b;
+  width: 4rem;
+  height: 6rem;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.d-flex-tour {
+  display: flex;
+  margin: 10px 10px 27px 10px;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.title-price-ticket {
+  padding: 10px;
+  font-family: "Montserrat Bold";
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.adult-title-tour {
+  color: #666666;
+  font-size: 12px;
+  font-family: "Montserrat SemiBold";
+}
+
+.price-text-tour {
+  font-size: 14px;
+  color: #000000;
+  font-family: "Montserrat Bold";
+}
+
+.margin-top-price {
+  margin-top: 1rem;
+}
+
+.container-tickets-m {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 0.7rem;
+  padding-top: 1rem;
+}
+
+.btn-select-ticket {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px dashed #666666;
+  padding-top: 18px;
+}
+
+.btn-select-btn-tour {
+  color: #1e1e1e;
+  border: transparent;
+  background: #fcb41e;
+  border-radius: 28px;
+  padding: 2px 18px;
+  font-family: "Montserrat Bold";
+  font-size: 12px;
+
+  &.incomplete {
+    filter: opacity(0.6);
+  }
+}
+
+/* OCCUPANCY TOUR */
+.locked {
+  color: #b5b5b5;
+  cursor: not-allowed !important;
+}
+
+.unlocked {
+  color: #eb741e;
+  cursor: pointer;
+}
+
+.card-occupancy-tour {
+  background: white;
+  height: auto;
+  width: 64%;
+  position: relative;
+  margin-left: 0.7rem;
+}
+
+.card-occupancy-tour::after {
+  content: "";
+  border-radius: 50%;
+  width: 5rem;
+  height: 4rem;
+  position: absolute;
+  background-color: #f4f4f4;
+  top: 7rem;
+  left: -3rem;
+  z-index: 2;
+}
+
+.card-occupancy-tour::before {
+  content: "";
+  border-radius: 50%;
+  width: 5rem;
+  height: 4rem;
+  position: absolute;
+  background-color: #f4f4f4;
+  top: 7rem;
+  right: -3rem;
+  z-index: 2;
+}
+
+.title-occupancy-tour {
+  font-family: "Montserrat Bold";
+  font-size: 1.3rem;
+  color: #2743a6;
+}
+
+.description-titles {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding: 0.6rem 0.4rem;
+}
+
+.change-selection {
+  font-family: "Montserrat Bold";
+  font-size: 0.7rem;
+  color: #2899c7;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.title-card {
+  font-family: "Montserrat Bold";
+  font-size: 1.4rem;
+  color: #1e1e1e;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.border-dashed-absolute {
+  position: absolute;
+  top: 9rem;
+  border-bottom: 2px dashed #b5b5b5;
+  width: 100%;
+}
+
+.border-dashed {
+  border-bottom: 2px dashed #b5b5b5;
+  width: 100%;
+}
+
+.occupancy-tour-card {
+  display: flex;
+  flex-direction: column;
+  margin-top: 6rem;
+  position: relative;
+}
+
+.container-occupancy-tour {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.3rem;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 1rem 0.4rem;
+}
+
+.time-duration {
+  font-family: "Montserrat SemiBold";
+  font-size: 0.9rem;
+  color: #1e1e1e;
+}
+
+.how-tickets {
+  font-family: "Montserrat Bold";
+  font-size: 1.2rem;
+}
+
+.icon-royal-tour-c {
+  position: absolute;
+  top: -1.6rem;
+  right: 1.7rem;
+}
+
+.occupancy-total-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0.4rem 1rem 0.4rem;
+}
+
+.person-text-tour {
+  font-family: "Montserrat Bold";
+  font-size: 1.2rem;
+  color: #1e1e1e;
+}
+
+.price-occupancy-tour {
+  margin: 0;
+  font-size: 0.8rem;
+  font-family: "Montserrat Bold";
+  color: #b5b5b5;
+}
+
+.input-occupancy-tour {
+  padding: 0rem 1rem;
+  border: 1px solid #2743a6;
+  border-radius: 2rem;
+  width: 10rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rest-occupancy {
+  font-size: 1.2rem;
+  font-family: "Montserrat Bold";
+  user-select: none;
+  border: none;
+  background: transparent;
+}
+
+.occupancy-total-tour {
+  font-size: 1.2rem;
+  font-family: "Montserrat Bold";
+  color: #1e1e1e;
+}
+
+.add-occupancy {
+  font-size: 1.2rem;
+  font-family: "Montserrat Bold";
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  background-color: transparent;
+}
+
+.age-rules {
+  font-size: 0.8rem;
+  font-family: "Montserrat Bold";
+  color: #2743a6;
+}
+
+.total-price-occupancy {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  padding-bottom: 1rem;
+}
+
+.reservation-now {
+  padding: 0 0.7rem;
+  background: #2743a6;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  height: 2rem;
+}
+
+.total-text-t {
+  font-family: "Montserrat Bold";
+  font-size: 0.88rem;
+  color: #1e1e1e;
+  text-align: center;
+}
+
+.total-price-tour-card-popular {
+  font-family: "Montserrat Bold";
+  font-size: 1rem;
+  color: #EB741E;
+  /* text-align: center; LP-22-02-24*/
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.text-mxn-price-tour-card-popular {
+  font-size: 0.8rem;
+}
+
+.btn-see-details-card-tour-popular {
+  border-radius: 100px;
+  border: 1px solid #2743A6;
+  background: none;
+  padding: 7px 15px;
+  font-family: "Montserrat Bold";
+  font-size: 0.8rem;
+  min-height: 33px;
+}
+
+.btn-see-details-card-tour-popular:hover {
+  background-color: #2743A6;
+  color: white;
+}
+
+.btn-see-details-card-tour-popular-skeleton {
+  border-radius: 100px !important;
+  width: 47%;
+  height: 50px !important;
+}
+
+
+@media screen and (max-width: 1590px) {
+  .container-tickets-m {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .card-occupancy-tour {
+    width: 80%;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 1302px) {
+  .card-occupancy-tour {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .card-occupancy-tour {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+  }
+
+  .container-tickets-m {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-occupancy-tour {
+    width: 100%;
+  }
+
+  .card-occupancy-tour::after {
+    top: 5.5rem;
+    width: 3rem;
+    height: 3rem;
+    left: -1.4rem;
+  }
+
+  .card-occupancy-tour::before {
+    top: 5.5rem;
+    width: 3rem;
+    height: 3rem;
+    right: -1.4rem;
+  }
+
+  .input-occupancy-tour {
+    width: 8rem;
+  }
+
+  .icon-royal-tour-c {
+    width: 1.6rem;
+    height: auto;
+    top: -0.6rem;
+  }
+
+  /* CALENDAR */
+  .calendar-contain-tour {
+    height: auto;
+  }
+
+  .day-title {
+    font-size: 10px;
+  }
+
+  .day-number-title {
+    font-size: 1.7rem;
+  }
+
+  .from-title {
+    font-size: 10px;
+    padding-top: 0.4rem;
+  }
+
+  .price-calendar-tour {
+    font-size: 1rem;
+  }
+
+  /* END CALENDAR */
+
+  .title-select-tour,
+  .title-select-tour {
+    font-size: 1rem;
+  }
+
+  .title-occupancy-tour {
+    font-size: 1rem;
+  }
+
+  .title-card {
+    font-size: 1rem;
+  }
+
+  .border-dashed-absolute {
+    top: 7rem;
+  }
+
+  .occupancy-tour-card {
+    margin-top: 4rem;
+  }
+
+  .container-occupancy-tour {
+    row-gap: 1rem;
+  }
+
+  .how-tickets {
+    font-size: 1rem;
+  }
+
+  .person-text-tour {
+    font-size: 1rem;
+  }
+
+  .price-occupancy-tour {
+    font-size: 0.6rem;
+  }
+
+  .occupancy-total-tour {
+    font-size: 1rem;
+  }
+
+  .total-price-occupancy {
+    margin-top: 3rem;
+  }
+
+  .total-text-t {
+    font-size: 0.7rem;
+  }
+
+  .total-price-tour {
+    font-size: 1rem;
+  }
+}
+
+.swiper-fixed-width-150 {
+  width: 150px;
+}
+
+.container-modality-tour {
+  gap: 22px;
+  padding-top: 1rem;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.selected-hour-modal-tour {
+  gap: 22px;
+  /* padding-left: 4.5rem; /LP*/
+  padding-top: 1rem;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.btn-time {
+  /* height: 40px;
+  width: 130px; */
+  padding: 10px;
+  border-radius: 6px;
+  border: 2px solid #eeeeee;
+  background: #ffffff;
+  font-family: "Montserrat Semibold";
+
+  &.active-btn-time {
+    border: 2px solid #2743a6;
+    color: #2743a6;
+  }
+}
+
+.b-time {
+  font-family: "Montserrat Bold";
+  /* padding-left: 4.5rem;  /LP/*/
+  font-size: 22px;
+}
+
+.black-price {
+  font-family: "Montserrat Bold";
+  font-size: 18px;
+}
+
+.grey-price {
+  color: #666;
+  font-size: 16px;
+  font-family: "Montserrat Bold";
+}
+
+.grey-price-s {
+  color: #666;
+  font-size: 12px;
+  font-family: "Montserrat Medium";
+}
+
+.modality-tour {
+  position: relative;
+  min-height: 350px;
+  width: 300px;
+  background: #ffffff;
+  border-radius: 9px;
+  border: 3px solid #00000014;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title-modality-tour {
+  font-family: "Montserrat Semibold";
+  font-size: 19px;
+  padding: 0 22px;
+  text-align: center;
+  overflow: auto;
+  /* Para agregar barras de desplazamiento si el texto es demasiado grande */
+  word-wrap: break-word;
+  /* Permite que el texto se divida en palabras si es necesario */
+}
+
+.contend-tour-title-price {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 22px 16px 0 16px;
+}
+
+.btn-modality-tour {
+  color: #eb741e;
+  border-radius: 50px;
+  border: 0.17rem solid #eb741e;
+  width: 200px;
+  background: #ffffff;
+  height: 43px;
+  cursor: pointer;
+}
+
+.btn-selected-modality {
+  border-top: 2px dashed #b5b5b5;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  margin-left: 1.7rem;
+  margin-right: 1.7rem;
+  position: relative;
+}
+
+.BodyModalityTour {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.lineModalityTour {
+  border-top: 3px dashed #b5b5b5;
+  width: 72%;
+  position: absolute;
+  left: 13%;
+  top: 61%;
+}
+
+/* END OCCUPANCY TOUR */
+
+/* CARD MODALITY /LP/08-02-24 */
+.btn-selected-modality::before {
+  content: "";
+  background: #fff;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  bottom: 73%;
+  right: 15.29rem;
+  border-right: 2px #b3b3b3;
+  border-right-style: groove;
+  /* box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.11); */
+}
+
+.btn-selected-modality::after {
+  content: "";
+  background: #fff;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  bottom: 73%;
+  left: 15.29rem;
+  border-left: 2px #b3b3b3;
+  border-left-style: groove;
+  /* box-shadow: -7px 0px 5px 0px rgba(0, 0, 0, 0.11); */
+}
+
+.image-modal-hotel-major-tour {
+  width: 100%;
+  height: 30rem !important;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 8px;
+}
+
+.text-ti-tour-modal-nw {
+  align-items: center;
+  display: flex;
+  /* margin-bottom: 0.6rem; */
+}
+
+.modality-tour-selected-entries {
+  position: relative;
+  min-height: 350px;
+  width: 26rem;
+  background: #ffffff;
+  border-radius: 9px;
+  border: 3px solid #00000014;
+  margin-right: 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header-modality-selected-entries::before {
+  content: "";
+  background: #fff;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  top: 80%;
+  right: 95%;
+  /* box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.11); */
+  border-right: 2px #b3b3b3;
+  border-right-style: groove;
+}
+
+.header-modality-selected-entries::after {
+  content: "";
+  background: #fff;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  top: 80%;
+  left: 95%;
+  /* box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.11); */
+  border-left: 2px #b3b3b3;
+  border-left-style: groove;
+  /* border-left-style: double; */
+}
+
+.container-reservation-tour {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 20px;
+  gap: 10px;
+}
+
+.header-modality-selected-entries {
+  border-bottom: 2px dashed #b5b5b5;
+  font-family: "Montserrat Bold";
+  font-size: 20px;
+  padding: 40px 50px 0px;
+  /* overflow: auto; */
+  padding-bottom: 10px;
+  /* Para agregar barras de desplazamiento si el texto es demasiado grande */
+  word-wrap: break-word;
+  /* Permite que el texto se divida en palabras si es necesario */
+  position: relative;
+}
+
+.body-modality-tour-selected-entries {
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 20px;
+}
+
+.btn-selected-entries {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  padding-bottom: 25px;
+}
+
+.blur-card-tour-modal{
+  filter: blur(2px) opacity(0.93);
+}
+
+.card-selected-occupancy-tour {
+  border: 1px solid #5a6fb9;
+  min-height: 470px;
+  width: 25rem;
+  padding: 40px;
+  background: #2743a6;
+  border-radius: 14px;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+}
+
+.block-card-tour-reservation{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: #6564647a; */
+  border-radius: 14px;
+  font-size: 1rem;
+  font-family: "Montserrat Bold";
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+  text-align: center;
+}
+
+.body-modality-tour-booking {
+  padding-bottom: 2rem;
+  border-bottom: 2px dashed #b5b5b5;
+}
+
+.year-occupancy {
+  font-family: "Montserrat Medium";
+  font-size: 10px;
+  color: white;
+}
+
+.category-title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-family: "Montserrat Semibold";
+}
+
+.div-people-piker {
+  width: 78%;
+  padding: 3px;
+  border-radius: 6px;
+  background: #fff;
+  align-items: center;
+}
+
+.button-left-people-piker {
+  border: none;
+  /* Elimina el borde */
+  background-color: transparent;
+  /* Hace el fondo transparente */
+  padding: 0;
+  /* Elimina el espacio interior del botón */
+  font-size: inherit;
+  /* Usa el tamaño de fuente heredado */
+  color: inherit;
+  /* Usa el color de texto heredado */
+  cursor: pointer;
+  /* Cambia el cursor a una mano */
+  outline: none;
+  /* Elimina el contorno al enfocar */
+}
+
+.button-right-people-piker {
+  border: none;
+  /* Elimina el borde */
+  background-color: transparent;
+  /* Hace el fondo transparente */
+  padding: 0;
+  /* Elimina el espacio interior del botón */
+  font-size: inherit;
+  /* Usa el tamaño de fuente heredado */
+  color: inherit;
+  /* Usa el color de texto heredado */
+  cursor: pointer;
+  /* Cambia el cursor a una mano */
+  outline: none;
+  /* Elimina el contorno al enfocar */
+}
+
+.b-minus {
+  color: #b5b5b5;
+}
+
+.b-max {
+  color: #eb741e;
+}
+
+.b-price {
+  color: #666666;
+  font-size: 1.1rem;
+  font-family: "Montserrat Bold";
+}
+
+.span-title-total {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-family: "Montserrat Medium";
+}
+
+.b-price-total {
+  color: #ffffff;
+  font-size: 20px;
+  /* LP 13-02-24 */
+  font-family: "Montserrat SemiBold";
+}
+
+.c-u-price {
+  font-family: "Montserrat Medium";
+}
+
+.btn-booking-total {
+  width: 100%;
+  padding: 9px;
+  border-radius: 35px;
+  background: #fcb41e;
+  border: 0;
+  font-weight: bold;
+  font-size: 1.1rem;
+  /* LP 13-02-24 */
+  font-family: "Montserrat Bold";
+  cursor: pointer;
+  color: black;
+}
+
+.btn-booking-total:hover {
+  background-color: #fdd278
+}
+
+.box-container-modal-tour {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: #48444442;
+  left: 0;
+  z-index: 1;
+}
+
+.box-container-modal-tour-cart {
+  position: absolute;
+  width: 96%;
+  height: 100%;
+  top: 0;
+  background: #48444442;
+  left: 7px;
+  z-index: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+}
+
+
+.louder-modal-tour {
+  height: 40px;
+  position: sticky;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.louder-modal-tour-cart {
+  height: 40px;
+  /* position: sticky; */
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -50%);
+
+}
+
+.cont-louder-tour-delete{
+  position: absolute;
+  background: rgba(255, 4, 4, 0.09);
+  height: 100%;
+  width: 100%;
+  border-radius: 14px;
+  z-index: 2;
+}
+
+/* LP 13-02-24 */
+
+.p-text-black-select-tour {
+  font-family: "Montserrat Medium";
+}
+
+.text-mxn-bold-tour {
+  font-family: "Montserrat bold";
+  font-size: 16px;
+}
+
+.sup-modality-tour {
+  top: 0%;
+}
+
+.cont-price-modality-card {
+  margin-bottom: 25%;
+}

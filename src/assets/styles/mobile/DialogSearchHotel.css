@@ -1,0 +1,103 @@
+#dialog-tour-info{
+    max-width: 80% !important;
+    margin: auto;
+}
+
+.container-modal-tour{
+    background: #f4f4f4;
+}
+
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper{
+    margin: 0 !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    height: 100%;
+    width: 100%;
+    padding: 0 0 !important;
+    position: absolute !important;
+    border-radius: 0px !important;
+    box-shadow: none;
+}
+.m-container-dialog-room{
+    height: auto;
+    margin-top: 12px;
+}
+.css-uhb5lp{
+    margin: 0 !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    height: 100%;
+    width: 100%;
+    /* padding: 0 14px !important; */
+    padding: 0 0 !important;
+    position: absolute !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+}
+
+.MuiOutlinedInput-notchedOutline.css-igs3ac{
+    border-style: none !important;
+}
+
+.m-input-search-hotel{
+    border: solid 1px #B5B5B5;
+    border-radius: 4px;
+    padding: 9px 10px;
+    margin-top: 33px;
+}
+.close-icon{
+    width: 18px;
+    margin-top: 1em;
+    margin-right: 0.7em;
+}
+.dialog-container{
+    /* padding: 12px 22px; */
+    /* height: 100%; */
+    overflow: hidden;
+}
+.icon-location-home-dialog{
+    width: 12px;
+}
+
+
+.add-button-room{
+    font-family: "Montserrat Bold" !important;
+    font-size: 14px !important;
+}
+
+.room-capacity{
+    font-family: "Montserrat Bold" ;
+    font-size: 14px;   
+    margin-left: 9px;
+}
+
+
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
+    top: -6px !important;
+}
+
+.icon-date-home, .icon-location-home, .icon-room-search, .icon-person-search{
+    width: 17px ;
+}
+.MuiDialog-root.ps-3.pe-3.MuiModal-root.css-126xj0f{
+    padding: 0 !important
+}
+
+@media (max-width:600px) {
+    .m-line-search-hotel{
+        width: 100%;
+        /* position: absolute; */
+        height: 2px;
+        /* top: 90%; */
+        z-index: 7;
+        background: #B5B5B5;
+        opacity: 0.3;
+        left: 0;
+    }
+}
+
+/* 
+.m-rooms-people{
+    max-height: 41em;
+    overflow-y: scroll;
+} */

@@ -1,0 +1,196 @@
+/* Agregar estilos personalizados */
+.swiper-pagination-bullet-active {
+  background: #ff8637 !important;
+}
+
+/* STYLE SWIPER PAGINATION CardHotelT */
+#card-hotel-t>div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal>span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: white !important;
+  width: 6px !important;
+  height: 6px !important;
+  margin: 5px !important;
+}
+
+#card-hotel-t>div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal>span {
+  margin: 5px !important;
+  width: 6px !important;
+  height: 6px !important;
+}
+
+/* END SWIPER PAGINATION CardHotelT */
+
+/* SWIPER ROOMS DETAILS */
+#room-details>div.swiper-button-prev.swiper-button-disabled,
+#room-details>div.swiper-button-prev {
+  display: none;
+}
+
+#room-details>div.swiper-button-next {
+  color: #666666;
+  right: 7px;
+  position: absolute;
+  z-index: 1;
+}
+
+#room-details {
+  position: static;
+}
+
+#room-details>div.swiper-button-next::after {
+  font-size: 1.3rem;
+}
+
+/* END SWIPER ROOMS DETAILS */
+
+/* SWIPER ROOMS DETAILS */
+#room-details>div.swiper-button-prev.swiper-button-disabled,
+#room-details>div.swiper-button-prev {
+  display: none;
+}
+
+#room-details>div.swiper-button-next {
+  color: #666666;
+  right: 7px;
+  position: absolute;
+  z-index: 1;
+}
+
+#room-details {
+  position: static;
+}
+
+#room-details>div.swiper-button-next::after {
+  font-size: 1.3rem;
+}
+
+/* END SWIPER ROOMS DETAILS */
+
+/* SWIPER SHUFFLE HOTEL */
+#swiper-shuffle-hotel>div.swiper-button-prev {
+  display: none;
+}
+
+#swiper-shuffle-hotel>div.swiper-button-next {
+  color: #ff8637;
+  --swiper-navigation-size: 20px;
+  left: 101%;
+  z-index: 4;
+  font-weight: bold;
+}
+
+#swiper-shuffle-hotel>div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  z-index: 4;
+}
+
+/*END SWIPER SHUFFLE HOTEL */
+
+/* SWIPER POPULAR ESTATES */
+#swiper-popular-estates>div.swiper-button-prev {
+  top: 5px;
+  left: auto;
+  right: 28px;
+  color: #eb741e;
+  height: 30px;
+  width: 30px;
+  font-weight: bold;
+  box-shadow: 2px 0 12px 0 rgba(0, 0, 0, .11);
+  background: #fff;
+  z-index: 11;
+  border-right: 1px solid hsla(0, 0%, 56.9%, .444);
+  z-index: 4;
+  --swiper-navigation-size: 20px;
+}
+
+#swiper-popular-estates>div.swiper-button-prev.swiper-button-disabled {
+  color: grey;
+}
+
+#swiper-popular-estates>div.swiper-button-next.swiper-button-disabled {
+  color: grey;
+}
+
+#swiper-popular-estates>div.swiper-button-next {
+  z-index: 4;
+  top: 5px;
+  right: 0;
+  color: #eb741e;
+  height: 30px;
+  width: 30px;
+  box-shadow: 2px 0 12px 0 rgba(0, 0, 0, .11);
+  background: #fff;
+  font-weight: bold;
+  --swiper-navigation-size: 20px;
+}
+
+/*END SWIPER POPULAR ESTATES */
+
+/* BANNERTOUR CLIP-PATH IMAGE WITH DIAGONAL */
+.clip-custom {
+  clip-path: polygon(0% 70rem, 39% 0%, 179rem 0%, 32rem 27rem, 0rem 27rem)
+}
+
+/* END BANNERTOUR CLIP-PATH IMAGE WITH DIAGONAL */
+
+/* SWIPER TOUR DETAILS CARDS DATE */
+#dates-tour-modal > div.swiper-button-next::after{
+  color: #b5b5b5;
+  font-size: 23px;
+  font-weight: bold;
+}
+#dates-tour-modal > div.swiper-button-next{
+  z-index: 3;
+}
+
+#dates-tour-modal > div.swiper-button-prev::after{
+  display: none;
+}
+/* END SWIPER TOUR DETAILS CARDS DATE */
+
+
+/* IMAGES TOUR LISTING */
+#images-tour-listing > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets span{
+  margin: 0 8px !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+/* END IMAGES TOUR LISTING */
+
+/* PAGINATION TOUR RECOMMENDED */
+#swiper-recommended-hotel > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal{
+  bottom: -5px !important;
+}
+/*END PAGINATION TOUR RECOMMENDED */
+
+/* ANIMATION ContactUs.jsx */
+.animations-left{
+  animation: MyDiv;
+  animation-duration: 400ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-direction: normal;
+}
+
+.animations-icon{
+  animation: MyDiv;
+  animation-duration: 200ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-direction: normal;
+}
+
+.bounce2 {
+  animation: bounce2 1s;
+}
+
+@keyframes bounce2 {
+	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+	40% {transform: translateY(-30px);}
+	60% {transform: translateY(-15px);}
+}
+
+@keyframes MyDiv {
+  0%   { bottom: -3rem;}
+  100%  { bottom: 2rem;}
+}
+
+/*END ANIMATION ContactUs.jsx */

@@ -1,0 +1,206 @@
+.container-cards-payment {
+  width: 100%;
+  height: 15em;
+  background: linear-gradient(to right, #6c87e9, #2743a6);
+  border-radius: 0.7rem 1.8rem 0.7rem 0.7rem;
+  position: relative;
+  display: flex;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.front-card,
+.back-card {
+  width: 100%;
+  height: auto;
+  /* position: absolute; */
+  backface-visibility: hidden;
+}
+
+.front-card {
+  position: relative;
+  margin: 2rem 16px 1.6rem;
+  /* margin: 2rem 2rem 1.6rem; */
+  /* margin-top: auto; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 3rem;
+  align-items: center;
+  transform: rotateY(0deg);
+}
+
+.back-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+}
+
+.withe-container {
+  background: black;
+  width: 100%;
+  height: 3rem;
+}
+.cvv-content {
+  background: white;
+  border-radius: 8px;
+  height: 2rem;
+  width: 100%;
+  color: black;
+  font-family: "Montserrat Bold";
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.cv-content-example {
+  color: #cbcbcb !important;
+}
+
+.cvv-text-card {
+  text-align: end;
+  font-family: "Montserrat Medium";
+  color: white;
+  font-size: 0.7rem;
+}
+
+.royal-name-card-back{
+  position: absolute;
+  bottom: 13px;
+  right: 32px;
+  transform: scaleX(-1);
+  width: 9rem;
+  height: auto;
+}
+
+.font-back-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.7rem 1.8rem 0.7rem 0.7rem;
+}
+
+.chip-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2.6rem;
+  height: auto;
+  box-shadow: 0px 9px 24px 1px rgba(0, 0, 0, 0.58);
+  filter: opacity(0.8);
+}
+
+.icon-logo-transparent {
+  position: absolute;
+  right: 3px;
+  top: 0;
+  filter: opacity(0.1);
+  height: 96%;
+  width: auto;
+}
+
+.number-card {
+  font-family: "Montserrat Bold";
+  font-size: 1.5rem;
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  letter-spacing: 3px;
+}
+
+.general-info-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+.info-personal-card {
+  display: flex;
+  gap: 2rem;
+}
+
+.titular-name {
+  display: flex;
+  flex-direction: column;
+}
+.due-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: "Montserrat Medium";
+  font-size: 0.7rem;
+  color: #cbcbcb;
+}
+
+.titular-info {
+  font-family: "Montserrat Bold";
+  font-size: 0.8rem;
+  color: #cbcbcb;
+}
+
+.type-card-payment {
+  height: 1.5rem;
+  width: auto;
+}
+
+@media screen and (max-width:1400px) {
+  .container-cards-payment{
+    width: 61% !important;
+    justify-content: center !important;
+  }
+
+  .number-card{
+    gap: 1rem !important;
+  }
+}
+@media screen and (max-width:1200px) {
+  .container-cards-payment{
+    width: 88% !important;
+  }
+}
+@media screen and (max-width:990px) {
+  .container-cards-payment{
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container-cards-payment {
+    width: 100%;
+    height: 14rem;
+  }
+  .front-card {
+    gap: 2rem;
+    margin: 2rem 1.6rem 1.4rem;
+  }
+  .chip-icon {
+    width: 2.4rem;
+  }
+  .icon-logo-transparent {
+    height: 90%;
+  }
+  .number-card {
+    font-size: 1.35rem;
+    gap: 0.4rem !important;
+  }
+
+  .royal-name-card-back{
+    position: absolute;
+    bottom: 13px;
+    right: 32px;
+    transform: scaleX(-1);
+    width: 7rem;
+    height: auto;
+  }
+}
