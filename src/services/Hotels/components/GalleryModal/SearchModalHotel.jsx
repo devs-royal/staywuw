@@ -43,7 +43,7 @@ export function SearchModalHotel() {
 
     const queryParams = {
       code: requestBodyRooms.code,
-      type: requestBodyRooms.type,
+      type: "hotel",
       "check-in": checkInDate,
       "check-out": checkOutDate,
       occupancies: roomData,

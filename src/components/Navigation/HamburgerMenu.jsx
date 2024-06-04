@@ -1,13 +1,14 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import Link from "next/link";
 import { Dialog } from "@headlessui/react";
-import { SelectCurrency } from "./SelectCurrency";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useContext, useEffect, useState } from "react";
+
+import { SelectCurrency } from "./SelectCurrency";
 import LanguageContext from "@/language/LanguageContext";
 import { LanguageSelector } from "@/language/LanguageSelector";
 import { NavigationConfig } from "@/config/Navigation/NavigationConfig";
-import Link from "next/link";
 
 export function HamburgerMenu({ open, setMobileMenuOpen }) {
   const [currentActiveIcon, setCurrentActiveIcon] = useState(null);
@@ -48,6 +49,7 @@ export function HamburgerMenu({ open, setMobileMenuOpen }) {
             </div>
 
             <div className="space-y-7 py-6">
+              {/* HOTEL LINK */}
               <Link
                 href={`${process.env.NEXT_PUBLIC_HOME}`}
                 passHref
@@ -68,8 +70,9 @@ export function HamburgerMenu({ open, setMobileMenuOpen }) {
                 </span>
               </Link>
 
+              {/* TOUR LINK */}
               <Link
-                href={`${language}/tour`}
+                href={`/${language}/tour`}
                 passHref
                 className="flex items-center pr-4 text-gry-100 m-b hover:text-or-100 no-underline	"
               >
@@ -79,9 +82,29 @@ export function HamburgerMenu({ open, setMobileMenuOpen }) {
                   className="pr-2"
                 />
                 <span
-                  className={`${ currentActiveIcon === "tours" && "text-or-100"}`}
+                  className={`${ currentActiveIcon === "tours" || currentActiveIcon === "tour" ? "text-or-100" : ""}`}
                 >
                   Tours
+                </span>
+              </Link>
+
+              {/* TRANSPORT LINK */}
+              <Link
+                href={`/${language}/transport`}
+                passHref
+                className="flex items-center pr-4 text-gry-100 m-b hover:text-or-100 no-underline	"
+              >
+                <img
+                  src={`${process.env.NEXT_PUBLIC_URL}icons/transport/transport-b.svg`}
+                  alt="tour-menu"
+                  className="pr-2"
+                  width="32px"
+                  height="23px"
+                />
+                <span
+                  className={`${ currentActiveIcon === "transports" || currentActiveIcon === "transport" ? "text-or-100" : ""}`}
+                >
+                  {languageData.modalHotelOptions.titleTransfer}
                 </span>
               </Link>
             </div>

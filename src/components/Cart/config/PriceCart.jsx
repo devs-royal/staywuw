@@ -69,9 +69,9 @@ export default function PriceCart(props) {
 
         {/* BTN */}
         <div className="flex justify-end gap-[16px] mt-[16px] mb-3">
-          <button className=" flex items-center text-fs-14 text-bl-100 m-s-b border-2 border-bl-100 rounded-full py-[12px] px-[16px] hover:bg-bl-100 hover:text-white">
+          {/* <button className=" flex items-center text-fs-14 text-bl-100 m-s-b border-2 border-bl-100 rounded-full py-[12px] px-[16px] hover:bg-bl-100 hover:text-white">
             {languageData.cart.btnReset}
-          </button>
+          </button> */}
           <Link
             href={`/${language}/booking?uid=${cartId}`}
             passHref

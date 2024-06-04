@@ -1,11 +1,11 @@
-"use client"
-import Dropdown from "react-bootstrap/Dropdown";
+"use client";
 import { useState, useEffect, useContext, useRef } from "react";
 
 import RoomMenu from "./RoomMenu";
+import { Menu } from "@headlessui/react";
 import LanguageContext from "../../../language/LanguageContext";
 
-function Room({listing=false ,OnApply }) {
+function Room({ listing = false, OnApply }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [totalRooms, setTotalRooms] = useState(1);
   const [totalPeople, setTotalPeople] = useState({ adults: 2, children: 0 });
@@ -13,10 +13,14 @@ function Room({listing=false ,OnApply }) {
   const { languageData } = useContext(LanguageContext);
   useEffect(() => {
     const roomData = JSON.parse(localStorage.getItem("roomData"));
-
     if (roomData) {
       setTotalRooms(roomData.length);
     }
+    const totalAdults = JSON.parse(localStorage.getItem("adultsHotel") || 2);
+    const totalChildren = JSON.parse(
+      localStorage.getItem("childrenHotel") || 0
+    );
+    setTotalPeople({ adults: totalAdults, children: totalChildren });
   }, []);
 
   const handleRoomData = (roomData) => {
@@ -47,30 +51,37 @@ function Room({listing=false ,OnApply }) {
     }
   };
 
-    // FUNCTION TO CLOSE MENU
-    const ref = useRef(null);
+  // FUNCTION TO CLOSE MENU
+  const ref = useRef(null);
 
-    useEffect(() => {
-      document.addEventListener("click", handleClickOutside);
-  
-      return () => {
-        document.removeEventListener("click", handleClickOutside);
-      };
-    }, []);
-  
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setShowDropdown(false);
-      }
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
     };
-    // END FUNCTION TO CLOSE MENU
+  }, []);
+
+  const handleClickOutside = (event) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      setShowDropdown(false);
+    }
+  };
+  // END FUNCTION TO CLOSE MENU
 
   return (
-    <div ref={ref} className={` border-2 border-gray-200 rounded py-2.5 px-4 relative w-full  h-[54px] ${listing === false && 'lg:w-[296px]'} `}>
-      <Dropdown style={{minWidth:"293px"}} show={showDropdown} onClose={() => setShowDropdown(false)}>
-        <Dropdown.Toggle
-          onClick={() => setShowDropdown(!showDropdown)}
-          className="!flex border-0 bg-transparent p-0"
+    <Menu
+      as="div"
+      className={`${
+        listing ? "w-full" : "w-full lg:w-[296px]"
+      } relative inline-block`}
+    >
+      <div>
+        <Menu.Button
+          onClick={() => setShowDropdown(true)}
+          className={`${
+            listing ? "w-full" : "w-full lg:w-[296px]"
+          } border-2 border-gray-200 rounded py-2.5 px-4 relative h-[56px] !flex gap-x-2 items-center`}
         >
           <span className="flex items-center gap-2 border-r-2 border-gry-70 pr-3.5">
             <img
@@ -83,7 +94,7 @@ function Room({listing=false ,OnApply }) {
                 {languageData.SearchBox.tabHotel.rooms}
               </span>
 
-              <span className="m-s-b text-fs-12 text-gry-100">
+              <span className="m-s-b text-fs-12 text-gry-100 text-nowrap">
                 {totalRooms} {languageData.modalHotel[roomPlural(totalRooms)]}
               </span>
             </div>
@@ -100,7 +111,7 @@ function Room({listing=false ,OnApply }) {
                 {languageData.SearchBox.tabTour.people}
               </span>
 
-              <span className="m-s-b text-fs-12 text-gry-100">
+              <span className="m-s-b text-fs-12 text-gry-100 text-nowrap">
                 {`${totalPeople.adults} ${
                   languageData.itinerary.tourItinerary[
                     adultPlural(totalPeople.adults)
@@ -114,22 +125,17 @@ function Room({listing=false ,OnApply }) {
               </span>
             </div>
           </span>
-        </Dropdown.Toggle>
-
-        {showDropdown === true && (
-          <Dropdown.Menu className="border-0 w-11/12 z-[3] p-0">
-            {/* <div className="equilateral-triangle-bottom"></div> */}
-            <RoomMenu
-              showRoom={handleRoomData}
-              showDrop={setShowDropdown}
-              people={setTotalPeople}
-              roomsTotal={setTotalRooms}
-              onClose={setShowDropdown}
-            />
-          </Dropdown.Menu>
-        )}
-      </Dropdown>
-    </div>
+        </Menu.Button>
+      </div>
+      <RoomMenu
+        showRoom={handleRoomData}
+        showDropdown={showDropdown}
+        showDrop={setShowDropdown}
+        people={setTotalPeople}
+        roomsTotal={setTotalRooms}
+        onClose={setShowDropdown}
+      />
+    </Menu>
   );
 }
 

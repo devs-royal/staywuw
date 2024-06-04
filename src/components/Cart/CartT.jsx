@@ -1,24 +1,23 @@
 "use client";
 
-import React, { useState, useEffect, useContext } from "react";
 import Image from "next/image";
-// import { useRouter } from "next/navigation";
-import CartTourT from "./carts/CartTourT";
-import { useCartAxios } from "./CartAxios";
-import CartHotelT from "./carts/CartHotelT";
-import PriceCart from "./config/PriceCart";
+import React, { useState, useEffect, useContext } from "react";
+
 import EmptyCart from "./utils/EmptyCart";
+import PriceCart from "./config/PriceCart";
+import { useCartAxios } from "./CartAxios";
+import { CartItem } from "./config/CartItem";
 import LanguageContext from "@/language/LanguageContext";
-// import LanguageContext from "@/language/LanguageContext";
+
 export default function CartT(props) {
   const { closeCart } = props;
   const [cartUid, setCartUid] = useState(null);
-  const { cartData, fetchData } = useCartAxios();
+  const { cartData } = useCartAxios();
   const [isLoader, setIsLoader] = useState(false);
+  const { languageData } = useContext(LanguageContext);
   const [cartInfo, setCartInfo] = useState(
     cartData && cartData.cartItems ? cartData.cartItems : null
   );
-  const { languageData } = useContext(LanguageContext);
 
   // OBTAIN UID CART
   useEffect(() => {
@@ -27,13 +26,16 @@ export default function CartT(props) {
 
   useEffect(() => {
     if (
-      cartData &&
-      cartData.cartItems &&
-      cartData.cartItems.activities &&
-      cartData.cartItems.activities.length > 0 ||
-      cartData &&
-      cartData.cartItems.hotels &&
-      cartData.cartItems.hotels.length > 0 
+      (cartData &&
+        cartData.cartItems &&
+        cartData.cartItems.activities &&
+        cartData.cartItems.activities.length > 0) ||
+      (cartData &&
+        cartData.cartItems.hotels &&
+        cartData.cartItems.hotels.length > 0) ||
+      (cartData &&
+        cartData.cartItems.transportations &&
+        cartData.cartItems.transportations.length > 0)
     ) {
       setCartInfo(cartData.cartItems);
     } else {
@@ -48,15 +50,6 @@ export default function CartT(props) {
       setCartUid(uid);
     }
   };
-
-  // GET AXIOS CONTEXT CART
-  const fetchCartData = () => {
-    fetchData(cartUid);
-  };
-
-  // const handleEmptyAlert = (statusEmpty) => {
-  //   setCartInfo(statusEmpty);
-  // };
 
   return (
     <>
@@ -82,29 +75,23 @@ export default function CartT(props) {
               <div
                 className={`max-h-[364px] relative overflow-y-auto scroll-page-gry `}
               >
-                {cartInfo.hotels && (
-                  <CartHotelT
-                    cartId={cartUid}
-                    hotelGetCart={cartInfo}
-                    setIsLoader={setIsLoader}
-                    isLoader={isLoader}
-                    // emptyClr={handleEmptyAlert}
-                    // onUpdateData={fetchCartData}
-                  />
+                {["hotels", "activities", "transportations"].map(
+                  (type) =>
+                    cartInfo[type] &&
+                    cartInfo[type].map((item, index) => (
+                      <CartItem
+                        key={`${type}-${index}`}
+                        item={item}
+                        itemType={type} // Removes the 's' from the end to match switch cases
+                        cartId={cartUid}
+                        setIsLoader={setIsLoader}
+                        isLoader={isLoader}
+                      />
+                    ))
                 )}
 
-                {cartInfo.activities && (
-                  <CartTourT
-                    cartId={cartUid}
-                    tourGetCart={cartInfo}
-                    setIsLoader={setIsLoader}
-                    isLoader={isLoader}
-                    // onUpdateData={fetchCartData}
-                  />
-                )}
+                {/* PRICE */}
               </div>
-
-              {/* PRICE */}
               <PriceCart cartId={cartUid} />
             </>
           )}

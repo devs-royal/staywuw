@@ -6,7 +6,6 @@ import {
 } from "@heroicons/react/24/outline";
 import { useContext, useState } from "react";
 
-import "../../../../assets/styles/general/keyframes.css";
 import LanguageContext from "@/language/LanguageContext";
 
 const tabs = [

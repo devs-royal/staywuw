@@ -98,7 +98,7 @@ export default function FiltersHotel() {
                   {languageData.containerFilterHotel.button}
                 </button>
               </div>
-              {/* BTN APPLY RANGE PRICE */}
+              {/*END BTN APPLY RANGE PRICE */}
             </Disclosure.Panel>
           </>
         )}

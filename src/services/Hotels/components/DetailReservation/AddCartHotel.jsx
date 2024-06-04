@@ -1,22 +1,30 @@
-import React, { useContext, useState } from "react";
 import { useRouter } from "next/navigation";
+import React, { useContext, useState } from "react";
 
 import { saveToCart } from "../../Api/requestHotel";
 import LanguageContext from "@/language/LanguageContext";
 import { useCartAxios } from "@/components/Cart/CartAxios";
 import RoomsHotelContext from "../../context/RoomsHotelContext";
+import NotificationType from "@/components/Alerts/Notifications/NotificationType";
+import { useNotification } from "@/components/Alerts/Notifications/useNotification";
+import { EntitiesRecommendations } from "@/components/Recommended/Entities/Entities";
 
 export default function AddCartHotel() {
   const router = useRouter();
   const { fetchData } = useCartAxios();
-  const { languageData, language } = useContext(LanguageContext);
   const [isLoading, setIsLoading] = useState(false);
+  const { notification, showNotification, hideNotification } =
+    useNotification();
+  const { languageData, language } = useContext(LanguageContext);
 
-  const { selectedRooms, requestBodyRooms, keyHotel, setIsFailedReservation } =
-    useContext(RoomsHotelContext);
+  const {
+    selectedRooms,
+    requestBodyRooms,
+    keyHotel,
+    hotelInfo,
+  } = useContext(RoomsHotelContext);
 
   // HANDLE ADD CART HOTEL
-
   const handleReserveNow = async () => {
     try {
       setIsLoading(true);
@@ -50,6 +58,12 @@ export default function AddCartHotel() {
       }
 
       const response = await saveToCart(saveRequestCart);
+      showNotification(
+        "success",
+        "¡Hotel agregado!",
+        "Todo listo para tu estancia.",
+        3000
+      );
 
       const cartUid = response.cart;
       const expirationTime = new Date().getTime() + 2 * 60 * 60 * 1000;
@@ -59,18 +73,19 @@ export default function AddCartHotel() {
       );
       fetchData(cartUid);
       setTimeout(() => {
-        // router.push(`${language}/booking?uid=${cartUid}`);
-        router.push(`/${language}/booking?uid=${cartUid}`);
+        router.push(EntitiesRecommendations(language, "hotel", hotelInfo, cartUid));
+      }, 3000);
 
-      }, 1000);
     } catch (error) {
-      console.error(error);
+      console.log(error);
       setIsLoading(false);
-      if (error.response.status >= 400) {
-        setIsFailedReservation(true);
-      } else {
-        setIsFailedReservation(false);
-      }
+
+      showNotification(
+        "error",
+        "Error al agregar hotel",
+        "Hubo un problema al agregar el hotel. Por favor, inténtalo de nuevo.",
+        3000
+      );
     }
   };
 
@@ -85,6 +100,16 @@ export default function AddCartHotel() {
           ? languageData.cart.loadingText
           : languageData.detailHotel.buttonPrincipal}
       </button>
+
+      {notification && notification.visible && (
+        <NotificationType
+          type={notification.type}
+          title={notification.title}
+          message={notification.message}
+          duration={notification.duration}
+          onClose={hideNotification}
+        />
+      )}
     </>
   );
 }

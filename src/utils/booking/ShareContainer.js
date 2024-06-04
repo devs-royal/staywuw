@@ -1,23 +1,34 @@
-import React, { useContext, useState } from "react";
-import { Col, Modal, Row } from "react-bootstrap";
+import { Dialog, Transition } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import React, { Fragment, useContext, useState } from "react";
 
 import LanguageContext from "../../language/LanguageContext";
 
-// import RoyalMail from "../../assets/icons/utils/payment/email-m.svg";
-// import RoyalShareLink from "../../assets/icons/utils/payment/clip-link.svg";
-// import RoyalWhatsapp from "../../assets/icons/utils/payment/whatsapp-m.svg";
-// import RoyalMailActive from "../../assets/icons/utils/payment/email-active-m.svg";
-// import RoyalShareLinkActive from "../../assets/icons/utils/payment/clip-link-active.svg";
-// import RoyalWhatsappActive from "../../assets/icons/utils/payment/whatsapp-active-m.svg";
+const typeShared = [
+  {
+    value: "whatsapp",
+    activeIcon: `${process.env.NEXT_PUBLIC_URL}icons/whats/whats-b-o.svg`,
+    icon: `${process.env.NEXT_PUBLIC_URL}icons/whats/whats-b.svg`,
+    label: "whatsApp",
+  },
+  {
+    value: "mail",
+    activeIcon: `${process.env.NEXT_PUBLIC_URL}icons/mail/mail-b-o.svg`,
+    icon: `${process.env.NEXT_PUBLIC_URL}icons/mail/mail-b.svg`,
+    label: "email",
+  },
+  {
+    value: "link",
+    activeIcon: `${process.env.NEXT_PUBLIC_URL}icons/link/link-b-o.svg`,
+    icon: `${process.env.NEXT_PUBLIC_URL}icons/link/link-b.svg`,
+    label: "copyLink",
+  },
+];
 
-export function ShareContainer({
-  smShow,
-  handleCloseModal,
-}) {
+export function ShareContainer({ smShow, handleCloseModal }) {
   const { languageData } = useContext(LanguageContext);
 
   const [activeIcon, setActiveIcon] = useState(null);
-  const [buttonText, setButtonText] = useState(languageData.shareLink.copyLink);
   const storageLanguage = localStorage.getItem("language");
 
   const setMessage = () => {
@@ -30,7 +41,7 @@ export function ShareContainer({
         return "Hola, te comparto mi itinerario. ";
     }
   };
-  
+
   const handleMouseOver = (icon) => {
     setActiveIcon(icon);
   };
@@ -51,7 +62,10 @@ export function ShareContainer({
 
   const handleEmailClick = () => {
     const currentURL = window.location.href;
-    const subject = storageLanguage === 'es' ? 'PENDIENTE MENSAJE POR PARTE DE MARKETING' : 'PENDING MESSAGE FROM MARKETING';
+    const subject =
+      storageLanguage === "es"
+        ? "PENDIENTE MENSAJE POR PARTE DE MARKETING"
+        : "PENDING MESSAGE FROM MARKETING";
     const message = setMessage();
     const emailLink = `mailto:?subject=${encodeURIComponent(
       subject
@@ -70,116 +84,104 @@ export function ShareContainer({
     document.body.removeChild(tempInput);
 
     setActiveIcon("link");
-    setButtonText(languageData.shareLink.copy); // Change the button text
+    // setButtonText(languageData.shareLink.copy); // Change the button text
 
-    setTimeout(() => {
-      setActiveIcon(null);
-      setButtonText(languageData.shareLink.copyLink); // Reset the button text
-    }, 2000);
+    // setTimeout(() => {
+    //   setActiveIcon(null);
+    //   setButtonText(languageData.shareLink.copyLink); // Reset the button text
+    // }, 2000);
   };
 
+  const handleSharedType = (sharedType) => {
+    switch (sharedType) {
+      case "whatsapp":
+        return handleWhatsAppClick();
+      case "mail":
+        return handleEmailClick();
+      case "link":
+        return handleCopyClick();
+    }
+  };
 
   return (
-    smShow && (
-      <div className="modal">
-        <Modal
-          size="sm"
-          id="modal-share-links"
-          show={smShow}
-          onHide={handleCloseModal}
-          aria-labelledby="example-modal-sizes-title-sm"
+    <Transition.Root show={smShow} as={Fragment}>
+      <Dialog className="relative z-[1000]" onClose={handleCloseModal}>
+        <Transition.Child
+          as={Fragment}
+          enter="ease-out duration-300"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="ease-in duration-200"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
         >
-          <Modal.Header closeButton></Modal.Header>
-          <Modal.Body className="display-modal-share">
-            <div className="title-share-link-m">
-              {languageData.shareLink.titleShareModal}
-            </div>
-            <Row className="card-shared-icon">
-              <Col sm={4} className="styles-columns-share-m">
-                <>
-                  <div
-                    className="info-media-share flex flex-col items-center"
-                    onClick={handleWhatsAppClick}
-                    onMouseEnter={() => handleMouseOver("whatsapp")}
-                    onMouseLeave={handleMouseOut}
+          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+        </Transition.Child>
+
+        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              enterTo="opacity-100 translate-y-0 sm:scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+              leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            >
+              <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 mb-auto mt-auto">
+                <div className="absolute right-0 top-0 pr-4 pt-4 block">
+                  <button
+                    type="button"
+                    className="rounded-md ng-white text-gry-400 hover:text-gry-500 focus:outline-none"
+                    onClick={handleCloseModal}
                   >
-                    <img
-                      src={
-                        activeIcon === "whatsapp"
-                          ? `${process.env.NEXT_PUBLIC_URL}icons/whats/whats-b-o.svg`
-                          : `${process.env.NEXT_PUBLIC_URL}icons/whats/whats-b.svg`
-                      }
-                      alt={languageData.allAlt.media.altWhatsapp}
-                      className="wtp-share"
-                    />
-                    <div
-                      className="styles-names-share-m"
-                      style={{
-                        color:
-                          activeIcon === "whatsapp" ? "#ff8637" : "#1E1E1E",
-                      }}
-                    >
-                      {languageData.shareLink.whatsApp}
-                    </div>
+                    <span className="sr-only">Close</span>
+                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
+                </div>
+
+                <div className="sm:flex sm:items-center sm:flex-col">
+                  <h3 className="m-0 pb-[2.5rem] text-fs-16 m-b text-center">
+                    {languageData.shareLink.titleShareModal}
+                  </h3>
+
+                  <div className="flex gap-x-6 flex-wrap justify-center">
+                    {typeShared.map((shared, index) => (
+                      <div
+                        key={index}
+                        className="flex flex-col items-center cursor-pointer"
+                        onClick={() => handleSharedType(shared.value)}
+                        onMouseEnter={() => handleMouseOver(shared.value)}
+                        onMouseLeave={handleMouseOut}
+                      >
+                        <img
+                          src={
+                            activeIcon === shared.value
+                              ? shared.activeIcon
+                              : shared.icon
+                          }
+                          alt={shared.label}
+                          className="w-[33px] h-[33px]"
+                          width={33}
+                          height={33}
+                        />
+                        <div
+                          className={`m-b text-fs-14 ${
+                            activeIcon === shared.value && "text-or-100"
+                          }`}
+                        >
+                          {languageData.shareLink[shared.label]}
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                </>
-              </Col>
-              <Col sm={4} className="styles-columns-share-m">
-                <>
-                  <div
-                    className="info-media-share flex flex-col items-center"
-                    onClick={handleEmailClick}
-                    onMouseEnter={() => handleMouseOver("mail")}
-                    onMouseLeave={handleMouseOut}
-                  >
-                    <img
-                      src={activeIcon === "mail" ? `${process.env.NEXT_PUBLIC_URL}icons/mail/mail-b-o.svg` : `${process.env.NEXT_PUBLIC_URL}icons/mail/mail-b.svg`}
-                      alt={languageData.allAlt.media.altMail}
-                      className="mail-share"
-                    />
-                    <div
-                      className="styles-names-share-m"
-                      style={{
-                        color: activeIcon === "mail" ? "#ff8637" : "#1E1E1E",
-                      }}
-                    >
-                      {languageData.shareLink.email}
-                    </div>
-                  </div>
-                </>
-              </Col>
-              <Col sm={4} className="styles-columns-share-m">
-                <>
-                  <div
-                    className="info-media-share flex flex-col items-center"
-                    onClick={handleCopyClick}
-                    onMouseEnter={() => handleMouseOver("link")}
-                    onMouseLeave={handleMouseOut}
-                  >
-                    <img
-                      src={
-                        activeIcon === "link"
-                          ? `${process.env.NEXT_PUBLIC_URL}icons/link/link-b-o.svg`
-                          : `${process.env.NEXT_PUBLIC_URL}icons/link/link-b.svg`
-                      }
-                      alt={languageData.allAlt.media.altLink}
-                      className="media-share"
-                    />
-                    <div
-                      className="styles-names-share-m"
-                      style={{
-                        color: activeIcon === "link" ? "#ff8637" : "#1E1E1E",
-                      }}
-                    >
-                      {buttonText}
-                    </div>
-                  </div>
-                </>
-              </Col>
-            </Row>
-          </Modal.Body>
-        </Modal>
-      </div>
-    )
+                </div>
+              </Dialog.Panel>
+            </Transition.Child>
+          </div>
+        </div>
+      </Dialog>
+    </Transition.Root>
   );
 }

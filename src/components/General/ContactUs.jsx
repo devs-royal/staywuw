@@ -43,7 +43,7 @@ export default function ContactUs() {
 
                 <div
                     // className='fixed bottom-[2rem] right-[2rem] flex items-center gap-2 bg-white h-[50px] mb-[10px] w-fit rounded-tr-2xl rounded-l-3xl shadow-3xl cursor-pointer no-underline z-10 max-md:rounded-full hover:transform hover:scale-105 transition-transform duration-300 '
-                    className={`fixed bottom-[2rem] right-[2rem] flex items-center gap-2 bg-white h-[50px] mb-[10px] w-fit rounded-tr-2xl rounded-l-3xl shadow-3xl cursor-pointer no-underline z-10 max-md:rounded-full ${delayClass ? "bounce2" : "animations-icon"
+                    className={`fixed bottom-[1.9rem] right-[2rem] flex items-center gap-2 bg-white h-[50px] mb-[10px] w-fit rounded-tr-2xl rounded-l-3xl shadow-3xl cursor-pointer no-underline z-10 max-md:rounded-full ${delayClass ? "bounce2" : "animations-icon"
                         }`}
                 >
                     <div className='bg-bl-100 w-[60px] h-[60px] rounded-full flex justify-center items-center '>
@@ -56,7 +56,7 @@ export default function ContactUs() {
             }
 
             {delayIcon &&
-                <div className={`bg-bl-100 p-[1rem] rounded-full border border-white fixed bottom-[39px] right-[149px] z-[11] max-md:right-[36px]
+                <div className={`bg-bl-100 p-[1rem] rounded-full border border-white fixed bottom-[39px] right-[149px] z-[10] max-md:right-[36px]
                     ${delayClass ? "bounce2" : "animations-icon"
                     }`}>
                     <Image
@@ -64,6 +64,7 @@ export default function ContactUs() {
                         alt={`${process.env.NEXT_PUBLIC_NAME_COMPANY} call icon`}
                         width={18}
                         height={18}
+                        className='w-[18px] h-[18px]'
                     />
                 </div>
             }

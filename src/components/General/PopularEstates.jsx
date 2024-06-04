@@ -1,4 +1,5 @@
 "use client";
+
 import "swiper/css";
 // import axios from "axios";
 import moment from "moment";
@@ -15,7 +16,6 @@ import axiosWithInterceptor from "@/config/Others/axiosWithInterceptor";
 import { UpdateAutocompleteTour } from "@/config/Others/UpdateAutocompleteTour";
 
 export function PopularState({ tour = false }) {
-  console.log(tour);
   const [popularState, setPopularState] = useState([]);
   const { language, languageData } = useContext(LanguageContext);
   const router = useRouter();
@@ -127,16 +127,15 @@ export function PopularState({ tour = false }) {
           <SwiperSlide className="bg-transparent">
             <div className="flex flex-col md:flex-row gap-x-0 gap-y-3 md:gap-y-0 h-full md:gap-x-3">
               <div className="flex gap-x-3 w-full md:h-full h-2/4">
+                {/* IMAGE LEFT CARROUSEL */}
                 <div
-                  className="relative rounded-lg md:w-[23%] w-full cursor-pointer"
+                  className="relative rounded-lg md:w-[23%] w-full cursor-pointer overflow-hidden"
                   onClick={() => sendDestination(popularState[0])}
                 >
                   <img
                     src={popularState[0].imageUrl}
-                    alt={` ${popularState[0].name} ${process.env.NEXT_PUBLIC_NAME_COMPANY}`}
-                    className="h-full rounded-lg object-cover brightness-[.7] select-none"
-                    width="100%"
-                    height="100%"
+                    alt={`${popularState[0].name} ${process.env.NEXT_PUBLIC_NAME_COMPANY}`}
+                    className="brightness-[.7] absolute inset-0 w-full h-full object-cover transition-transform duration-500 transform scale-100 hover:scale-105 hover:brightness-[.5]"
                   />
                   <div className="absolute flex flex-col bottom-0 text-white p-4 text-left">
                     <span className="text-fs-14 m-b">
@@ -145,21 +144,21 @@ export function PopularState({ tour = false }) {
                     <span className="m-m text-fs-10">
                       {languageData.homeDestinations[0].titleTop.textHotel}{" "}
                       <span className="m-s-b text-fs-12">
-                        {" "}
-                        MXN ${parsePrice(popularState[0].price)}{" "}
+                        MXN ${parsePrice(popularState[0].price)}
                       </span>
                     </span>
                   </div>
                 </div>
 
+                {/* IMAGE CENTER CARROUSEL */}
                 <div
-                  className="relative rounded-lg md:w-[77%] w-full cursor-pointer"
+                  className="relative rounded-lg md:w-[77%] w-full cursor-pointer overflow-hidden"
                   onClick={() => sendDestination(popularState[1])}
                 >
                   <img
                     src={popularState[1].imageUrl}
                     alt={`${popularState[1].name} ${process.env.NEXT_PUBLIC_NAME_COMPANY}`}
-                    className="h-full rounded-lg object-cover brightness-[.7] select-none"
+                    className="h-full rounded-lg object-cover brightness-[.7] select-none w-full transition-transform duration-500 transform scale-100 hover:scale-105 hover:brightness-[.5]"
                     width="100%"
                     height="100%"
                   />
@@ -178,71 +177,46 @@ export function PopularState({ tour = false }) {
                 </div>
               </div>
 
+              {/* IMAGE RIGHT CARROUSEL */}
               <div className="flex md:flex-col gap-y-3 gap-x-3 md:gap-x-0 md:w-[268px] md:h-full h-[45%]">
-                <div
-                  className="relative rounded-lg md:h-[246px] w-full cursor-pointer"
-                  onClick={() => sendDestination(popularState[2])}
-                >
-                  <img
-                    src={popularState[2].imageUrl}
-                    alt={`${popularState[2].name} ${process.env.NEXT_PUBLIC_NAME_COMPANY}`}
-                    className="h-full rounded-lg object-cover brightness-[.7] select-none"
-                    width="100%"
-                    height="100%"
-                  />
-                  <div className="absolute flex flex-col bottom-0 text-white p-4 text-left">
-                    <span className="m-b text-fs-14">
-                      {popularState[2].name}
-                    </span>
-                    <span className="text-fs-10 m-m">
-                      {languageData.homeDestinations[0].titleTop.textHotel}{" "}
-                      <span className="m-s-b text-fs-12">
-                        {" "}
-                        MXN ${parsePrice(popularState[2].price)}{" "}
+                {popularState.slice(2, 4).map((destination, index) => (
+                  <div
+                    key={index}
+                    className="relative rounded-lg md:h-[246px] w-full cursor-pointer overflow-hidden"
+                    onClick={() => sendDestination(destination)}
+                  >
+                    <img
+                      src={destination.imageUrl}
+                      alt={`${destination.name} ${process.env.NEXT_PUBLIC_NAME_COMPANY}`}
+                      className="brightness-[.7] absolute inset-0 w-full h-full object-cover transition-transform duration-500 transform scale-100 hover:scale-105 hover:brightness-[.5]"
+                    />
+                    <div className="absolute flex flex-col bottom-0 text-white p-4 text-left">
+                      <span className="m-b text-fs-14">{destination.name}</span>
+                      <span className="text-fs-10 m-m">
+                        {languageData.homeDestinations[0].titleTop.textHotel}{" "}
+                        <span className="m-s-b text-fs-12">
+                          MXN ${parsePrice(destination.price)}
+                        </span>
                       </span>
-                    </span>
+                    </div>
                   </div>
-                </div>
-
-                <div
-                  className="relative rounded-lg md:h-[246px] w-full cursor-pointer"
-                  onClick={() => sendDestination(popularState[3])}
-                >
-                  <img
-                    src={popularState[3].imageUrl}
-                    alt={`${popularState[3].name} ${process.env.NEXT_PUBLIC_NAME_COMPANY}`}
-                    className="h-full rounded-lg object-cover brightness-[.7] select-none"
-                    width="100%"
-                    height="100%"
-                  />
-                  <div className="absolute flex flex-col bottom-0 text-white p-4 text-left">
-                    <span className="m-b text-fs-14">
-                      {popularState[3].name}
-                    </span>
-                    <span className="text-fs-10 m-m">
-                      {languageData.homeDestinations[0].titleTop.textHotel}{" "}
-                      <span className="m-s-b text-fs-12">
-                        {" "}
-                        MXN ${parsePrice(popularState[3].price)}{" "}
-                      </span>
-                    </span>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </SwiperSlide>
 
+          {/* MOBILE */}
           <SwiperSlide className="bg-transparent">
             <div className="flex flex-col md:flex-row gap-x-0 gap-y-3 md:gap-y-0 h-full md:gap-x-3">
-              <div className="flex gap-x-3 w-full md:h-full h-[45%]">
+              <div className="flex gap-x-3 w-full md:h-full h-2/4">
                 <div
-                  className="relative rounded-lg md:w-[23%] w-full cursor-pointer"
+                  className="relative rounded-lg md:w-[23%] w-full cursor-pointer overflow-hidden"
                   onClick={() => sendDestination(popularState[4])}
                 >
                   <img
                     src={popularState[4].imageUrl}
                     alt={`${popularState[4].name} ${process.env.NEXT_PUBLIC_NAME_COMPANY}`}
-                    className="h-full rounded-lg object-cover brightness-[.7] select-none"
+                    className="brightness-[.7] absolute inset-0 w-full h-full object-cover transition-transform duration-500 transform scale-100 hover:scale-105 hover:brightness-[.5]"
                     width="100%"
                     height="100%"
                   />
@@ -262,13 +236,13 @@ export function PopularState({ tour = false }) {
                 </div>
 
                 <div
-                  className="relative rounded-lg md:w-[77%] w-full cursor-pointer"
+                  className="relative rounded-lg md:w-[77%] w-full cursor-pointer overflow-hidden"
                   onClick={() => sendDestination(popularState[5])}
                 >
                   <img
                     src={popularState[5].imageUrl}
                     alt={`${popularState[5].name} ${process.env.NEXT_PUBLIC_NAME_COMPANY}`}
-                    className="h-full rounded-lg object-cover brightness-[.7] select-none"
+                    className="h-full rounded-lg object-cover brightness-[.7] select-none  transition-transform duration-500 transform scale-100 hover:scale-105 hover:brightness-[.5]"
                     width="100%"
                     height="100%"
                   />
@@ -289,13 +263,13 @@ export function PopularState({ tour = false }) {
 
               <div className="flex md:flex-col gap-y-3 gap-x-3 md:gap-x-0 md:w-[268px] md:h-full h-[45%]">
                 <div
-                  className="relative rounded-lg md:h-[246px] w-full cursor-pointer"
+                  className="relative rounded-lg md:h-[246px] w-full cursor-pointer overflow-hidden"
                   onClick={() => sendDestination(popularState[6])}
                 >
                   <img
                     src={popularState[6].imageUrl}
                     alt={`${popularState[6].name} ${process.env.NEXT_PUBLIC_NAME_COMPANY}`}
-                    className="h-full rounded-lg object-cover brightness-[.7] select-none"
+                    className="h-full rounded-lg object-cover brightness-[.7] select-none transition-transform duration-500 transform scale-100 hover:scale-105 hover:brightness-[.5]"
                     width="100%"
                     height="100%"
                   />
@@ -314,13 +288,13 @@ export function PopularState({ tour = false }) {
                 </div>
 
                 <div
-                  className="relative rounded-lg md:h-[246px] w-full cursor-pointer"
+                  className="relative rounded-lg md:h-[246px] w-full cursor-pointer overflow-hidden"
                   onClick={() => sendDestination(popularState[0])}
                 >
                   <img
                     src={popularState[0].imageUrl}
                     alt={`${popularState[0].name} ${process.env.NEXT_PUBLIC_NAME_COMPANY}`}
-                    className="h-full rounded-lg object-cover brightness-[.7] select-none"
+                    className="h-full rounded-lg object-cover brightness-[.7] select-none  transition-transform duration-500 transform scale-100 hover:scale-105 hover:brightness-[.5]"
                     width="100%"
                     height="100%"
                   />

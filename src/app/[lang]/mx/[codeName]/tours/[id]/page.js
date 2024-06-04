@@ -34,7 +34,7 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default async function DetailPageTour({ params }) {
+export default async function DetailPageTour({ params, searchParams }) {
   try {
     const response = await axiosWithInterceptor.get(
       `v1/activities/${params.id}`
@@ -42,9 +42,49 @@ export default async function DetailPageTour({ params }) {
 
     const tourMetaData = response.data;
 
-    // if (!tourMetaData) {
-    //   return <div>cargando</div>;
-    // }
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "TouristTrip",
+      name: tourMetaData.activity.name,
+      description: tourMetaData.activity.description,
+      provider: {
+        "@type": "Organization",
+        name: "Stay Wuw",
+        url: `https://staywuw.com/en/mx/${params.codeName}/tours/${params.id}`,
+      },
+      offers: {
+        "@type": "Offer",
+        price: tourMetaData.activity.price,
+        priceCurrency: "MXN",
+        availability: "http://schema.org/InStock",
+        validFrom: "2024-01-01", 
+      },
+      itinerary: [
+        {
+          "@type": "Place",
+          name: tourMetaData.destination.name,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: tourMetaData.destination.name,
+            addressCountry: tourMetaData.destination.country,
+          },
+          image: tourMetaData.activity.images,
+        },
+      ],
+      touristType: tourMetaData.activity.typologies.map((typology) => ({
+        "@type": "Audience",
+        audienceType: typology.description,
+      })),
+      itinerary: {
+        "@type": "Place",
+        name: tourMetaData.destination.name,
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: tourMetaData.destination.country,
+        },
+        image: tourMetaData.destination.image,
+      },
+    };
 
     return (
       <LanguageProvider>
@@ -52,8 +92,16 @@ export default async function DetailPageTour({ params }) {
           <CartAxiosProvider>
             <DetailTourProvider>
               <Token />
+              <section>
+                <script
+                  type="application/ld+json"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(jsonLd),
+                  }}
+                />
+              </section>
               <Navigation hotelDetails={true} />
-              <Tour params={params} tourMetaData={tourMetaData} />
+              <Tour params={params} tourMetaData={tourMetaData} searchParams={searchParams}/>
               <Footer />
             </DetailTourProvider>
           </CartAxiosProvider>

@@ -1,58 +1,9 @@
-import React, { useContext, useEffect, useRef } from "react";
-// import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
+import React, { useContext } from "react";
 
-import SearchBox from "../../hooks/SearchBox";
 import { Tour } from "../../config/Others/imagesBanners";
 import LanguageContext from "../../language/LanguageContext";
 
-export function BannerHomeTop() {
-  const { languageData } = useContext(LanguageContext);
-  const videoRef = useRef(null);
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
-  }, []);
 
-  return (
-    <div className="container content-image-search">
-      <img
-        // src={Tour.bannerHome.image}  //LP 01-03-24
-        src="https://sandboxmexico.com/assets/banners/tours/Feb2024/BannerHomeTour.webp"
-        alt={Tour.bannerHome.alt}
-        width="100%"
-        effect="blur"
-        className="banner-home-tour"
-      />
-      {/* <video
-        width="100%"
-        height="76%"
-        loop={true}
-        className="object-fit-cover"
-        muted={true}
-        ref={videoRef}
-        controls={false}
-        onContextMenu={(e) => e.preventDefault()}
-      >
-        <source
-          src="https://sandboxmexico.com/assets/banners/tours/Feb2024/video-cancun-home.mp4"
-          alt="tour-video-home/mp4"
-        />
-      </video> */}
-
-      <h1 className="text-image-new-h1">
-        {languageData.titleBanners[Tour.bannerHome.title]}
-      </h1>
-
-      <div style={{ position: "relative", width: "100%", height: "auto" }}>
-        <div className="Element-tabTour container">
-          <SearchBox />
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function BannerHomeDown() {
   const { languageData } = useContext(LanguageContext);

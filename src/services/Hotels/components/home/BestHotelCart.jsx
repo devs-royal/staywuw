@@ -1,13 +1,12 @@
 "use client";
 
-import moment from "moment";
 import Image from "next/image";
-import Rating from "@mui/material/Rating";
-import { useContext } from "react";
-
+import { useState, useContext } from "react";
+import { TotalStars } from "@/components/General/Stars";
 import LanguageContext from "@/language/LanguageContext";
 
 export function BestHotelCart({ hotel }) {
+  const [isHovered, setIsHovered] = useState(false);
   const { languageData, language } = useContext(LanguageContext);
 
   const searchHotel = (hotel) => {
@@ -17,12 +16,18 @@ export function BestHotelCart({ hotel }) {
     );
   };
 
-
   return (
-    <div onClick={() => searchHotel(hotel)}>
-      <div className="w-full h-[216px]">
+    <div
+      onClick={() => searchHotel(hotel)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="shadow-3xl !rounded-lg"
+    >
+      <div className="w-full h-[216px] overflow-hidden rounded-t-lg">
         <img
-          className="w-full h-full rounded-t-lg object-cover select-none"
+          className={`w-full h-full rounded-t-lg object-cover select-none transition-transform duration-500 transform ${
+            isHovered ? "scale-105" : "scale-100"
+          }`}
           src={hotel.image}
           alt="card"
         />
@@ -30,18 +35,14 @@ export function BestHotelCart({ hotel }) {
 
       {/* bottom-0 w-full h-1/4 rounded-b-lg pb-3 pt-2 px-4 bg-white flex flex-col */}
       <div className="w-full rounded-b-lg pb-3 pt-2 px-4 bg-white flex flex-col">
-        <div className="m-s-b pt-1 text-fs-14 text-start truncate">
+        <div className="m-s-b pt-1 text-fs-14 text-start truncate mb-[4px]">
           {hotel.name}
           {""}
         </div>
 
-        <Rating
-          className="my-1"
-          name="read-only"
-          value={hotel.category}
-          readOnly
-          size="small"
-        />
+        <div className="mb-[4px]">
+          <TotalStars name="read-only" stars={hotel.stars} />
+        </div>
 
         <div className="flex gap-1 mb-[11px]">
           <Image
@@ -51,8 +52,8 @@ export function BestHotelCart({ hotel }) {
             width={11}
             height={14}
           />
-          <span className="text-bl-100 m-s-b text-fs-12">
-            {hotel.destination}
+          <span className="text-bl-100 m-s-b text-fs-12 truncate">
+            {hotel.address}
           </span>
         </div>
 
@@ -66,7 +67,11 @@ export function BestHotelCart({ hotel }) {
             </span>
           </div>
 
-          <button className="m-s-b text-bl-100 text-fs-12 min-h-8 rounded-3xl border-2 border-bl-100 px-4 py-2 hover:bg-bl-100 hover:text-white text-nowrap">
+          <button
+            className={`m-s-b  text-fs-12 min-h-8 rounded-3xl border-2  px-4 py-2 text-nowrap ${
+              isHovered ? "bg-bl-100 text-white" : "text-bl-100 border-bl-100"
+            }`}
+          >
             {languageData.cartTour.seeDetails}
           </button>
         </div>

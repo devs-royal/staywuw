@@ -69,7 +69,7 @@ export default function ShuffleHotel() {
       </h2>
 
       {/* MENU  */}
-      <div className="flex overflow-y-hidden gap-10 bg-gry-50 py-2 px-4 rounded-3xl mb-8 w-fit max-lg:w-full h-max">
+      <div className="flex overflow-y-hidden gap-10 bg-gry-50 py-[8px] px-[12px] rounded-3xl mb-8 w-fit max-lg:w-full h-max">
         {listOptions.map((option, index) => (
           <button key={index}
             onClick={() => handleCategory(index, option.id)}
@@ -105,9 +105,4 @@ export default function ShuffleHotel() {
       <LodgingHotel selectionId={categorySelected}/>
     </div>
   );
-}
-
-
-export function activitiesTypes(){
-
 }

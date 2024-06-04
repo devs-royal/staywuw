@@ -3,7 +3,6 @@ import moment from "moment";
 export function UpdateAutocompleteTour(props) {
   const { dataLocalSend } = props;
 
-  console.log(dataLocalSend);
   const requestSearch = {
     codeName: dataLocalSend.codeName,
     country: dataLocalSend.country,

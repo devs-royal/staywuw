@@ -58,24 +58,25 @@ export function LanguageSelector() {
           />
         )}
         <select
-          className=""
+          className="appearance-none px-[3px] focus:outline-none"
           name="select"
           onChange={handleChange}
           value={actualLanguage}
         >
-          <option className="" value="es">
+          <option className="appearance-none " value="es">
             ESP
           </option>
-          <option className="" value="en">
+          <option className="appearance-none" value="en">
             ENG
           </option>
         </select>
+        <img
+          src={`${process.env.NEXT_PUBLIC_URL}icons/arrows/down-100.svg`}
+          alt="icon arrow down"
+          width={8}
+          height={8}
+        />
       </div>
-      {/* <div className="m-language">
-      <Suspense fallback={null}>
-        <SelectLanguage />
-      </Suspense>
-    </div> */}
     </>
   );
 }

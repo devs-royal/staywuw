@@ -20,9 +20,9 @@ export function CardTourSkeleton() {
     return (
         <>
             {[...Array(10)].map((_, index) => (
-                <div key={index} className="bg-gry-30 lg:h-[250px] max-sm:max-h-[35rem] max-sm:max-h-[35rem] w-full my-[20px] rounded-2xl flex max-md:flex-col">
+                <div key={index} className="bg-gry-30 lg:h-[250px] max-sm:max-h-[35rem] w-full my-[20px] rounded-lg flex max-md:flex-col">
 
-                    <div className="animate-[skeletonLoading_1s_linear_infinite_alternate] w-[30%] h-full max-lg:h-[241px] rounded-l-2xl max-md:w-full max-md:h-[225px] max-md:rounded-none max-md:rounded-t-lg" />
+                    <div className="animate-[skeletonLoading_1s_linear_infinite_alternate] w-[30%] h-full max-lg:h-[241px] rounded-l-lg max-md:w-full max-md:h-[225px] max-md:rounded-none max-md:rounded-t-lg" />
 
                     <div className="w-[70%] p-[20px] max-md:w-full">
 
@@ -37,7 +37,7 @@ export function CardTourSkeleton() {
                                 <div className="animate-[skeletonLoading_1s_linear_infinite_alternate] h-[44px] w-[110px] rounded" />
                             </div>
 
-                            <div className="w-2/5 max-md:w-full max-md:items-start flex flex-col items-center gap-2 ml-[10px] max-md:ml-0 border-l border-gry-70 max-md:border-l-0 max-md:border-t max-md:flex-row  max-md:justify-between max-md:items-center">
+                            <div className="w-2/5 max-md:w-full max-md:items-start flex flex-col items-center gap-2 ml-[10px] max-md:ml-0 border-l border-[#ebebeb] max-md:border-l-0 max-md:border-t max-md:flex-row  max-md:justify-between">
 
                                 <div className="flex flex-col items-center max-md:items-start gap-2">
                                     {/* <div className="animate-[skeletonLoading_1s_linear_infinite_alternate] h-[15px] w-[70px] max-lg:mt-2" /> */}

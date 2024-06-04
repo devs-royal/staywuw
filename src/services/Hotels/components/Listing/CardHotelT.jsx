@@ -1,20 +1,26 @@
+
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 import "../../../../assets/styles/general/Swiper.css";
 
 import Link from "next/link";
 import Image from "next/image";
 import React, { useContext } from "react";
-import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination,Navigation } from "swiper/modules";
 
 import { TotalStars } from "@/components/General/Stars";
 import LanguageContext from "@/language/LanguageContext";
 import { calculateNights } from "../../utils/calculateNights";
 
+
+
 export default function CardHotelT(props) {
   const { hotel, requestQueryParams } = props;
   const { languageData, language } = useContext(LanguageContext);
+
+  console.log(requestQueryParams);
 
   //   PARAMS URL
   const searchParams =
@@ -57,7 +63,8 @@ export default function CardHotelT(props) {
   return (
     <>
       {hotel && (
-        <div className="max-sm:px-4">
+        // <div className="max-sm:px-4">
+        <div className="">
           <div className="flex border border-gry-50 rounded-lg mb-[10px] bg-white w-full gap-2 my-[20px] max-lg:flex-col lg:h-[230px] max-sm:max-h-[35rem]">
             <div className="w-[30%] relative max-lg:w-full max-lg:h-[225px]">
               <Swiper
@@ -65,10 +72,11 @@ export default function CardHotelT(props) {
                 id="card-hotel-t"
                 slidesPerView={1}
                 loop={true}
+                navigation
                 pagination={{
                   clickable: true,
                 }}
-                modules={[Pagination]}
+                modules={[Pagination,Navigation]}
                 className="!h-[87%] !rounded-tl-lg max-lg:!rounded-t-lg"
               >
                 {hotel.images.map((image, index) => (

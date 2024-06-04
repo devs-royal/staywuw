@@ -16,7 +16,6 @@ export default function ConfirmationEmail(props) {
   const axiosEmail = async () => {
     try {
       const response = await axios.post(API_ENDPOINT, requestBody);
-      console.log(response);
     } catch (error) {
       console.error(error);
     }

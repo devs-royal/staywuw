@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useContext } from "react";
+import Image from "next/image";
+import React, { useEffect, useRef, useState } from "react";
 
 import CartT from "../CartT";
-import Image from "next/image";
 import CartMobile from "./CartMobile";
 import { useCartAxios } from "../CartAxios";
-// import LanguageContext from "@/language/LanguageContext";
 
 export default function CartOpen() {
   const [cartUid, setCartUid] = useState(null);
@@ -50,7 +49,7 @@ export default function CartOpen() {
   };
 
   return (
-    <div ref={ref} className="relative cursor-pointer">
+    <div ref={ref} className="relative cursor-pointer ml-[20px]">
       {totalItemsInCart ? (
         <div
           className="!m-0 flex relative"
@@ -93,7 +92,6 @@ export default function CartOpen() {
           openCart ? "opacity-100" : "opacity-0"
         }`}
       >
-        {/* {openCart === true && (<CartHotelT closeCart={() => setOpenCart(false)} />)} */}
         {openCart && <CartT closeCart={() => setOpenCart(false)} />}
       </div>
     </div>

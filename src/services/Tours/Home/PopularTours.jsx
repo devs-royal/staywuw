@@ -37,8 +37,6 @@ export function PopularTours() {
   }, []);
 
   const sendDestination = (destinationInfo) => {
-    // console.log(destinationInfo);
-    // console.log(destinationInfo[language || "es"].destination);
     const persons = [{ adults: 2, children: 0 }]
     const today = moment();
 
@@ -46,15 +44,10 @@ export function PopularTours() {
     const checkIn = initDate.format("YYYY-MM-DD");
 
     const requestBody = {
-      // codeNameTour: destinationInfo.codeName,
-      // destination: validateLanguageName(language, destinationInfo).name,
-      // code: destinationInfo.id,
-      // type: "activity",
       dateStart:checkIn,
       adults: persons[0].adults,
       children: persons[0].children,
     };
-    // return;
     destinationInfo["country"] = "mexico"
 
     const query = new URLSearchParams(requestBody).toString();

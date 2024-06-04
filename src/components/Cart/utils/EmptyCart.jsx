@@ -12,7 +12,7 @@ export default function EmptyCart() {
     <div className='flex flex-col items-center'>
       <Image
         src={`${process.env.NEXT_PUBLIC_URL}royal/fly-gry.svg`}
-        alt='fly-gry'
+        alt='fly-gry-icon'
         width={72}
         height={65}
         className='mb-6 mt-2'

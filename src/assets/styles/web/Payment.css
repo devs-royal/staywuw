@@ -1437,12 +1437,12 @@ h5 {
   font-size: 0.875rem !important;
 }
 
-#email::placeholder {
+/* #email::placeholder {
   font-family: "Montserrat SemiBold" !important;
   font-style: italic !important;
   color: #666666 !important;
   font-size: 0.875rem !important;
-}
+} */
 
 #phoneNumber::placeholder {
   font-family: "Montserrat SemiBold" !important;
@@ -1488,7 +1488,7 @@ h5 {
   font-size: 0.875rem !important;
   color: #666666;
   display: flex;
-  gap: 6px;
+  /* gap: 6px; */
 }
 
 .button-share-itinerary {

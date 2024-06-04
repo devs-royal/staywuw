@@ -53,7 +53,7 @@ export default function CalendarDay({ onDateChange, listing = false }) {
   const { languageData } = useContext(LanguageContext);
 
   return (
-    <div className={`${listing ? 'w-full' : 'w-full lg:w-[290px]'} border-2 border-gray-200 rounded py-2.5 px-4 flex items-center h-[54px]`}>
+    <div className={`${listing ? 'w-full' : 'w-full lg:w-[290px]'} border-2 border-gray-200 rounded py-2.5 px-4 flex items-center h-[56px]`}>
       <div className="flex items-center gap-2 w-full">
         <img
           className="h-[18px] w-4 invert"

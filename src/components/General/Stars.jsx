@@ -1,5 +1,6 @@
 import { StarIcon } from "@heroicons/react/20/solid";
-export function TotalStars({ stars }) {
+
+export function TotalStars({ stars, width = null, height = null }) {
   const ClassNames = (...classes) => {
     return classes.filter(Boolean).join(" ");
   };
@@ -11,7 +12,7 @@ export function TotalStars({ stars }) {
           key={rating}
           className={ClassNames(
             stars > rating ? "text-yellow-400 w-3.5	" : "text-gray-200 w-3.5",
-            "h-5 w-5 flex-shrink-0"
+            `${width ? width : "w-5"} ${height ? height : "h-5"}  flex-shrink-0`
           )}
           aria-hidden="true"
         />

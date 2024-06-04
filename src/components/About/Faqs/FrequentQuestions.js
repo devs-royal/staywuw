@@ -2,26 +2,20 @@
 
 import React, { useContext, useState, useEffect } from "react";
 
-import { BannerFaqsTop, BannerFaqsDown } from "../../bannerJsx/bannerAboutUs";
-
 import FaqsWeb from "./Faqs";
 import { Container } from "@/config/Others/Container";
-import { useIsMobile } from "../../../config/Mobile/isMobile";
+import SkeletonFaqsT from "../Skeleton/SkeletonFaqsT";
 import LanguageContext from "../../../language/LanguageContext";
-import { SkeletonFaqs } from "../../../utils/skeleton/SkeletonFaqs";
+import { BannerFaqsTop, BannerFaqsDown } from "../../bannerJsx/bannerAboutUs";
 
-// import MetaFrequentQuestions from "../../components/Meta/MetaFrequentQuestions";
 
 export default function FrequentQuestions() {
-  const { languageData } = useContext(LanguageContext);
-
-  const isMobile = useIsMobile();
-
-  const [showSkeletonFaqs, setShowSkeletonFaqs] = useState(true);
-  const [showFaqs, setShowFaqs] = useState(false);
-
-  const [openSection, setOpenSection] = useState("frequentlyQuestions");
+  
   const [activeKey, setActiveKey] = useState("0");
+  const [showFaqs, setShowFaqs] = useState(false);
+  const { languageData } = useContext(LanguageContext);
+  const [showSkeletonFaqs, setShowSkeletonFaqs] = useState(true);
+  const [openSection, setOpenSection] = useState("frequentlyQuestions");
 
   useEffect(() => {
     setActiveKey("0");
@@ -45,14 +39,17 @@ export default function FrequentQuestions() {
 
   return (
     <>
-      {showSkeletonFaqs && <SkeletonFaqs />}
+      {showSkeletonFaqs && <SkeletonFaqsT/>}
+
       {showFaqs && (
         <Container>
           {/* <MetaFrequentQuestions /> */}
           <BannerFaqsTop />
+
           <h1 className="m-b text-fs-20 md:text-[2rem] mt-[1rem]">
             {languageData.faqs.titleFaqs}
           </h1>
+          
           <div className="m-m text-fs-15 md:text-[1rem] pb-[2.5rem]">
             {languageData.faqs.textFaqs}
           </div>

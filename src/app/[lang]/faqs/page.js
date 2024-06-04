@@ -1,5 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../../../assets/styles/web/App.css";
 
 import Token from "@/components/General/Token";
 import Footer from "@/components/Footer/Footer";

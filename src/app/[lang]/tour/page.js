@@ -1,7 +1,3 @@
-// import "../../assets/styles/web/App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-
-// import HomeHotel from "@/pages/Home/HomeHotel";
 import SearchBox from "@/hooks/SearchBox";
 import Token from "@/components/General/Token";
 import Footer from "@/components/Footer/Footer";
@@ -36,13 +32,14 @@ export default function Home() {
           <CartAxiosProvider>
             <Token />
             <Navigation />
-            {/* LP */}
+
             <div className="relative flex justify-center align-center mb-[256px] lg:mb-[118px]">
               <BannerHeaderTour />
-              <div className="absolute top-[67%] sm:top-[60%] md:top-[63%] lg:top-[73%] xl:top-[80%] 2xl:top-[81%] w-full flex flex-col items-center">
+              <div className="absolute top-[67%] sm:top-[60%] md:top-[63%] lg:top-[73%] xl:top-[80%] 2xl:top-[81%] w-full flex flex-col items-center z-[1]">
                 <SearchBox />
               </div>
             </div>
+            
             <Container>
               <BannerHomeTour />
               <BannerCallHotelT />

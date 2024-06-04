@@ -152,3 +152,4 @@ export default function MSearchHotel(props) {
     </>
   );
 }
+

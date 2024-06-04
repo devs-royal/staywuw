@@ -1,9 +1,8 @@
 "use client";
-import { lodgings } from "../../Api/requestHotel";
-import { useToken } from "@/config/context/AuthContext";
-import { LodgingsView } from "./LodgingView";
 import { useEffect, useState } from "react";
-import axiosWithInterceptor from "@/config/Others/axiosWithInterceptor";
+
+import { LodgingsView } from "./LodgingView";
+import { useToken } from "@/config/context/AuthContext";
 import { shuffleHotelTypes } from "../../config/shuffleHotelTypes";
 
 export default function LodgingHotel({ selectionId }) {

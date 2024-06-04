@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useState } from "react";
+
 import { postRoomsToAPI } from "../Api/requestHotel";
 
 const RoomsHotelContext = createContext();
@@ -11,7 +12,12 @@ export const RoomsHotelProvider = ({ children }) => {
   const [requestBodyRooms, setRequestBodyRooms] = useState(null);
   const [keyHotel, setKeyHotel] = useState(null);
   const [isFailedReservation, setIsFailedReservation] = useState(false);
-  
+  const [hotelInfo, setHotelInfo] = useState({
+    codeName: null,
+    name: null,
+    date: null,
+  });
+
   const handleFetchPostRooms = async (requestBody) => {
     setRoomsData(null);
     try {
@@ -37,6 +43,8 @@ export const RoomsHotelProvider = ({ children }) => {
         setKeyHotel,
         isFailedReservation,
         setIsFailedReservation,
+        hotelInfo,
+        setHotelInfo,
       }}
     >
       {children}

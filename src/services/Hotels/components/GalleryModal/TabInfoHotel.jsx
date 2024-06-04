@@ -10,7 +10,6 @@ import { useContext, useEffect, useState } from "react";
 import LanguageContext from "@/language/LanguageContext";
 import { AmenitiesIcons } from "@/components/General/Amenities";
 
-import "../../../../assets/styles/general/keyframes.css";
 
 const tabs = [
   { name: "information", icon: InformationCircleIcon },

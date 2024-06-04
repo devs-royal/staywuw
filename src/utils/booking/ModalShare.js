@@ -49,30 +49,31 @@ export default function ModalShare({ itinerary = false }) {
   };
 
   return (
-    <div className="m-fit">
-      <div className={`styles-button-share ${smShow ? "active" : ""}`}>
+    <>
+      <div className={`flex cursor-pointer items-center gap-x-[8px]`}>
         <div
-          className={`${
-            itinerary === true && "share-itinerary-text"
-          } button-share-itinerary`}
+          className={`${iconActive ? "active" : ""}`}
+          onClick={handleIconClick}
+        >
+          {itinerary ? (
+            <Image src={ShareOr} alt="share orange" />
+          ) : iconActive ? (
+            <Image src={ShareActiveIcon} alt="share active" />
+          ) : (
+            <Image src={ShareIcon} alt="share icon" />
+          )}
+        </div>
+
+        <div
+          className={`text-fs-12 text-nowrap m-s-b ${
+            itinerary === true ? "text-or-100" : "text-black"
+          }`}
           onClick={handleOpenModal}
         >
           {languageData.shareLink.titleShare}
         </div>
-        <div
-          className={`button-share-link ${iconActive ? "active" : ""}`}
-          onClick={handleIconClick}
-        >
-          {itinerary ? (
-            <Image src={ShareOr} alt="share orange"/>
-          ) : iconActive ? (
-            <Image src={ShareActiveIcon} alt="share active"/>
-          ) : (
-            <Image src={ShareIcon} alt="share icon"/>
-          )}
-        </div>
       </div>
       <ShareContainer smShow={smShow} handleCloseModal={handleCloseModal} />
-    </div>
+    </>
   );
 }

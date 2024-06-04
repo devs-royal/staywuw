@@ -2,14 +2,15 @@
 
 import Image from "next/image";
 import { Tab } from "@headlessui/react";
-import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import React, { useContext, useEffect, useState } from "react";
 
 import ResultTour from "@/components/Search/ResultTour";
 import LanguageContext from "../language/LanguageContext";
 import SendHotel from "@/services/Hotels/Search/SendHotel";
-import { NavigationConfig } from "@/config/Navigation/NavigationConfig";
 import { SearchHomeSkeleton } from "@/components/Skeleton/SearchHome";
+import { NavigationConfig } from "@/config/Navigation/NavigationConfig";
+import SearchTransport from "@/services/Transport/components/Search/SearchTransport";
 
 export default function SearchBox() {
   const { languageData, language } = useContext(LanguageContext);
@@ -23,7 +24,6 @@ export default function SearchBox() {
     setCurrentActiveIcon(routerActual);
   }, [routerActual]);
 
-  console.log(currentActiveIcon);
   // CHANGE TAB DINAMIC
   const handleTabChange = (eventKey) => {
     let view = null;
@@ -31,10 +31,17 @@ export default function SearchBox() {
       case "hotels":
         view = process.env.NEXT_PUBLIC_HOME;
         break;
+      case "hotel":
+        view = `/${language}/hotel`;
+        break;
       case "tour":
         view = `/${language}/tour`;
         break;
+      case "transport":
+        view = `/${language}/transport`;
+        break;
     }
+
     if (view != null) {
       router.push(view);
     }
@@ -54,14 +61,16 @@ export default function SearchBox() {
           >
             <span
               className={`${
-                currentActiveIcon === "hotels"
+                currentActiveIcon === "hotels" || currentActiveIcon === "hotel"
                   ? "bg-bl-100 text-white"
                   : "bg-gry-50 text-gry-100"
-              } w-max flex border-0 gap-2 justify-center rounded-t-lg py-2 px-4`}
+              } w-max flex border-0 gap-2 justify-center rounded-t-lg py-2 px-4 h-[43.79px] items-center`}
             >
               <Image
+                className="max-lg:w-4 max-lg:h-4"
                 src={`${process.env.NEXT_PUBLIC_URL}${
-                  currentActiveIcon === "hotels"
+                  currentActiveIcon === "hotels" ||
+                  currentActiveIcon === "hotel"
                     ? "icons/hotel/hotel-w.svg"
                     : "icons/hotel/hotel-b.svg"
                 }`}
@@ -74,7 +83,7 @@ export default function SearchBox() {
           </Tab>
 
           {/* TAB TOUR */}
-          <Tab
+          {/* <Tab
             className="focus:outline-none focus:ring-transparent"
             onClick={() => handleTabChange("tour")}
             style={{ padding: "0" }}
@@ -85,9 +94,10 @@ export default function SearchBox() {
                   ? //  currentActiveIcon === "tours"
                     "bg-bl-100 text-white"
                   : "bg-gry-50 text-gry-100"
-              } w-max flex border-0 gap-2 justify-center rounded-t-lg py-2 px-4`}
+              } w-max flex border-0 gap-2 justify-center rounded-t-lg py-2 px-4 h-[43.79px] items-center`}
             >
               <Image
+                className="max-lg:w-4 max-lg:h-4"
                 src={`${process.env.NEXT_PUBLIC_URL}${
                   currentActiveIcon === "tour" || currentActiveIcon === "tours"
                     ? "icons/tour/tour-w.svg"
@@ -99,25 +109,61 @@ export default function SearchBox() {
               />{" "}
               {languageData.modalHotelOptions.titleTour}
             </span>
-          </Tab>
+          </Tab> */}
+
+          {/* TAB TRANSPORT */}
+          {/* <Tab
+            className="focus:outline-none focus:ring-transparent"
+            onClick={() => handleTabChange("transport")}
+            style={{ padding: "0" }}
+          >
+            <span
+              className={`${
+                currentActiveIcon === "transport"
+                  ? //  currentActiveIcon === "tours"
+                    "bg-bl-100 text-white"
+                  : "bg-gry-50 text-gry-100"
+              } w-max flex border-0 gap-2 justify-center rounded-t-lg py-2 px-4 h-[43.79px] items-center`}
+            >
+              <Image
+                className="max-lg:w-4 max-lg:h-4"
+                src={`${process.env.NEXT_PUBLIC_URL}${
+                  currentActiveIcon === "transport" ||
+                  currentActiveIcon === "transports"
+                    ? "icons/transport/transport-w.svg"
+                    : "icons/transport/transport-b.svg"
+                }`}
+                alt={`${process.env.NEXT_PUBLIC_NAME_COMPANY} icon tour`}
+                width={29}
+                height={25}
+              />{" "}
+              {languageData.modalHotelOptions.titleTransfer}
+            </span>
+          </Tab> */}
         </Tab.List>
 
-        <Tab.Panels>
-          {currentActiveIcon ? (
-            <>
-              {currentActiveIcon === "hotels" && <SendHotel />}
+        <div className="w-full flex justify-center">
+          <Tab.Panels>
+            {currentActiveIcon ? (
+              <>
+                {currentActiveIcon === "hotels" ||
+                currentActiveIcon === "hotel" ? (
+                  <SendHotel />
+                ) : null}
 
-              {currentActiveIcon === "tour" || currentActiveIcon === "tours" ? (
-                <ResultTour />
-              ) : (
-                ""
-              )}
-              {/* {currentActiveIcon === "tours"  && <ResultTour />} */}
-            </>
-          ) : (
-            <SearchHomeSkeleton />
-          )}
-        </Tab.Panels>
+                {/* {currentActiveIcon === "tour" ||
+                currentActiveIcon === "tours" ? (
+                  <ResultTour />
+                ) : (
+                  ""
+                )}
+                {currentActiveIcon === "transport" && <SearchTransport />} */}
+              </>
+            ) : (
+              <SearchHomeSkeleton />
+            )}
+          </Tab.Panels>
+        </div>
       </Tab.Group>
     </>
   );

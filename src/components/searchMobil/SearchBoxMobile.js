@@ -1,5 +1,4 @@
-import "../../assets/styles/web/App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+"use client";
 
 import { Tab } from "@headlessui/react";
 import React, { useState, useEffect, useContext } from "react";
@@ -8,8 +7,8 @@ import MobilSearchTour from "./MobilSearchTour";
 import MobilSearchHotel from "./MobilSearchHotel";
 import LanguageContext from "@/language/LanguageContext";
 import { NavigationConfig } from "@/config/Navigation/NavigationConfig";
+import SearchTransport from "@/services/Transport/components/Search/SearchTransport";
 import { MobilSearchSkeleton } from "@/services/Hotels/components/Skeleton/HotelListingSkeleton";
-// import MobilSearchMoving from "./MobilSearchMoving";
 
 export default function SearchBoxMobile() {
   const [activeTab, setActiveTab] = useState(null);
@@ -40,7 +39,7 @@ export default function SearchBoxMobile() {
           </span>
         </Tab>
 
-        <Tab
+        {/* <Tab
           className="focus:outline-none focus:ring-transparent"
           onClick={() => setActiveTab("tour")}
           style={{ padding: "0" }}
@@ -53,20 +52,33 @@ export default function SearchBoxMobile() {
           >
             {languageData.modalHotelOptions.titleTour}
           </span>
-        </Tab>
+        </Tab> */}
+
+        {/* <Tab
+          className="focus:outline-none focus:ring-transparent"
+          onClick={() => setActiveTab("transport")}
+          style={{ padding: "0" }}
+        >
+          <span
+            className={`${activeTab === "transports" || activeTab === "transport"
+              ? "bg-bl-100 text-white"
+              : "bg-gry-50 text-gry-100"
+              } w-max flex border-0 gap-2 justify-center rounded-t-lg py-3.5 px-4`}
+          >
+            {languageData.modalHotelOptions.titleTransfer}
+          </span>
+        </Tab> */}
       </Tab.List>
       
       {activeTab === null ? <MobilSearchSkeleton /> :
 
         <Tab.Panels>
-          {/* <Tab.Panel> */}
           {activeTab === "hotels" && <MobilSearchHotel />}
-          {/* </Tab.Panel> */}
 
-          {/* <Tab.Panel> */}
-          {activeTab === "tours" || activeTab === "tour" ? <MobilSearchTour /> : ''}
+          {/* {activeTab === "tours" || activeTab === "tour" ? <MobilSearchTour /> : ''} */}
 
-          {/* </Tab.Panel> */}
+          {/* {activeTab === "transports" || activeTab === "transport" ? <SearchTransport isListing={true}/> : ''} */}
+
         </Tab.Panels>
       }
 

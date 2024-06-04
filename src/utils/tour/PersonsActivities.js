@@ -1,12 +1,17 @@
 import Image from "next/image";
 import { TextField } from "@mui/material";
-import Dropdown from "react-bootstrap/Dropdown";
 import { Add, Remove } from "@mui/icons-material/";
 import LanguageContext from "../../language/LanguageContext";
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useRef,
+  Fragment,
+} from "react";
 
-import Children2OutlinedIcon from "../../assets/icons/utils/searchBox/kid.svg";
 import Person2OutlinedIcon from "../../assets/icons/utils/searchBox/person-autocomplete.svg";
+import { Menu, Transition } from "@headlessui/react";
 
 export default function PersonsActivities({ OnApply, listing }) {
   const [rooms, setRooms] = useState([]);
@@ -148,12 +153,35 @@ export default function PersonsActivities({ OnApply, listing }) {
   };
   // END FUNCTION TO CLOSE MENU
 
+  // CLOSE DROPDOWNS
+  // const menuRef = useRef(null);
+
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (menuRef.current && !menuRef.current.contains(event.target)) {
+  //       setShowDropdown(false);
+  //     }
+  //   };
+
+  //   document.addEventListener("click", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("click", handleClickOutside);
+  //   };
+  // }, []);
+
   return (
-    <div ref={ref} className={`${listing ? 'w-full' : 'w-full lg:w-[296px]'} border-2 border-gray-200 rounded py-2.5 px-4 relative h-[54px]`}>
-      <Dropdown show={showDropdown} onClose={() => setShowDropdown(false)}>
-        <Dropdown.Toggle
-          onClick={() => setShowDropdown(!showDropdown)}
-          className="!flex border-0 gap-x-2 items-center bg-transparent p-0 w-full"
+    <Menu
+      as="div"
+      className={`${
+        listing ? "w-full" : "w-full lg:w-[296px]"
+      } relative inline-block`}
+    >
+      <div>
+        <Menu.Button
+          onClick={() => setShowDropdown(true)}
+          className={`${
+            listing ? "w-full" : "w-full lg:w-[296px]"
+          } border-2 border-gray-200 rounded py-2.5 px-4 relative h-[56px] !flex gap-x-2 items-center`}
         >
           <Image
             src={Person2OutlinedIcon}
@@ -161,18 +189,16 @@ export default function PersonsActivities({ OnApply, listing }) {
             height={22}
             alt="icon-person"
           />
-          <span
-            className="flex m-s-b flex-col gap-y-[3px] text-fs-12 items-start"
-            style={{ padding: "0 10px" }}
-          >
+
+          <span className="flex m-s-b flex-col gap-y-[3px] text-fs-12 items-start py-0 px-[10px]">
+           
             <p className="m-0 m-s-b text-fs-10 text-gry-70 w-max">
               {languageData.SearchBox.tabTour.people}
             </p>
+
             <p className="m-0 m-s-b text-fs-12 text-gry-100">
               {`${totalAdults} ${
-                languageData.itinerary.tourItinerary[
-                  adultPlural(totalAdults)
-                ]
+                languageData.itinerary.tourItinerary[adultPlural(totalAdults)]
               },`}{" "}
               {`${totalChildren} ${
                 languageData.itinerary.tourItinerary[
@@ -180,11 +206,24 @@ export default function PersonsActivities({ OnApply, listing }) {
                 ]
               }`}
             </p>
-          </span>{" "}
-        </Dropdown.Toggle>
+          
+          </span>
+        </Menu.Button>
+      </div>
 
-        {showDropdown === true && (
-          <Dropdown.Menu className="border-0 w-11/12 z-[1] p-0">
+      <Transition
+        show={showDropdown}
+        as={Fragment}
+        // ref={menuRef}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <Menu.Items className="absolute right-0 z-[2] mt-2 w-full origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <Menu.Item>
             <div className="overflow-y-scroll scroll-page-blue max-h-80 relative flex flex-col justify-center-between bg-white border border-2 rounded-lg">
               <div className="pt-4 pl-3 pr-3 z-10">
                 {rooms.map((room, index) => (
@@ -344,9 +383,9 @@ export default function PersonsActivities({ OnApply, listing }) {
                 </div>
               </div>
             </div>
-          </Dropdown.Menu>
-        )}
-      </Dropdown>
-    </div>
+          </Menu.Item>
+        </Menu.Items>
+      </Transition>
+    </Menu>
   );
 }

@@ -1,56 +1,16 @@
 import Image from "next/image";
-import { Row, Col } from "react-bootstrap";
 import React, { useContext, useState, useEffect } from "react";
 
-import ClientData from "./ClientData";
-import { ActivityForm } from "./ActivityForm";
-import { FormClientRH } from "./ClientDataRH";
-import PaymentConektaF from "./PaymentConektaF";
+import FormCentral from "./Forms/FormCentral";
 import AlertTextBooking from "./AlertTextBooking";
 import LanguageContext from "../../language/LanguageContext";
 import { FormDataProvider } from "../context/FormDataContext";
-// import { getCombinedActivitys } from "../Services/PaybokingServices.js";
 import axiosWithInterceptor from "../../config/Others/axiosWithInterceptor";
-import { SkeletonActivitiesTourP } from "../../utils/skeleton/SkeletonActivitiesTourP.js";
-
-import IconRoyal from "../../assets/icons/utils/payment/icon-royal-vacations.svg";
 
 export default function Booking(props) {
-  const { dataItinerary, changeButton } = props;
-
-  const [userData, setUserData] = useState({});
-  const [showAlert, setShowAlert] = useState(null);
-  const [hotelRH, setRoomsRH] = useState([]);
-  const [formActivityItems, setFormActivityItems] = useState(null);
-  const [activityPreBooking, setActivityPreBooking] = useState(null);
-
-  // const [isRH, setRH] = useState(false);
-  // const isMobile = useIsMobile();
-
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
-
-  useEffect(() => {
-    scrollToTop();
-  }, [showAlert]);
-
-  // CLIENT DATA
-  const handleUserDataChange = (data) => {
-    setUserData(data);
-  };
-
-  // RH DATA
-  const handleRHChange = (data) => {
-    setRoomsRH(data);
-  };
-
-  const handleAlertDataChange = (data) => {
-    setShowAlert(data);
-    scrollToTop();
-  };
-
+  const { dataItinerary, hasActivities } = props;
   const { languageData } = useContext(LanguageContext);
+  const [activityPreBooking, setActivityPreBooking] = useState(null);
 
   const fetchData = async () => {
     try {
@@ -59,6 +19,7 @@ export default function Booking(props) {
       const cartId = searchParams.get("uid");
       const response = await axiosWithInterceptor.get(`${url}${cartId}`);
       setActivityPreBooking(response.data);
+      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -68,75 +29,32 @@ export default function Booking(props) {
     fetchData();
   }, []);
 
-  console.log(activityPreBooking);
-
   return (
     <FormDataProvider>
-      <div>
-        {/* SHOW ALERTS MSG */}
-        <AlertTextBooking showAlert={showAlert} />
-
-        <div className="display-booking">
+      <>
+        <div className="flex !gap-x-2 w-full items-start justify-start items-start !mb-2">
           <Image
-            className="icon-royal-itinerary"
-            src={IconRoyal}
+            className="w-[27px] h-[25px]"
+            src={`${process.env.NEXT_PUBLIC_URL}icons/general/infotipo-staywuw.svg`}
             alt={`${process.env.NEXT_PUBLIC_NAME_COMPANY} icon`}
+            width={27}
+            height={25}
           />
-          <h1 className="booking-title-page">
+          <h1 className="text-fs-24 m-b text-black">
             {languageData.booking.titleVacations}
           </h1>
         </div>
 
-        <h2 className="booking-subtitle-page">
+        <h2 className="text-fs-14 m-m text-black mb-3">
           {languageData.booking.subtitleComplete}
         </h2>
 
-        <Row className="container-form-payment">
-          <Col sm={12} className="forms-col">
-            {/* Passing the handleUserDataChange function as a prop */}
-
-            <ClientData onUserDataChange={handleUserDataChange} />
-
-            <FormClientRH
-              dataItinerary={dataItinerary.items}
-              onRHDataChange={handleRHChange}
-            />
-
-            {activityPreBooking && activityPreBooking.length > 0 && (
-              <div className="form-activity">
-                <h2 className="title-data-h">
-                  {languageData.paymentActivities.activities}
-                </h2>
-                <ActivityForm
-                  activityPreBooking={activityPreBooking}
-                  setFormActivityItems={setFormActivityItems}
-                />
-              </div>
-            )}
-
-            {!activityPreBooking && <SkeletonActivitiesTourP />}
-
-            <PaymentConektaF
-              hotelRH={hotelRH}
-              userData={userData}
-              changeButton={changeButton}
-              onAlertDataChange={handleAlertDataChange}
-              formActivityItems={formActivityItems}
-            />
-          </Col>
-          {/* {isMobile ? (
-            <BookingDetails itemSummary={dataItinerary.summary} />
-          ) : (
-            <Col sm={3} className="details-payment-col-right">
-              <h3 className="itinerary-details-payment">
-                {languageData.booking.textBooking}
-              </h3>
-              <DetailsPayment itemSummary={dataItinerary.summary} />
-              <Card className="margin-icon-top" />
-            </Col>
-          )} */}
-        </Row>
-      </div>
+        <FormCentral
+          activityPreBooking={activityPreBooking}
+          dataItinerary={dataItinerary.items}
+          activityTrue={hasActivities}
+        />
+      </>
     </FormDataProvider>
   );
 }

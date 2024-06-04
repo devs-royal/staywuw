@@ -13,6 +13,8 @@ export const en = {
     titleBl: "Call us!",
     subtitle: "Get benefits and personalized help by dialing our number.",
     followNetwork: "Follow us to know more.",
+    title: "Doubts to choose a hotel?",
+    description: "Share your information with us and an advisor will contact you."
   },
 
   alertHelp: {
@@ -65,6 +67,12 @@ export const en = {
         buttonDelete: "Delete",
       },
       buttonSearch: "Search",
+    },
+
+    tabTransport: {
+      city: "City",
+      from: "From",
+      to: "To"
     },
 
     tabTour: {
@@ -121,7 +129,7 @@ export const en = {
 
   mobile: {
     informationMobile:
-    `The ${process.env.NEXT_PUBLIC_NAME_COMPANY} team is currently engaged in the development of a mobile version of its platform. So far, the platform is only available in its web version.`,
+      `The ${process.env.NEXT_PUBLIC_NAME_COMPANY} team is currently engaged in the development of a mobile version of its platform. So far, the platform is only available in its web version.`,
   },
 
   cart: {
@@ -159,10 +167,10 @@ export const en = {
       altLinkedin: `${process.env.NEXT_PUBLIC_NAME_COMPANY} Linkedin`,
       altTiktok: `${process.env.NEXT_PUBLIC_NAME_COMPANY} Tiktok`,
       altPhone: `${process.env.NEXT_PUBLIC_NAME_COMPANY} Phone`,
-      altWhatsapp:`${process.env.NEXT_PUBLIC_NAME_COMPANY} Whatsapp`,
-      altLocation:`${process.env.NEXT_PUBLIC_NAME_COMPANY} Location`,
-      altMail:`${process.env.NEXT_PUBLIC_NAME_COMPANY} Mail`,
-      altLink:`${process.env.NEXT_PUBLIC_NAME_COMPANY} Share-Link`,
+      altWhatsapp: `${process.env.NEXT_PUBLIC_NAME_COMPANY} Whatsapp`,
+      altLocation: `${process.env.NEXT_PUBLIC_NAME_COMPANY} Location`,
+      altMail: `${process.env.NEXT_PUBLIC_NAME_COMPANY} Mail`,
+      altLink: `${process.env.NEXT_PUBLIC_NAME_COMPANY} Share-Link`,
     },
     altBannerFooter: `${process.env.NEXT_PUBLIC_NAME_COMPANY} - Bannerfooter`,
     altLogo: `${process.env.NEXT_PUBLIC_NAME_COMPANY} - Logo`,
@@ -191,6 +199,52 @@ export const en = {
     titleAlert: "Oops, there was a mistake!",
     textAlert: "We couldn't find this destination.",
     confirmButton: "Go to the home"
+  },
+
+  // LP RECOMMENDATION
+  recommendations: {
+    titleReadyH: "Your next destination is ready!",
+    titleReadyT: "Your next adventure is ready!",
+    subtitleReady: "Check the full details in your cart.",
+    reservationDate: "Reservation date:",
+    titleKeep: "Keep exploring",
+    subtitleKeep: "Don't stop here. Discover more exciting destinations and plan your next adventure.",
+    btnBack: "Back to the beginning",
+
+    hotel: {
+      titleRecommedation: "Accommodations you might like",
+    },
+
+    tour: {
+      titleRecommedation: "Add more fun to your vacation",
+    },
+
+    transport: {
+      titleRecommedation: "Do you already know how to get there?",
+      btnchoose: "Choose transportation"
+    },
+  },
+
+  /*********************************************************/
+  ////////////////////////  HOME //////////////////////////////
+  /*********************************************************/
+  bannersHome: {
+    textTyC: "**Prices and discounts valid on selected services and subject to availability at the time of purchase. Check terms and conditions by clicking",
+    here: "Here",
+    currentOffers: "Current offers",
+    limitedPromotions: "Promotions and offers valid for a limited time.",
+  },
+
+  exploreActivitiesHome: {
+    titleExplore: "Explore a variety of activities",
+    weRecommended: "We recommend the best tours in Mexico here.",
+    bestHotels: "The best hotels for your stay",
+  },
+
+  enjoyStayHome: {
+    titleEnjoy: "Enjoy your stay in exclusive hotels",
+    offersDates: "Offers for the dates",
+    btnViewOffers: "View all offers",
   },
 
   /*********************************************************/
@@ -230,7 +284,7 @@ export const en = {
     people: "People.",
     taxes: "Taxes included",
     buttonShow: "More detail",
-    label: "in high demand!",
+    label: "In high demand!",
     amenities: "No amenities",
     bestHotel: "Best hotels",
     unavailable: "not available",
@@ -379,6 +433,10 @@ export const en = {
     penalty: "penalty"
   },
 
+  cancelationTransport: {
+    cancelation: "Cancel before"
+  },
+
   titlesFilterHotel: {
     Star: "Stars",
     titleTypeHotel: "Hotel Type",
@@ -499,7 +557,7 @@ export const en = {
 
   // LP BANNERTOUR 
   bannerTour: {
-    subtitleBannerTour: `Travel wherever you want at the best price with ${process.env.NEXT_PUBLIC_NAME_COMPANY}.`,
+    subtitleBannerTour: `Travel where you want at the best price with ${process.env.NEXT_PUBLIC_NAME_COMPANY}.`,
   },
 
   bannersFooter: {
@@ -571,9 +629,9 @@ export const en = {
     amenities: "Amenities",
     information: "Information",
     freeTour: "Free",
-    choosenDate:"Choose date and time",
-    modalities:"Modalities",
-    doesNotTime:"This tour does not require selecting a time.",
+    choosenDate: "Choose date and time",
+    modalities: "Modalities",
+    doesNotTime: "This tour does not require selecting a time.",
 
     OccupancyTours: {
       selectYourTickets: "Select your tickets",
@@ -685,7 +743,67 @@ export const en = {
   bannerTransportHome: {
     titleDisposal: "Transportation at your disposal",
     textBookNow: "Book now and enjoy competitive rates, safety, and punctuality on every journey. Your comfort is our priority. Join us and make your travels memorable from the very first moment.",
-    ChooseDates: "Choose dates",
+    chooseDates: "Choose dates",
+    discoverOptions: "Discover your options here",
+    getKnowBetter: "We'd love to get to know you better. Please share your information with us and allow us to provide you with personalized attention.",
+    sendBtn: "Send",
+  },
+
+  bannerTransport: {
+    secureJourney: "Secure your journey",
+    bookNowBtn: "Reserve now!",
+    firstTime: "First time with us?",
+    getOff: "Get 10% off",
+    titleTravelSafely: "Travel safely and peacefully",
+    ourDrivers: "Our professional drivers guarantee you a hassle-free journey, providing you with the confidence you need on every trip",
+    bookTransferBtn: "Book a transfer",
+  },
+
+  tipsBooking: {
+    titleBookSteps: "Book your transfer in 3 steps",
+    chooseLocation: "Choose the location",
+    pickUpDate: "Pick-up date",
+    bookCar: "Reserve your car",
+  },
+
+  CardHomeTransport: {
+    titleRecommended: "Recommended options",
+    features: "Features",
+    titlePromoted: "Promoted routes",
+    private: "Private",
+    shared: "Shared",
+    typeTrip: "Type of trip:",
+    reserveBtn: "Reserve",
+    people: "People",
+    suitcases: "Suitcases",
+    handLuggage: "Hand luggage",
+    oneWay: "One-way trip",
+    roundTrip: "Round trip",
+    privateService: "Private service",
+    sharedService: "Shared service",
+    vehicles: "vehicles",
+  },
+
+  filterTransport: {
+    category: "Category",
+    baggage: "Baggage",
+    seats: "Seats",
+    all: "All",
+    private: "Private",
+    shared: "Shared",
+  },
+
+  ModalTransport: {
+    titleModal: "Your transportation is almost ready",
+    Schedule: "Schedule",
+    howManyPassengers: "How many passengers?",
+    individualPrice: "Individual price:",
+    charger: "Charger",
+    airConditioning: "Air conditioning",
+    travelInsurance: "Travel insurance",
+    babySeat: "Baby seat",
+    privateService: "The total price corresponds to the full private service.",
+    sharedService: "The total price is determined by adding the cost for each passenger.",
   },
 
   /************************************************************/
@@ -855,7 +973,7 @@ export const en = {
   ourHistory: {
     titleWhoWeAre: "Who we are?",
     textOurTeam:
-    `Behind ${process.env.NEXT_PUBLIC_NAME_COMPANY} there is more than a search and booking website; there is a professional and passionate team dedicated to helping you live incredible experiences discovering Mexico and the world.`,
+      `Behind ${process.env.NEXT_PUBLIC_NAME_COMPANY} there is more than a search and booking website; there is a professional and passionate team dedicated to helping you live incredible experiences discovering Mexico and the world.`,
     textExperiences:
       "From the beginning the goal was to create exceptional experiences in every trip, with a focus on total satisfaction of travelers' needs, offering a platform where they can book with ease.",
     textAgreements:
@@ -892,7 +1010,7 @@ export const en = {
     questions: {
       questionRoyal: "About us?",
       textRoyal:
-      `${process.env.NEXT_PUBLIC_NAME_COMPANY} is the trade name of VIAJES BAMO S.A DE C.V. We focus on providing tourism services among other activities related to travel for personal enjoyment. Legally incorporated under Mexican regulations, under Public Deed number 2701. Volume Twelve Second, Volume D, before the Faith of Lic.Ricardo Dehesa Cortés, of Notary Office 90 in Playa del Carmen, Quintana Roo, Mexico.`,
+        `${process.env.NEXT_PUBLIC_NAME_COMPANY} is the trade name of VIAJES BAMO S.A DE C.V. We focus on providing tourism services among other activities related to travel for personal enjoyment. Legally incorporated under Mexican regulations, under Public Deed number 2701. Volume Twelve Second, Volume D, before the Faith of Lic.Ricardo Dehesa Cortés, of Notary Office 90 in Playa del Carmen, Quintana Roo, Mexico.`,
       questionDirection: "Where are we located?",
       textDirection:
         "Our offices are located at Av.Tulum and Av. Nader, Sm.2, Mz.1, Lt.44 Andador Vl, C.P.77500; Cancun, Q.R; but for your convenience, we also make reservations via telephone and online, always guaranteeing you a personalized and attentive service.",
@@ -901,7 +1019,7 @@ export const en = {
       brand:
         "We are a registered trademark with all rights reserved. You can access our RFC, in case you wish to do so",
       nationalRegistration:
-      `We have a National Tourism Registry (RNT). This guarantees that we are legally registered with the Ministry of Tourism. You can verify it directly in their official website under our commercial name: ${process.env.NEXT_PUBLIC_NAME_COMPANY}.`,
+        `We have a National Tourism Registry (RNT). This guarantees that we are legally registered with the Ministry of Tourism. You can verify it directly in their official website under our commercial name: ${process.env.NEXT_PUBLIC_NAME_COMPANY}.`,
       website:
         "Our Facebook page is registered and certified by the company",
       confirmation:
@@ -927,7 +1045,7 @@ export const en = {
         "If you have any additional questions, you can call +52 800 953 0342 and we will gladly assist you.",
       questionCreditCard: "What are the available forms of payment?",
       textCreditCard:
-      `${process.env.NEXT_PUBLIC_NAME_COMPANY} accepts from bank transfers and deposits, up to convenience store payments. For another part, it is important that you know when making payment with credit card, you can get great benefits such as accessible and attractive promotions for your next vacation`,
+        `${process.env.NEXT_PUBLIC_NAME_COMPANY} accepts from bank transfers and deposits, up to convenience store payments. For another part, it is important that you know when making payment with credit card, you can get great benefits such as accessible and attractive promotions for your next vacation`,
       questionConsultant:
         "What to do if the advisor does not contact you?",
       textConsultant:
@@ -944,7 +1062,7 @@ export const en = {
       questionDates:
         "How to make changes to reservations?",
       textDates:
-      `Of course! If you request a change of dates, we only require that you be notified via email to: info@${process.env.NEXT_PUBLIC_NAME_COMPANY}.com at least 20 business days prior to your arrival date at the hotel. Adjustments will be subject to price and availability variations`,
+        `Of course! If you request a change of dates, we only require that you be notified via email to: info@${process.env.NEXT_PUBLIC_NAME_COMPANY}.com at least 20 business days prior to your arrival date at the hotel. Adjustments will be subject to price and availability variations`,
       questionCancellation: "What to do if you need to cancel?",
       textCancellation:
         "Unfortunately, most of our packages are non-refundable. In the event that you are unable to travel, we can help you arrange a change of dates subject to price and availability variations. In the event that your package is refundable, you can check the refund conditions and penalties in the Terms of Service section, available in our Terms and Conditions, or call our reservation center.",
@@ -1101,6 +1219,7 @@ export const en = {
     cancellations: "Cancellations",
     cancellationsText: `Please remember that cancellations for reservations, hotels, transportation, or tours are handled directly through the ${process.env.NEXT_PUBLIC_NAME_COMPANY} support line. We recommend that you get in touch with us for any cancellation or modification requests.`,
     doubts: "Do you have any doubts?",
+    reservationNo:"No. reservation:",
 
     bookingData: {
       titleBookingData: "Booking data",
@@ -1213,6 +1332,7 @@ export const en = {
     email: "Email",
     copyLink: "Copy Link",
     copy: "Copy Link",
+    share: "Share"
   },
 
   alertsPayment: {
@@ -1238,10 +1358,17 @@ export const en = {
     buttonRate: "See new prices",
     rateAlert: "Open Rate Alert",
     paymentFailed: "The payment could not be processed",
+    btnUnderstood:"Understood",
+    textSuccess:"We have sent a confirmation to your email with all the information about your purchase. If you have any questions or need assistance, don't hesitate to contact us.",
+    textDeclinedPayment:"We're sorry, your payment could not be processed. Please check that your card details and billing address are correct.",
+    btnRetry:"Retry",
+    dataSafe:"Your data is safe with us.",
+    textProcessing: "This may take a few moments. Please do not close this window or reload the page.",
     textAlert: {
       PP: "Processing payment",
       PF: "We could not process your payment",
-      PE: "Successful payment"
+      PE: "Successful payment",
+      PD: "Payment declined",
     }
   },
 
@@ -1387,21 +1514,21 @@ export const en = {
     metaHotel: {
       title: `${process.env.NEXT_PUBLIC_NAME_COMPANY} - Home Hotel`,
       description:
-      `Exceptional Lodging Experiences in Mexico - ${process.env.NEXT_PUBLIC_NAME_COMPANY} Gives You Access to the Best Hotels in Emblematic Destinations`,
+        `Exceptional Lodging Experiences in Mexico - ${process.env.NEXT_PUBLIC_NAME_COMPANY} Gives You Access to the Best Hotels in Emblematic Destinations`,
       keywords:
         "Lodging in Mexico, Booking Hotels, Popular Destinations, Plan your destination",
     },
     metaTour: {
       title: `${process.env.NEXT_PUBLIC_NAME_COMPANY} - Home Tour`,
       description:
-      `Live Unique Experiences in Mexico with ${process.env.NEXT_PUBLIC_NAME_COMPANY} - Book Tours to Connect with History, Nature and Culture of the Country`,
+        `Live Unique Experiences in Mexico with ${process.env.NEXT_PUBLIC_NAME_COMPANY} - Book Tours to Connect with History, Nature and Culture of the Country`,
       keywords:
         "Tours in Mexico, Adventures, Different Activities, Tourist Destinations",
     },
     metaMoving: {
       title: `${process.env.NEXT_PUBLIC_NAME_COMPANY} - Home Transfer`,
       description:
-      `Arrive in Cancun in Style - Book Comfortable and Safe Transfers with ${process.env.NEXT_PUBLIC_NAME_COMPANY} and Start Your Vacation on the Right Foot`,
+        `Arrive in Cancun in Style - Book Comfortable and Safe Transfers with ${process.env.NEXT_PUBLIC_NAME_COMPANY} and Start Your Vacation on the Right Foot`,
       keywords:
         "Transportation Service, Arrive on Time, Destination, Transfers",
     },
@@ -1411,21 +1538,21 @@ export const en = {
     metaHotel: {
       title: `${process.env.NEXT_PUBLIC_NAME_COMPANY} - Results Hotel`,
       description:
-      `Hotels for Every Taste - ${process.env.NEXT_PUBLIC_NAME_COMPANY} Offers You a Collection of Accommodation Options in Mexico Just a Click Away`,
+        `Hotels for Every Taste - ${process.env.NEXT_PUBLIC_NAME_COMPANY} Offers You a Collection of Accommodation Options in Mexico Just a Click Away`,
       keywords:
         "Accommodations, Hotel Search, Best Hotels in Mexico, Lodging Deals, Booking Assistance",
     },
     metaTour: {
       title: `${process.env.NEXT_PUBLIC_NAME_COMPANY} - Results Tour`,
       description:
-      `Your Portal to Booking Tours in Mexico - Find, Compare, and Book Tours in Fascinating Mexican Destinations with ${process.env.NEXT_PUBLIC_NAME_COMPANY}`,
+        `Your Portal to Booking Tours in Mexico - Find, Compare, and Book Tours in Fascinating Mexican Destinations with ${process.env.NEXT_PUBLIC_NAME_COMPANY}`,
       keywords:
         "Tourist Activities, Discover the Best Tour, Booking Assistance, Tour Search",
     },
     metaMoving: {
       title: `${process.env.NEXT_PUBLIC_NAME_COMPANY} - Results Moving`,
       description:
-      `Custom Transfers in Cancun - ${process.env.NEXT_PUBLIC_NAME_COMPANY} Provides Personalized Transportation Options to Meet Your Needs`,
+        `Custom Transfers in Cancun - ${process.env.NEXT_PUBLIC_NAME_COMPANY} Provides Personalized Transportation Options to Meet Your Needs`,
       keywords:
         "Arrive on Time, Cancun Transfer Search, Airport Transfers, Shared Transportation, Booking Assistance",
     },
@@ -1460,21 +1587,21 @@ export const en = {
     metaHistory: {
       title: `${process.env.NEXT_PUBLIC_NAME_COMPANY} - Our History`,
       description:
-      `About Us - Discover the Passion and Commitment that Drive ${process.env.NEXT_PUBLIC_NAME_COMPANY} to Provide You with the Best Travel Experiences`,
+        `About Us - Discover the Passion and Commitment that Drive ${process.env.NEXT_PUBLIC_NAME_COMPANY} to Provide You with the Best Travel Experiences`,
       keywords:
-      `Who we are, Service Quality, About ${process.env.NEXT_PUBLIC_NAME_COMPANY}, Success Story`,
+        `Who we are, Service Quality, About ${process.env.NEXT_PUBLIC_NAME_COMPANY}, Success Story`,
     },
     metaTerms: {
       title: `${process.env.NEXT_PUBLIC_NAME_COMPANY} - Terms and Conditions`,
       description:
         "Book with Confidence - Our Terms and Conditions Define Our Commitment to Service Excellence",
       keywords:
-      `${process.env.NEXT_PUBLIC_NAME_COMPANY} Terms and Conditions, Booking Policy, Website Usage, Customer Responsibilities`,
+        `${process.env.NEXT_PUBLIC_NAME_COMPANY} Terms and Conditions, Booking Policy, Website Usage, Customer Responsibilities`,
     },
     metaPrivacy: {
       title: `${process.env.NEXT_PUBLIC_NAME_COMPANY} - Privacy Policy`,
       description:
-      `Your Information, Your Control - ${process.env.NEXT_PUBLIC_NAME_COMPANY} Gives You Control over Your Personal Data per Our Privacy Policy`,
+        `Your Information, Your Control - ${process.env.NEXT_PUBLIC_NAME_COMPANY} Gives You Control over Your Personal Data per Our Privacy Policy`,
       keywords:
         "Privacy Policy, Customer Data Management, Data Confidentiality, Data Security, Rights",
     },
@@ -1488,9 +1615,9 @@ export const en = {
     metaQuestion: {
       title: `${process.env.NEXT_PUBLIC_NAME_COMPANY} - Frequently Asked Questions`,
       description:
-      `Your Queries, Our Answers - ${process.env.NEXT_PUBLIC_NAME_COMPANY} is Committed to Providing Assistance at Every Step of Your Journey`,
+        `Your Queries, Our Answers - ${process.env.NEXT_PUBLIC_NAME_COMPANY} is Committed to Providing Assistance at Every Step of Your Journey`,
       keywords:
-      `Frequently Asked Questions, Customer Assistance, Help and Support, About ${process.env.NEXT_PUBLIC_NAME_COMPANY}, FAQs, Services`,
+        `Frequently Asked Questions, Customer Assistance, Help and Support, About ${process.env.NEXT_PUBLIC_NAME_COMPANY}, FAQs, Services`,
     },
     author: `${process.env.NEXT_PUBLIC_NAME_COMPANY}`,
   },

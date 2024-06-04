@@ -1,32 +1,27 @@
 "use client";
 
-import { Row, Col } from "react-bootstrap";
-import { Pagination } from "@mui/material";
-import Skeleton from "@mui/material/Skeleton";
 import React, { useEffect, useContext, useState } from "react";
-
-import "../../../../assets/styles/web/Tour/StyleFIlterTour.css";
-
-import { useTourContext } from "../../context/ListingTourContext";
 
 // EXPORT NEW
 import TourCard from "./TourCard";
-import OrderingTour from "./OrderingTour";
 import FilterTour from "./FilterTour";
-import { BannerDestinationTour } from "../Banners/BannerTour";
-import LanguageContext from "@/language/LanguageContext";
-import { scrollToTop } from "@/utils/pageConfig/scrollToTop";
-import ImageListingTour from "../Banners/ImageListingTour";
-// import SkeletonTourCard from "@/utils/skeleton/SkeletonTourCard";
-import SearchBoxMobile from "@/components/searchMobil/SearchBoxMobile";
-import axiosWithInterceptor from "@/config/Others/axiosWithInterceptor";
-import { Container } from "@/config/Others/Container";
 import {
   BannerListingSkeleton,
   CardTourSkeleton,
   WeFoundTourSkeleton,
 } from "../Skeleton/TourListingSkeleton";
+import OrderingTour from "./OrderingTour";
+import { Container } from "@/config/Others/Container";
+import LanguageContext from "@/language/LanguageContext";
+import ImageListingTour from "../Banners/ImageListingTour";
+import PaginationT from "@/components/General/PaginationT";
+import { scrollToTop } from "@/utils/pageConfig/scrollToTop";
+import { BannerDestinationTour } from "../Banners/BannerTour";
+import { useTourContext } from "../../context/ListingTourContext";
+import SearchBoxMobile from "@/components/searchMobil/SearchBoxMobile";
+import axiosWithInterceptor from "@/config/Others/axiosWithInterceptor";
 import { NotFoundDestination } from "@/components/General/NotFoundDestination";
+
 export default function ListingTour() {
   const {
     tourData,
@@ -64,7 +59,7 @@ export default function ListingTour() {
       })
       .catch((error) => {
         console.error(error);
-        setTourData([])
+        setTourData([]);
       });
   }, []);
 
@@ -103,7 +98,6 @@ export default function ListingTour() {
     }
   }, [currentPage]);
 
-
   // useEffect(() => {
   //   if (changeTours > 0 || !isNaN(currentPage)) {
   //     setCurrentTours(
@@ -140,17 +134,9 @@ export default function ListingTour() {
 
   return (
     <>
-      {!tourData && (
-        // <Skeleton
-        //   className="skeleton-banner-tour"
-        //   variant="rectangular"
-        //   width="100%"
-        //   height="13rem"
-        // />
-        <BannerListingSkeleton />
-      )}
+      {!tourData && <BannerListingSkeleton />}
 
-      {tourData && tourData.length > 0 && <BannerDestinationTour destination={tourData.destination} />}
+      {tourData && <BannerDestinationTour destination={tourData.destination} />}
 
       <Container>
         <div className="flex flex-col xl:flex-row md:justify-between">
@@ -158,7 +144,6 @@ export default function ListingTour() {
             <SearchBoxMobile className="margin-bottom" />
 
             {auxTourData && (
-              // <FilterTour updateURL={updateURL} className="margin-bottom" />
               <FilterTour
                 className="margin-bottom"
                 tourData={tourData}
@@ -171,8 +156,8 @@ export default function ListingTour() {
           </div>
           <div className="w-full xl:w-8/12 relative">
             {currentTours && (
-              <div className="order-and-data-tour">
-                <h5 className="text-we-found-tour">
+              <div className="flex items-center justify-between my-[1.6rem] mx-0">
+                <h5 className="m-s-b">
                   <span>{languageData.listingTour.weFound}</span>{" "}
                   {auxTourData.activities.length}{" "}
                   <span>{languageData.listingTour.excursionsActivities}</span>
@@ -183,9 +168,7 @@ export default function ListingTour() {
 
             {!currentTours && !tourData && <WeFoundTourSkeleton />}
 
-            {tourData && tourData.length == 0 && (
-              <NotFoundDestination />
-            )}
+            {tourData && tourData.length == 0 && <NotFoundDestination />}
             {/* <div className="cont-found-ordering-tour-skeleton">
               {!auxTourData && (
                 <Skeleton
@@ -224,14 +207,13 @@ export default function ListingTour() {
             )}
 
             {auxTourData && currentTours && (
-              <div className="pagination pagination-cards-hotel">
-                <Pagination
+              <div className="flex justify-center py-[1.5rem]">
+                <PaginationT
                   count={Math.ceil(
                     auxTourData.activities.length / toursPerPage
                   )}
-                  page={currentPage}
-                  onChange={handleChangePage}
-                  color="primary"
+                  pageChange={currentPage}
+                  onChange={setCurrentPage}
                 />
               </div>
             )}

@@ -5,13 +5,14 @@ import moment from "moment";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import React, { useState, useContext, useEffect } from "react";
-import DetailTourContext from "../../context/DetailTourContext";
+
 import LanguageContext from "@/language/LanguageContext";
+import DetailTourContext from "../../context/DetailTourContext";
 
 export default function DayCalendar(props) {
-  const { tourData, tourSchedule } = props;
+  const { tourData, tourSchedule, params } = props;
   const [selectIndex, setSelectIndex] = useState(0);
-  const { setDataTour, setDayTour } = useContext(DetailTourContext);
+  const { setDataTour, setDayTour, setCodeNameTour } = useContext(DetailTourContext);
   const { languageData } = useContext(LanguageContext);
   // FIRST DAY SELECTED 
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function DayCalendar(props) {
   // TOURDATA
   useEffect(() => {
     setDataTour(tourData);
+    setCodeNameTour(params.codeName);
   }, []);
 
   // DAY SELECT

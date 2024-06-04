@@ -8,6 +8,7 @@ export const DetailTourProvider = ({ children }) => {
   const [dataTour, setDataTour] = useState(null);
   const [dayTour, setDayTour] = useState(null);
   const [hourTour, setHourTour] = useState(null);
+  const [codeNameTour, setCodeNameTour] = useState(null);
   const [selectModality, setSelectModality] = useState(null);
 
   return (
@@ -21,6 +22,8 @@ export const DetailTourProvider = ({ children }) => {
         setHourTour,
         selectModality,
         setSelectModality,
+        codeNameTour,
+        setCodeNameTour,
       }}
     >
       {children}

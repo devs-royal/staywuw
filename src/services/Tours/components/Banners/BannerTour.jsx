@@ -1,5 +1,7 @@
-import LanguageContext from "@/language/LanguageContext";
 import React, { useContext } from "react";
+
+import { Container } from "@/config/Others/Container";
+import LanguageContext from "@/language/LanguageContext";
 
 // import LanguageContext from "../../../language/LanguageContext";
 
@@ -14,27 +16,32 @@ export function BannerDestinationTour(props) {
   const { languageData } = useContext(LanguageContext);
 
   return (
-    <picture className="tour-image-new-listing " data-aos="fade-right">
-      <div className="back-img-banner-gradient">
+    <picture
+      className="inline-block h-[13rem] min-h-[13rem] relative w-full "
+      data-aos="fade-right"
+    >
+      <div className="h-full w-full relative">
         <img
-          className="h-full cover-center-img filter-background-t back-img-banner-gradient-img"
+          className="h-full object-cover object-center brightness-90 z-[1]"
           width="100%"
           src={destination.image}
           alt="banner-tour-listing"
-          
           data-aos-anchor-placement="top-center"
         />
+        <div className=" bg-gradient-to-r from-bl-100 from-10% via-[#6796ee] via-30% absolute top-0 h-full w-full" />
       </div>
-      <div className="banner-tour-l d-flex container">
-        <h2 className="title-destination-tour">
-          <span>
-            {/* <IconRoyal className="icon-banner-t-l" />*/} {destination.name},{" "}
-            {destination.country}
-          </span>
-          <span className="title-r-tour-b">
-            {languageData.bannerTour.subtitleBannerTour}
-          </span>
-        </h2>
+      <div className="flex flex-col bottom-[27%] left-[8%] max-md:bottom-[37%] absolute gap-y-[4px] z-[3]">
+        <Container>
+          <h2 className="text-white flex flex-col m-b text-fs-56 justify-between m-0 w-full max-xl:text-fs-40 max-lg:text-fs-30 max-md:text-fs-24">
+            <span>
+              {/* <IconRoyal className="icon-banner-t-l" />*/}{" "}
+              {destination.name}, {destination.country}
+            </span>
+            <span className="m-m text-fs-16 mt-[12px] w-full max-md:text-fs-12">
+              {languageData.bannerTour.subtitleBannerTour}
+            </span>
+          </h2>
+        </Container>
 
         {/* <div className="d-flex flex-column ps-5">
           <h4 className="total-tours-list">{totalResults} </h4>

@@ -1,15 +1,14 @@
-import { useRouter } from "next/navigation";
 
 import Token from "@/components/General/Token";
 import Footer from "@/components/Footer/Footer";
+import ContactUs from "@/components/General/ContactUs";
 import LanguageProvider from "@/language/LanguageProvider";
 import Navigation from "@/components/Navigation/Navigation";
 import { TokenProvider } from "@/config/context/AuthContext";
 import { CartAxiosProvider } from "@/components/Cart/CartAxios";
 import Hotels from "@/services/Hotels/components/Listing/Hotels";
-import ContactUs from "@/components/General/ContactUs";
+import { ListingHotelProvider } from "@/services/Hotels/context/ListingHotelContext";
 
-// region LISTING HOTEL
 export async function generateMetadata({ searchParams }) {
   const destination = searchParams.destination || "México";
   const checkIn = searchParams.checkIn;
@@ -30,7 +29,9 @@ export default function Home() {
         <CartAxiosProvider>
           <Token />
           <Navigation />
-          <Hotels />
+          <ListingHotelProvider>
+            <Hotels/>
+          </ListingHotelProvider>
           <ContactUs />
           <Footer />
         </CartAxiosProvider>

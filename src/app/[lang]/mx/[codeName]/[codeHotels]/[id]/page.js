@@ -8,12 +8,12 @@ import LanguageProvider from "@/language/LanguageProvider";
 import Navigation from "@/components/Navigation/Navigation";
 import { TokenProvider } from "@/config/context/AuthContext";
 import { CartAxiosProvider } from "@/components/Cart/CartAxios";
+import axiosWithInterceptor from "@/config/Others/axiosWithInterceptor";
 import DetailsHotel from "@/services/Hotels/components/DetailHotel/DetailHotel";
 import { RoomsHotelProvider } from "@/services/Hotels/context/RoomsHotelContext";
 import { GalleryModal } from "@/services/Hotels/components/GalleryModal/GalleryModal";
 import DetailReservation from "@/services/Hotels/components/DetailReservation/DetailReservation";
 import { ReservationFailed } from "@/services/Hotels/components/AlertsHotel/HotelInformationAlerts";
-import axiosWithInterceptor from "@/config/Others/axiosWithInterceptor";
 
 export async function generateMetadata({ params }) {
   try {
@@ -56,6 +56,44 @@ export default async function DetailPageHotel({ params }) {
 
     const hotelData = response.data;
 
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      name: hotelData.name,
+      description: hotelData.description,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: hotelData.address,
+        addressLocality: hotelData.city,
+        addressRegion: hotelData.city,
+        postalCode: "12345",
+        addressCountry: "MX",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 40.712776,
+        longitude: -74.005974,
+      },
+      url: `https://staywuw.com/en/mx/${params.codeName}/${params.codeHotels}/${params.id}`,
+      telephone: "+52 998 134 2286",
+      starRating: {
+        "@type": "Rating",
+        ratingValue: hotelData.stars,
+        bestRating: "5",
+      },
+      checkinTime: hotelData.checkIn,
+      checkoutTime: hotelData.checkOut,
+      numberOfRooms: 150,
+      additionalProperty: [
+        {
+          "@type": "PropertyValue",
+          name: "Amenidades",
+          value: hotelData.facilities.join(", "),
+        },
+      ],
+      image: [...hotelData.images],
+    };
+
     return (
       <LanguageProvider>
         <TokenProvider>
@@ -65,7 +103,15 @@ export default async function DetailPageHotel({ params }) {
               <Navigation hotelDetails={true} />
               <div className="relative bg-gry-30">
                 <Container>
-                  <GalleryModal hotel={hotelData} />
+                  <section>
+                    <script
+                      type="application/ld+json"
+                      dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(jsonLd),
+                      }}
+                    />
+                  </section>
+                  <GalleryModal codeName={params.codeName} hotel={hotelData} />
                   <DetailsHotel codeHotel={params.id} />
                 </Container>
                 <ReservationFailed />

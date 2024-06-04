@@ -3,16 +3,11 @@ import Image from "next/image";
 import React, { useContext } from "react";
 
 import { PluralPeople } from "../Utils/PluralPeople";
-import { useIsMobile } from "../../config/Mobile/isMobile";
 import LanguageContext from "../../language/LanguageContext";
-
-import IconLocationBorder from "../../assets/icons/utils/others/location-border.svg";
-import LocationIcon from "../../assets/icons/utils/searchBox/location-autocomplete.svg";
 
 export default function CardTourConfirmation(props) {
   const { itemActivity } = props;
 
-  const isMobile = useIsMobile();
   const { languageData } = useContext(LanguageContext);
 
   // DAY OF WEEK
@@ -20,148 +15,156 @@ export default function CardTourConfirmation(props) {
 
   return (
     itemActivity && (
-      <div className="father-tour-card-i">
+      <div className="flex items-start gap-x-2">
         <Image
-          className="icon-location-border"
-          src={IconLocationBorder}
+          className="w-[12px]"
+          src={`${process.env.NEXT_PUBLIC_URL}icons/location/location-border.svg`}
           alt="IconLocationBorder"
+          width={12}
+          height={192}
         />
-        {/* {
-        isMobile && (<h3>hola</h3>)
-      } */}
-        <div className="father-container-tour-i">
-          <div className="date-itinerary">
-            <span className="text-tour-or-i">
+
+        <div className="flex flex-col gap-y-[20px] items-start max-sm:w-full">
+          <div className="flex gap-x-[5px] m-b text-fs-16">
+            <span className="text-or-100 ">
               {languageData.dayOfWeek[dayOfWeek]}
             </span>
-            <span className="text-loc-tour-grey-i">{itemActivity.date}</span>
-            <span className="text-loc-tour-grey-i">|</span>
-            <span className="text-loc-tour-grey-i">02:00pm</span>
+
+            <span className="text-gry-70">{itemActivity.date}</span>
+            <span className="text-gry-70">|</span>
+            <span className="text-gry-70">02:00pm</span>
           </div>
 
           {/* ITINERARY CARD */}
+          <div className="p-4 max-sm:pl-5 max-sm:pr-[34px] max-sm:py-4 bg-white rounded-lg h-auto max-sm:flex max-sm:flex-col max-sm:w-full">
+            <div className="flex gap-x-8">
+              {/* IMAGE TOUR */}
+              <img
+                className="w-[133px] h-[117px] object-cover rounded-lg"
+                src={itemActivity.image ? itemActivity.image : ""}
+                alt="gallery tour"
+                width={133}
+                height={117}
+              />
 
-          <div className="container-tour-i">
-            {!isMobile && (
-              <div className="cont-img-card-hotel">
-                <img
-                  className="image-tour-i"
-                  src="https://sandboxmexico.com/assets/banners/desktop/banner-about-us.webp"
-                  alt="tour-test-banner-abaut-us"
-                />
-              </div>
-            )}
+              <div className="flex flex-col gap-y-4 justify-center">
+                {/* TITLE */}
+                <h2 className="m-b text-fs-16 text-black">
+                  {itemActivity.name}
+                </h2>
 
-            {isMobile && (
-              <>
-                <div className="d-flex">
-                  <div className="cont-img-card-hotel">
-                    <img
-                      className="image-tour-i"
-                      src="https://sandboxmexico.com/assets/banners/desktop/banner-about-us.webp"
-                      alt="tour-test-banner-abaut-us"
-                    />
-                  </div>
+                <div className="flex gap-x-[24px]">
+                  <div className="flex gap-x-6 items-start">
+                    {/* LEFT INFORMATION */}
+                    <div className="flex flex-col gap-y-[1]">
+                      <div className="flex gap-x-1 items-start">
+                        <Image
+                          className="w-[11px] h-[14px]"
+                          src={`${process.env.NEXT_PUBLIC_URL}icons/location/location-b.svg`}
+                          alt="LocationIcon"
+                          width={11}
+                          height={14}
+                        />
 
-                  <div className="d-flex gap-2 flex-column width8 cont-name-hotel-and-location">
-                    <h2 className="title-card-ini">{itemActivity.name}</h2>
-
-                    <div className="cont-name-location-tour gap-2">
-                      <div className="d-flex d-grid gap-2 icon-location-and-text">
-                        <div>
-                          <Image
-                            className="icons-size-m"
-                            src={LocationIcon}
-                            alt="LocationIcon"
-                          />
-                        </div>
-
-                        <span>{itemActivity.address}</span>
+                        <span className="m-s-b text-fs-10 text-gry-100">
+                          {itemActivity.address}
+                        </span>
                       </div>
 
-                      <div className="d-flex d-grid gap-2 text-grey-card-hotel-i">
+                      <div className="flex gap-x-1 items-center">
                         <img
-                          className="icons-size-m"
-                          src="https://sandboxmexico.com/assets/icons/adult/adult-b.svg"
+                          className="w-[14px] h-[14px]"
+                          src={`${process.env.NEXT_PUBLIC_URL}icons/adult/adult-b.svg`}
                           alt="icon-adult"
+                          width={14}
+                          height={14}
                         ></img>
-                        <span className="text-tour-grey-i-m">
-                          {/* 2 adultos, 2 niños */}
+
+                        <span className="m-s-b text-fs-10 text-gry-100">
                           {itemActivity.peoples}{" "}
                           <PluralPeople people={itemActivity.peoples} />
                         </span>
                       </div>
                     </div>
                   </div>
-                </div>
-              </>
-            )}
 
-            <div className="container-description-tour-card-i">
-              {!isMobile && (
-                <h2 className="title-card-ini">{itemActivity.name}</h2>
-              )}
+                  {/* INFORMATION DESKTOP */}
+                  <div className="hidden sm:flex sm:gap-x-[95px] ">
+                    {/* RIGHT INFORMATION */}
+                    <div className="flex flex-col gap-y-1">
+                      <p className="m-0 text-fs-8 text-gry-100 m-s-b">
+                        {languageData.confirmation.cardTour.duration}
+                      </p>
+                      <h3 className="m-0 text-fs-12 text-black m-s-b">
+                        {itemActivity.duration}
+                      </h3>
+                    </div>
 
-              <div className="cont-location-hours-price-tour-card">
-                {!isMobile && (
-                  <div className="cont-name-location-tour">
-                    <div className="d-flex d-grid gap-2 icon-location-and-text">
-                      <div>
-                        <Image
-                          className="icons-size-m"
-                          src={LocationIcon}
-                          alt="LocationIcon"
-                        />
+                    {/* PRICE TOUR */}
+                    <div className="flex flex-col gap-y-1 items-start mr-[26px]">
+                      <p className="text-fs-8 text-gry-100 m-s-b">
+                        {languageData.modalTourOptions.taxes}
+                      </p>
+
+                      <div className="text-black m-s-b flex gap-x-[2px] items-center">
+                        <h3 className="text-fs-12 m-0">MXN</h3>
+                        <h3 className="text-fs-16 m-0">
+                          {Math.floor(itemActivity.price)
+                            .toLocaleString("es-MX", { currency: "MXN" })
+                            .replace(".00", "")}
+                          .
+                          <sup>
+                            {(itemActivity.price % 1).toFixed(2).slice(2)}
+                          </sup>
+                        </h3>
                       </div>
 
-                      <span>{itemActivity.address}</span>
+                      {itemActivity.cancelPolicies &&
+                        itemActivity.cancelPolicies.length > 0 && (
+                          <span className="text-bl-100 !text-fs-8 cursor-pointer m-s-b !block max-lg:!text-left text-center">
+                            {languageData.containerModalHotel.policies}
+                          </span>
+                        )}
                     </div>
-
-                    <div className="d-flex d-grid gap-2 text-grey-card-hotel-i">
-                      <img
-                        className="icons-size-m"
-                        src="https://sandboxmexico.com/assets/icons/adult/adult-b.svg"
-                        alt="icon-adult"
-                      ></img>
-
-                      <span>
-                        {itemActivity.peoples}{" "}
-                        <PluralPeople people={itemActivity.peoples} />
-                      </span>
-                    </div>
-                  </div>
-                )}
-
-                <div className="mobile-tour-test-two">
-                  <div className="cont-hours-tour">
-                    <span className="text-grey-card-hotel-i">
-                      {languageData.confirmation.cardTour.duration}
-                    </span>
-                    <span className="text-tour-black-s">
-                      {itemActivity.duration}
-                    </span>
-                  </div>
-
-                  <div className="cont-price-taxes-tour">
-                    <span className="text-grey-card-hotel-i">
-                      {languageData.modalTourOptions.taxes}
-                    </span>
-                    <span className="text-tour-black-m text-nowrap">
-                      MXN $
-                      {Math.floor(itemActivity.price)
-                        .toLocaleString("es-MX", { currency: "MXN" })
-                        .replace(".00", "")}
-                      .<sup>{(itemActivity.price % 1).toFixed(2).slice(2)}</sup>
-                    </span>
-
-                    {itemActivity.cancelPolicies &&
-                      itemActivity.cancelPolicies.length > 0 && (
-                        <span className="text-tour-bl-i-s">
-                          {languageData.containerModalHotel.policies}
-                        </span>
-                      )}
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* INFORMATION MOBILE */}
+            <div className="sm:hidden border-t border-gry-70 mt-2 pt-[16px] w-full flex justify-between">
+              {/* RIGHT INFORMATION */}
+              <div className="flex flex-col gap-y-1">
+                <p className="m-0 text-fs-8 text-gry-100 m-s-b">
+                  {languageData.confirmation.cardTour.duration}
+                </p>
+                <h3 className="m-0 text-fs-12 text-black m-b">
+                  {itemActivity.duration}
+                </h3>
+              </div>
+
+              {/* PRICE TOUR */}
+              <div className="flex flex-col gap-y-1 items-start mr-[26px]">
+                <p className="text-fs-8 text-gry-100 m-s-b">
+                  {languageData.modalTourOptions.taxes}
+                </p>
+
+                <div className="text-black m-s-b flex gap-x-[2px] items-center">
+                  <h3 className="text-fs-12 m-0">MXN</h3>
+                  <h3 className="text-fs-16 m-0">
+                    {Math.floor(itemActivity.price)
+                      .toLocaleString("es-MX", { currency: "MXN" })
+                      .replace(".00", "")}
+                    .<sup>{(itemActivity.price % 1).toFixed(2).slice(2)}</sup>
+                  </h3>
+                </div>
+
+                {itemActivity.cancelPolicies &&
+                  itemActivity.cancelPolicies.length > 0 && (
+                    <span className="text-bl-100 !text-fs-8 cursor-pointer m-s-b !block max-lg:!text-left text-center">
+                      {languageData.containerModalHotel.policies}
+                    </span>
+                  )}
               </div>
             </div>
           </div>

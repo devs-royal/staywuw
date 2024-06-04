@@ -2,12 +2,10 @@ import moment from "moment";
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useContext } from "react";
 
-import Room from "../config/RoomBox"; 
+import Room from "../config/RoomBox";
 import Calendar from "@/hooks/Calendar";
-import SearchHotel from "./SearchHotel";
-// import { useIsMobile } from "@/config/Mobile/isMobile";
-import LanguageContext from "../../../language/LanguageContext";
 import AutocompleteHotel from "./AutocompleteHotel";
+import LanguageContext from "../../../language/LanguageContext";
 
 export default function SendHotel() {
   const router = useRouter();
@@ -65,32 +63,35 @@ export default function SendHotel() {
       const CheckOut = moment(FormatCheckOut).format("YYYY-MM-DD");
       setValidSecondDay(CheckOut);
       localStorage.setItem("validSecondDay", CheckOut);
-      
     }
   };
 
   // SEND LINK SECOND LISTING
   const sendAutocomplete = () => {
-    // setShowModal(true);
+    const dataSearch = JSON.parse(localStorage.getItem("dataSearch"));
     const encodedRoomData = encodeURIComponent(JSON.stringify(roomData));
     const requestBody = {
-      codeNameHotel: selectedOption.codeName,
-      destination: selectedOption.label,
-      codeName: selectedOption.codeName,
-      code: selectedOption.key,
-      type: selectedOption.type,
+      codeNameHotel: dataSearch.codeName,
+      destination: dataSearch.label,
+      codeName: dataSearch.codeName,
+      code: dataSearch.key,
+      type: dataSearch.type,
       "check-in": validFirstDay,
       "check-out": validSecondDay,
       occupancies: encodedRoomData,
     };
     const query = new URLSearchParams(requestBody).toString();
-    if(selectedOption.type === "hotel"){
-      window.open(`/${language}/mx/${selectedOption.destination}-${selectedOption.country}/${selectedOption.destination}-hotels/${selectedOption.codeName}?${query}`, '_blank')
-    }else{
-      router.push(`${language}/mx/${selectedOption.codeName}-${selectedOption.country}/hotels?${query}`);
+    if (dataSearch.type === "hotel") {
+      window.open(
+        `/${language}/mx/${dataSearch.destination}-${dataSearch.country}/${dataSearch.destination}-hotels/${dataSearch.codeName}?${query}`,
+        "_blank"
+      );
+    } else {
+      router.push(
+        `/${language}/mx/${dataSearch.codeName}-${dataSearch.country}/hotels?${query}`
+      );
     }
   };
-
 
   const [isHotelResults, setIsHotelResults] = useState(false);
 
@@ -101,15 +102,14 @@ export default function SendHotel() {
     }
   }, []);
 
-  
-  
-
   return (
-    // <div className="flex flex-col lg:flex-row items-center bg-white gap-2.5 rounded-lg p-6">
-    <div className={`flex ${isHotelResults ? 'flex-col' : 'flex-col lg:flex-row'} shadow-3xl items-center bg-white gap-2.5 rounded-lg p-6`}>
-
-      {/* <SearchHotel onSelectSearch={setSelectedOption} /> */}
-      <AutocompleteHotel/>
+    <div
+      className={`flex ${
+        isHotelResults ? "flex-col" : "flex-col lg:flex-row"
+      } shadow-3xl items-center bg-white gap-2.5 rounded-lg p-6 max-lg:w-[391px]`}
+    >
+      
+      <AutocompleteHotel />
       <Calendar onDateChange={handleDateChange} />
       <Room OnApply={setRoomData} />
 
@@ -120,12 +120,10 @@ export default function SendHotel() {
               ? "bg-or-50"
               : "bg-or-100 hover:!bg-or-110"
           }`}
-          // eslint-disable-next-line react/no-unknown-property
           variant="contained"
           size="large"
           onClick={sendAutocomplete}
           disabled={!selectedOption || !validFirstDay || !validSecondDay}
-          // eslint-disable-next-line react/no-unknown-property
           sx={{ mt: 2 }}
         >
           {languageData.SearchBox.tabHotel.buttonSearch}
@@ -140,5 +138,3 @@ export default function SendHotel() {
   );
 }
 
-// https://staywuw.com/en/mexico/cancun-mexico/{zone}-hotels/renaissance-cancun-resort-marina/
-// https://staywuw.com/en/mexico/{zone}-{cointry}/hotels

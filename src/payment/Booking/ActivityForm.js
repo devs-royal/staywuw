@@ -107,11 +107,13 @@ export const ActivityForm = ({ activityPreBooking, setFormActivityItems }) => {
       {activityPreBooking.map((activity, activityIndex) => (
         <div key={activity.id}>
           {/* TITLE TOUR */}
-          <div className="title-data mb-1 flex">
+          <div className="subtitle-data-client form-label mb-1 flex">
             <img
-              src="https://sandboxmexico.com/assets/icons/tour/tour-o.svg"
+              src={`${process.env.NEXT_PUBLIC_URL}icons/tour/tour-o.svg`}
               alt="no found"
-              className="me-2 ms-1"
+              width={20}
+              height={17}
+              className="me-2 ms-1 w-[20px] h-[17px]"
             />
             {activity.name}
           </div>
@@ -122,7 +124,7 @@ export const ActivityForm = ({ activityPreBooking, setFormActivityItems }) => {
               <div key={bookingItem.id}>
                 {/* INPUT REQUIRED */}
                 <label>
-                  <b>{bookingItem.label}</b>
+                  <p className="m-s-b text-fs-14 m-0">{bookingItem.label}</p>
                   {bookingItem.required && (
                     <span className="input-obligations">*</span>
                   )}
@@ -160,7 +162,7 @@ export const ActivityForm = ({ activityPreBooking, setFormActivityItems }) => {
           {activity.details.passengers && (
             <div>
               {/* TITLE TOUR */}
-              <div className="title-data mb-1 flex">
+              <div className="subtitle-data-client form-label mb-1 flex">
                 <img
                   src="https://sandboxmexico.com/assets/icons/adults/adults-o.svg"
                   alt="no found"

@@ -70,12 +70,12 @@ export default function Footer() {
       <Image
         src={`${process.env.NEXT_PUBLIC_URL}general/line-footer-or.svg`}
         alt="line-footer-or"
-        className="w-full"
+        className="w-full z-[3]"
         width={1136}
         height={32}
       />
 
-      <footer className="bg-bl-100 flex flex-col text-white max-w-full pt-[21px] pb-[1rem]">
+      <footer className="z-[3] bg-bl-100 flex flex-col text-white max-w-full pt-[21px] pb-[1rem]">
         {/* LOGO AND SOCIAL ICONS */}
         <div className="flex max-xl:mx-2 justify-center justify-items-center max-xl:grid grid-cols-1 max-xl:text-center">
           <div className="basis-1/2 justify-center">

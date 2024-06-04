@@ -3,20 +3,19 @@
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 
-// import Cart from "@/hooks/Cart";
 import { HamburgerMenu } from "./HamburgerMenu";
 import { Container } from "@/config/Others/Container";
 import { LanguageSelector } from "@/language/LanguageSelector";
 
 import CartOpen from "../Cart/open/CartOpen";
 import { SelectCurrency } from "./SelectCurrency";
-import { NavigationConfig } from "@/config/Navigation/NavigationConfig";
 import LanguageContext from "@/language/LanguageContext";
+import { NavigationConfig } from "@/config/Navigation/NavigationConfig";
 
 export default function NavigationDesktop() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [currentActiveIcon, setCurrentActiveIcon] = useState(null);
   const { languageData, language } = useContext(LanguageContext);
+  const [currentActiveIcon, setCurrentActiveIcon] = useState(null);
 
   // GET ACTIVITY SERVICE
   const routerActual = NavigationConfig();
@@ -26,10 +25,10 @@ export default function NavigationDesktop() {
   }, [routerActual]);
 
   return (
-    <div className="relative md:top-[-22px] mt-[38px] md:mt-0">
+    <div className="relative md:top-[-22px] mt-[38px] md:mt-0 max-sm:mt-[20px]">
       <Container>
         {/* fix tailwind */}
-        <header className="relative pt-0 pb-[20px] flex flex-col gap-y-[1rem]">
+        <header className="relative pt-0 pb-[20px] flex flex-col gap-y-[1rem] max-sm:pb-0">
           <div className="hidden md:flex justify-end items-center">
             <SelectCurrency />
             <span className="pl-[19px] pr-[19px]">|</span>
@@ -44,6 +43,7 @@ export default function NavigationDesktop() {
             aria-label="Global"
           >
             <div className="flex md:flex-1 justify-between">
+              {/* HOME HOTEL LINK */}
               <Link
                 className="m-1.5"
                 href={`${process.env.NEXT_PUBLIC_HOME}`}
@@ -54,14 +54,17 @@ export default function NavigationDesktop() {
                   alt={`${process.env.NEXT_PUBLIC_NAME_COMPANY} logo`}
                   width={200}
                   height={100}
+                  className="max-sm:w-[140px] max-sm:h-[40px]"
                 />
               </Link>
-              <div className="hidden md:items-center md:flex">
-                {" "}
+
+              <div className="hidden md:items-center md:flex md:gap-x-7">
+
+                {/* HOTEL LINK */}
                 <Link
-                  href={`${process.env.NEXT_PUBLIC_HOME}`}
+                 href={`/${language}/hotel`}
                   passHref
-                  className="flex items-center pr-4 text-gry-100 m-b hover:text-or-100 no-underline	"
+                  className="flex items-center text-gry-100 m-b hover:text-or-100 no-underline"
                 >
                   {" "}
                   <img
@@ -71,16 +74,18 @@ export default function NavigationDesktop() {
                   />
                   <span
                     className={`${
-                      currentActiveIcon === "hotels" && "text-or-100"
+                      currentActiveIcon === "hotels" || currentActiveIcon === "hotel" && "text-or-100"
                     }`}
                   >
                     {languageData.SearchBox.tabHotel.hotel}
                   </span>
                 </Link>
-                <Link
+
+                {/* TOUR LINK */}
+                {/* <Link
                   href={`/${language}/tour`}
                   passHref
-                  className="flex items-center pr-4 text-gry-100 m-b hover:text-or-100 no-underline	"
+                  className="flex items-center text-gry-100 m-b hover:text-or-100 no-underline	"
                 >
                   <img
                     src={`${process.env.NEXT_PUBLIC_URL}icons/tour/tour-b.svg`}
@@ -94,12 +99,31 @@ export default function NavigationDesktop() {
                   >
                     Tours
                   </span>
-                </Link>
+                </Link> */}
+               
+                {/* TRANSPORT LINK */}
+                {/* <Link
+                  href={`/${language}/transport`}
+                  passHref
+                  className="flex items-center text-gry-100 m-b hover:text-or-100 no-underline	"
+                >
+                  <img
+                    src={`${process.env.NEXT_PUBLIC_URL}icons/transport/transport-b.svg`}
+                    alt="done green"
+                    className="pr-2"
+                  />
+                  <span
+                    className={`${
+                     currentActiveIcon === "transports" || currentActiveIcon === "transport" ? "text-or-100"
+                    : ''}`}
+                  >
+                    {languageData.modalHotelOptions.titleTransfer}
+                  </span>
+                </Link> */}
               </div>
             </div>
 
             <div className="flex gap-x-[18px] md:hidden">
-              {/* <Cart /> */}
               <CartOpen />
 
               <button

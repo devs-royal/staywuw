@@ -3,9 +3,10 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 
 import LanguageContext from "@/language/LanguageContext";
 import { useCartAxios } from "@/components/Cart/CartAxios";
+import { AlertTourDetails } from "../../AlertsTour/AlertTours";
 import axiosWithInterceptor from "@/config/Others/axiosWithInterceptor";
 import DetailTourContext from "@/services/Tours/context/DetailTourContext";
-import { AlertTourDetails } from "../../AlertsTour/AlertTours";
+import { EntitiesRecommendations } from "@/components/Recommended/Entities/Entities";
 
 export default function AddCartTour(props) {
   const { totalPrice, tourists, isLoader, setIsLoader } = props;
@@ -19,9 +20,8 @@ export default function AddCartTour(props) {
   const router = useRouter();
 
   const { languageData, language } = useContext(LanguageContext);
-  const { dataTour, hourTour, dayTour, selectModality } =
+  const { dataTour, hourTour, dayTour, selectModality, codeNameTour } =
     useContext(DetailTourContext);
-
 
   const handleAddCartTour = async () => {
     try {
@@ -64,9 +64,16 @@ export default function AddCartTour(props) {
       // setShowContent(2);
       fetchData(cartUid);
 
+      const InfoTour = {
+        name: dataTour.name,
+        date: dayTour.date,
+        codeName: codeNameTour,
+      };
+
       setTimeout(() => {
-        router.push(`/${language}/booking?uid=${cartUid}`);
-        // setIsLoader(false);
+        router.push(
+          EntitiesRecommendations(language, "tour", InfoTour, cartUid)
+        );
       }, 1000);
     } catch (error) {
       setIsLoader(false);

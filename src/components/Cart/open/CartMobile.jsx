@@ -4,14 +4,13 @@ import { Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-import CartTourT from "../carts/CartTourT";
+import EmptyCart from "../utils/EmptyCart";
 import PriceCart from "../config/PriceCart";
 import { useCartAxios } from "../CartAxios";
-import CartHotelT from "../carts/CartHotelT";
-import EmptyCart from "../utils/EmptyCart";
+import { CartItem } from "../config/CartItem";
+
 export default function CartMobile() {
   const [open, setOpen] = useState(true);
-
   const [cartUid, setCartUid] = useState(null);
   const { cartData, fetchData } = useCartAxios();
   const [cartInfo, setCartInfo] = useState(
@@ -100,21 +99,19 @@ export default function CartMobile() {
                       {cartInfo && (
                         <>
                           <div className="h-[65vh]  overflow-y-auto overflow-x-clip scroll-page-gry">
-                            {cartInfo.hotels && (
-                              <CartHotelT
-                                cartId={cartUid}
-                                hotelGetCart={cartInfo}
-                                onUpdateData={fetchCartData}
-                                emptyClr={handleEmptyAlert}
-                              />
-                            )}
-
-                            {cartInfo.activities && (
-                              <CartTourT
-                                cartId={cartUid}
-                                tourGetCart={cartInfo}
-                                onUpdateData={fetchCartData}
-                              />
+                            {["hotels", "activities", "transportations"].map(
+                              (type) =>
+                                cartInfo[type] &&
+                                cartInfo[type].map((item, index) => (
+                                  <CartItem
+                                    key={`${type}-${index}`}
+                                    item={item}
+                                    itemType={type}
+                                    cartId={cartUid}
+                                    // setIsLoader={setIsLoader}
+                                    // isLoader={isLoader}
+                                  />
+                                ))
                             )}
                           </div>
 
@@ -123,7 +120,11 @@ export default function CartMobile() {
                         </>
                       )}
 
-                      {!cartInfo && <div><EmptyCart/></div>}
+                      {!cartInfo && (
+                        <div>
+                          <EmptyCart />
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Dialog.Panel>

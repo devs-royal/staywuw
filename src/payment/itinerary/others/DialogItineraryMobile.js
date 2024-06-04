@@ -1,57 +1,53 @@
 import Image from "next/image";
-import { Dialog, Slide } from "@mui/material";
-import React, { Suspense, lazy, useContext } from "react";
+import React, { useContext } from "react";
 
 import ReservationShortInfo from "./DetailReservation";
-import { StepperContext } from "../../context/steeperContext";
+import { BookingContext } from "@/payment/context/BookingContext";
+import DetailsPayment from "./DetailsPayment";
 
-import IconShowMore from "../../../assets/icons/utils/payment/show_more.svg";
-import "@/assets/styles/mobile/AppMobile.css"
-import "@/assets/styles/mobile/PaymentMobile.css"
-import "@/assets/styles/mobile/DialogSearchHotel.css"
-const DetailsPayment = lazy(() => import("./DetailsPayment"));
 
-const Transition = React.forwardRef((props, ref) => {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
 export function DialogItineraryMobile(props) {
-  const { open, onClose, dataItinerary, setChangeButton } = props;
-  const { step, handleStepChange } = useContext(StepperContext);
+  const { dataItinerary, setChangeButton, setSmShow } = props;
+
+  const { step, openDialog, setOpenDialog } = useContext(BookingContext);
 
   return (
-    <Dialog
-      open={open}
-      TransitionComponent={Transition}
-      keepMounted
-      aria-describedby="alert-dialog-slide-description"
-      className="!m-0"
-    >
-      <div className={`m-component-p-top ${step !==  3 && '!h-full'}`}>
-        <div className="container-dialog">
-          {/* CLOSE DIALOG */}
-          <div className="circle-open-dialog-m" onClick={() => onClose()}>
-            <div className="icons-close-dialog-container">
-              <Image className="icons-close-dialog" src={IconShowMore} width={14} height={7}/>
+    openDialog && (
+      // backdrop-brightness-50
+      <div className={`h-full sticky bottom-0 w-full z-[2]`}>
+        <div className="!m-0 h-full lg:hidden">
+          <div className={`pt-[41px] ${step !== 3 ? "!h-full flex items-end" : "h-auto"}`}>
+            <div className={`bg-white !border border-gry-70 w-full relative ${step !== 3 ? 'h-fit' : 'h-full'}`}>
+              {/* CLOSE DIALOG */}
+              <div
+                className="absolute w-[40px] h-[40px] rounded-full flex justify-center bg-white z-[3] items-center top-[-14px] left-0 right-0 mx-auto shadow-[0px_-12px_12px_-11px_rgba(0,0,0,0.75)] cursor-pointer"
+                onClick={() => setOpenDialog(false)}
+              >
+                <Image
+                  className="w-[14px] h-[7px] absolute top-[16px]"
+                  alt="close-dialog-modal"
+                  src={`${process.env.NEXT_PUBLIC_URL}icons/arrows/down-70.svg`}
+                  width={14}
+                  height={7}
+                />
+              </div>
+
+              {step !== 3 ? (
+                <DetailsPayment
+                  data={dataItinerary}
+                  step={step}
+                  setChangeButton={setChangeButton}
+                />
+              ) : (
+                <ReservationShortInfo
+                  setSmShow={setSmShow}
+                  dataItinerary={dataItinerary}
+                />
+              )}
             </div>
           </div>
-
-          {/* TITLES */}
-
-          {step !== 3 ? (
-            <Suspense fallback={null}>
-              <DetailsPayment
-                data={dataItinerary}
-                step={step}
-                setChangeButton={setChangeButton}
-                handleStepChange={handleStepChange}
-                onClose={()=>onClose()}
-              />
-            </Suspense>
-          ) : (
-            <ReservationShortInfo dataItinerary={dataItinerary}/>
-          )}
         </div>
       </div>
-    </Dialog>
+    )
   );
 }

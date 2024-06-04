@@ -7,7 +7,7 @@ import HeaderBlue from "./HeaderBlue";
 
 export default function Navigation({hotelDetails=false}) {
   return (
-    <div className={`${hotelDetails ? 'static' : 'sticky' } flex flex-col top-0 z-[9]`}>
+    <div className={`${hotelDetails ? 'static' : 'static' } flex flex-col top-0 z-[9]`}>
       <Image
         src={Line}
         alt={`${process.env.NEXT_PUBLIC_NAME_COMPANY} orange`}

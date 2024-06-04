@@ -11,15 +11,13 @@ import { useToken } from "../../../../config/context/AuthContext";
 import LanguageContext from "../../../../language/LanguageContext";
 import ListingHotelContext from "../../context/ListingHotelContext";
 import { scrollToTop } from "../../../../utils/pageConfig/scrollToTop";
-// import SearchBoxMobile from "../../../components/searchMobil/SearchBoxMobile";
-// import { BannerListingHotelBottom } from "../../../components/bannerJsx/bannerListingHotel";
 import CardHotelT from "@/services/Hotels/components/Listing/CardHotelT";
 import BannerCallHotelT from "@/components/bannerJsx/bannerCallHotelT";
 import SearchBoxMobile from "@/components/searchMobil/SearchBoxMobile";
 import { HotelCardSkeleton } from "../Skeleton/HotelListingSkeleton";
 import { NotFoundDestination } from "@/components/General/NotFoundDestination";
 
-export default function ListingHotelW(props) {
+export default function ListingHotelW() {
   const { token } = useToken();
   const { languageData } = useContext(LanguageContext);
   const [requestQueryParams, setRequestQueryParams] = useState(null);
@@ -40,9 +38,7 @@ export default function ListingHotelW(props) {
   };
 
   useEffect(() => {
-    scrollToTop();
-    // QUERY PARAMS POST AXIOS
-    if (typeof window !== "undefined") {
+    if (token) {
       const searchParams = new URLSearchParams(window.location.search);
       const requestBody = {
         code: searchParams.get("code"),
@@ -54,28 +50,24 @@ export default function ListingHotelW(props) {
           decodeURIComponent(searchParams.get("occupancies"))
         ),
       };
+      // console.log(requestBody);
       setRequestQueryParams(requestBody);
-
-      if (requestBody) {
-        if (token) {
-          setCombinedHotelData(null);
-          handleFetchPostHotels(requestBody);
-        }
-      }
+      setCombinedHotelData(null);
+      handleFetchPostHotels(requestBody);
     }
-  }, [/* window.location.search, */ token]);
-  
+  }, [token]);
+
   useEffect(() => {
     setCurrentPage(1);
   }, [totalFilteredHotels]);
-  
+
   useEffect(() => {
     scrollToTop();
   }, [currentPage]);
-  
+
+    
   return (
     <Container>
-      {/* <BannerListingHotelTop /> */}
       <div className="flex flex-col xl:flex-row md:justify-between">
         <div className="w-full xl:w-[28%] mt-10">
           <SearchBoxMobile />
@@ -110,21 +102,11 @@ export default function ListingHotelW(props) {
               {/* CARD */}
               {combinedHotelData &&
                 combinedHotelData.map((hotel, index) => (
-                  <>
-                    <CardHotelT
-                      hotel={hotel}
-                      requestQueryParams={requestQueryParams}
-                    />{" "}
-                    {/* <HotelCard
-                      key={index}
-                      index={index}
-                      hotel={hotel}
-                      availableNights={numNights}
-                      availablePeople={totalPeople}
-                      isClickPaginator={isClickPaginator}
-                      setClickPaginator={setClickPaginator}
-                    /> */}
-                  </>
+                  <CardHotelT
+                    key={index}
+                    hotel={hotel}
+                    requestQueryParams={requestQueryParams}
+                  />
                 ))}
 
               {/* PAGINATION */}

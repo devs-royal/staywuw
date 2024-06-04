@@ -1,11 +1,11 @@
-import React from "react";
+"use client";
 
 import ListingHotelW from "./ListingHotelW";
 import { calculateNights } from "../../utils/calculateNights";
 import { calculateTotalPeople } from "../../utils/peopleCalculator";
-import { ListingHotelProvider } from "../../context/ListingHotelContext";
 
 export default function Hotels() {
+
   const searchParams =
     typeof window !== "undefined"
       ? new URLSearchParams(window.location.search)
@@ -25,8 +25,6 @@ export default function Hotels() {
   const numNights = calculateNights(checkIn, checkOut);
 
   return (
-    <ListingHotelProvider>
-      <ListingHotelW totalPeople={totalPeople} numNights={numNights} />
-    </ListingHotelProvider>
+    <ListingHotelW totalPeople={totalPeople} numNights={numNights} />
   );
 }
