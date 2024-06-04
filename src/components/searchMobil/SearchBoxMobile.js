@@ -22,6 +22,7 @@ export default function SearchBoxMobile() {
   }, [routerActual]);
 
   return (
+    
     <Tab.Group>
       <Tab.List className="flex gap-x-2 text-fs-12 m-s-b">
         <Tab
